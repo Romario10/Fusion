@@ -3498,12 +3498,12 @@ int log_sql_init (void)
 #ifndef BETA_THREAD_TEST
 	// log db connection
 	logmysql_handle = Sql_Malloc();
-	ShowInfo (""CL_WHITE"[SQL]"CL_RESET": Conectando à DB de logs "CL_WHITE"%s"CL_RESET" em "CL_WHITE"%s"CL_RESET"...\n", log_db_db, log_db_ip);
+	ShowSQL ("Conectando à DB de logs "CL_WHITE"%s"CL_RESET" em "CL_WHITE"%s"CL_RESET"...\n", log_db_db, log_db_ip);
 
 	if (SQL_ERROR == Sql_Connect (logmysql_handle, log_db_id, log_db_pw, log_db_ip, log_db_port, log_db_db))
 		exit (EXIT_FAILURE);
 
-	ShowStatus (""CL_WHITE"[SQL]"CL_RESET": '"CL_GREEN"Sucesso"CL_RESET"' na conexão com a DB '"CL_WHITE"%s"CL_RESET"'.\n", log_db_db);
+	ShowSQL ("'"CL_GREEN"Sucesso"CL_RESET"' na conexão com a DB '"CL_WHITE"%s"CL_RESET"'.\n", log_db_db);
 
 	if (strlen (default_codepage) > 0)
 		if (SQL_ERROR == Sql_SetEncoding (logmysql_handle, default_codepage))

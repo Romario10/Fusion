@@ -520,6 +520,7 @@ izlu2dun,108,27,0	script	Marinheiro#2izlude	100,{
 	close;
 }
 
+/* Função ainda inexistente
 // Adicionando NPCs aos mapas
 if(checkre(0)) {
 izlude,197,205,1	duplicate(Marinheiro_izlude)	Marinheiro#izlude	100
@@ -556,3 +557,4 @@ izlude,124,178,2	duplicate(Soldier_izlude)	Soldier#izlude	105
 izlude,171,133,3	duplicate(bdt)	Bullet Dealer Tony#iz	86
 izlude,171,127,3	duplicate(mdk)	Magazine Dealer Kenny	83
 }
+*/
