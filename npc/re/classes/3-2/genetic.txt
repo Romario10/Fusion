@@ -483,7 +483,7 @@ job3_gen01,25,58,3	script	Devries#gen	865,{
 		}else if ((job_gen > 61) && (job_gen < 76)){
 			if (checkquest(2223,2) == 2){
 				mes "[Devries]";
-				mes "Oh!;
+				mes "Oh!";
 				mes "Um minuto.";
 				mes "Parece que o crreio chegou.";
 				set job_gen,76;
