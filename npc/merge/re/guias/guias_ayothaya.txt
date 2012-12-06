@@ -22,7 +22,7 @@ ayothaya,203,169,4	script	Ayothaya Guide Noi#01ay	839,{
 	mes "Take your time to look around.";
 	while (1) {
 		next;
-		switch(select("[ Weapon Shop ]:[ Tool Shop ]:[ Tavern ]:[ Shrine ]:[ Fishing Spot ]:Remove Marks from Mini-Map:Cancel")) {
+		switch(select("[ Weapon Shop ]:[ Tool Shop ]:[ Tavern ]:[ Shrine ]:[ Fishing Spot ]:[ Aibakthing ]:Remove Marks from Mini-Map:Cancel")) {
 		case 1:
 			mes "[Noi]";
 			mes "The ^0000FFWeapon Shop^000000";
@@ -95,7 +95,7 @@ ayothaya,146,86,4	script	Ayothaya Guide Noa#01ay	839,{
 	mes "Take your time to look around.";
 	while (1) {
 		next;
-		switch(select("[ Kafra Employee ]:[ Weapon Shop ]:[ Tool Shop ]:[ Tavern ]:[ Shrine ]:[ Fishing Spot ]:Remove Marks from Mini-Map:Cancel")) {
+		switch(select("[ Kafra Employee ]:[ Weapon Shop ]:[ Tool Shop ]:[ Tavern ]:[ Shrine ]:[ Fishing Spot ]:[ Aibakthing ]:Remove Marks from Mini-Map:Cancel")) {
 		case 1:
 			mes "[Noa]";
 			mes "The ^0000FFKafra Employee^000000 is";
