@@ -1,14 +1,20 @@
 //===== rAthena Script =======================================
-//= Map flags that disable exp. penalty on death.
+//= Mapflag: Disable death penalty.
 //===== By: ==================================================
 //= rAthena Dev Team
-//= 1.2 [Lupus]
-//= 1.3 Added all novice maps. [L0ne_W0lf]
-//= 1.4 Removed Nightmare PVP maps. [L0ne_W0lf]
 //===== Current Version: =====================================
+//= 1.4
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: ========================================= 
+//= Same as 'noexppenalty' and 'nozenypenalty' combined.
+//===== Additional Comments: ================================= 
+//= 1.2 - Updated. [Lupus]
+//= 1.3 - Added all novice maps. [L0ne_W0lf]
+//= 1.4 - Removed Nightmare PVP maps. [L0ne_W0lf]
+//============================================================
 
-
-// Towns ====================>\\
+// Towns ====================
 ayo_in01	mapflag	nopenalty
 ayo_in02	mapflag	nopenalty
 alb_ship	mapflag	nopenalty
@@ -145,6 +151,24 @@ dew_in01	mapflag	nopenalty
 malangdo	mapflag	nopenalty
 mal_in01	mapflag	nopenalty
 mal_in02	mapflag	nopenalty
+malaya	mapflag	nopenalty
+ma_scene01	mapflag	nopenalty
+ma_in01	mapflag	nopenalty
+ma_zif01	mapflag	nopenalty
+ma_zif02	mapflag	nopenalty
+ma_zif03	mapflag	nopenalty
+ma_zif04	mapflag	nopenalty
+ma_zif05	mapflag	nopenalty
+ma_zif06	mapflag	nopenalty
+ma_zif07	mapflag	nopenalty
+ma_zif08	mapflag	nopenalty
+ma_zif09	mapflag	nopenalty
+eclage	mapflag	nopenalty
+ecl_in01	mapflag	nopenalty
+ecl_in02	mapflag	nopenalty
+ecl_in03	mapflag	nopenalty
+ecl_in04	mapflag	nopenalty
+ecl_hub01	mapflag	nopenalty
 
 // Job Quests ========================
 job_sword1	mapflag	nopenalty
@@ -182,6 +206,7 @@ job3_war02	mapflag	nopenalty
 job3_gen01	mapflag	nopenalty
 // Ext --------------------
 job3_sha01	mapflag	nopenalty
+job_ko	mapflag	nopenalty
 
 // Misc Quests =======================
 mosk_ship	mapflag	nopenalty
@@ -195,7 +220,7 @@ guild_vs3	mapflag	nopenalty
 guild_vs4	mapflag	nopenalty
 guild_vs5	mapflag	nopenalty
 
-// Arenas=======================>\\
+// Arenas=======================
 sec_in01	mapflag	nopenalty
 sec_in02	mapflag	nopenalty
 

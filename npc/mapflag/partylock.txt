@@ -1,10 +1,17 @@
 //===== rAthena Script =======================================
-//= Map flag that disable party modification.
-//= Currently not used officially by any maps.
+//= Mapflag: Party lock.
 //===== By: ==================================================
 //= rAthena Dev Team
-//= v 1.0
 //===== Current Version: =====================================
+//= 1.0
+//===== Compatible With: =====================================
+//= rAthena SVN
+//===== Description: ========================================= 
+//= Blocks all party modifications on a map:
+//=   /organize, /leave, /invite, @changeleader
+//===== Additional Comments: ================================= 
+//= 1.0 - Initial script.
+//============================================================
 
 // Sealed Shrine ==================
 1@cata	mapflag	partylock
@@ -38,3 +45,15 @@
 
 // Somatology Laboratory ===========
 1@lhz	mapflag	partylock
+
+// Bangungot Hospital F2 ===========
+1@ma_h	mapflag	partylock
+
+// Buwaya Cave ===========
+1@ma_c	mapflag	partylock
+
+// Bakonawa Hideout ===========
+1@ma_b	mapflag	partylock
+
+// Inside Eclage ===========
+1@ecl	mapflag	partylock
