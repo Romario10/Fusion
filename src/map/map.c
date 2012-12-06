@@ -3384,6 +3384,13 @@ void map_reloadnpc (bool clear)
 #else
 	map_reloadnpc_sub ("npc/scripts_pre-renovacao.conf");
 #endif
+
+	// Scripts comuns
+	map_reloadnpc_sub ("npc/scripts_classes.conf");
+	map_reloadnpc_sub ("npc/scripts_cronus.conf");
+	map_reloadnpc_sub ("npc/scripts_monstros.conf");
+	map_reloadnpc_sub ("npc/scripts_portais.conf");
+	map_reloadnpc_sub ("npc/scripts_personalizado.conf");
 }
 
 int inter_config_read (char *cfgName)
