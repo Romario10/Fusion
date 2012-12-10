@@ -870,7 +870,7 @@ int npc_touch_areanpc (struct map_session_data *sd, int m, int x, int y)
 	int xs, ys;
 	int f = 1;
 	int i;
-	int j; found_warp = 0;
+	int j, found_warp = 0;
 	nullpo_retr (1, sd);
 
 	// Why not enqueue it? [Inkfish]
