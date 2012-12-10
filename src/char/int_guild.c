@@ -617,39 +617,17 @@ static struct guild_castle *inter_guildcastle_fromsql (int castle_id) {
 
 
 // Read exp_guild.txt
-int inter_guild_ReadEXP (void)
+static bool exp_guild_parse_row(char* split[], int column, int current)
 {
-	int i;
-	FILE *fp;
-	char line[1024];
-
-	for (i = 0; i < 100; i++) guild_exp[i] = 0;
-
-	//this is going to be discussed, temp fix
-#ifdef RENEWAL
-	sprintf (line, "%s/re/exp_guild.txt", db_path);
-#else
-	sprintf (line, "%s/pre-re/exp_guild.txt", db_path);
-#endif
-	fp = fopen (line, "r");
-
-	if (fp == NULL) {
-		ShowError ("Leitura do %s falhou\n", line);
-		return 1;
+	int exp = atoi(split[0]);
+         
+	if (exp < 0 || exp >= INT_MAX) {
+		ShowError("exp_guild: Invalid exp %d at line %d\n", exp, current);
+		return false;
 	}
-
-	i = 0;
-
-	while (fgets (line, sizeof (line), fp) && i < 100) {
-		if (line[0] == '/' && line[1] == '/')
-			continue;
-
-		guild_exp[i] = (unsigned int) atof (line);
-		i++;
-	}
-
-	fclose (fp);
-	return 0;
+         
+	guild_exp[current] = exp;
+	return true;
 }
 
 
@@ -761,7 +739,13 @@ int inter_guild_sql_init (void)
 	guild_db_ = idb_alloc (DB_OPT_RELEASE_DATA);
 	castle_db = idb_alloc (DB_OPT_RELEASE_DATA);
 	//Read exp file
-	inter_guild_ReadEXP();
+	sv_readdb(
+#ifdef RENEWAL
+		"db/re"
+#else
+		"db/pre-re"
+#endif
+		, "exp_guild.txt", ',', 1, 1, 100, exp_guild_parse_row);
 	add_timer_func_list (guild_save_timer, "guild_save_timer");
 	add_timer (gettick() + 10000, guild_save_timer, 0, 0);
 	return 0;
