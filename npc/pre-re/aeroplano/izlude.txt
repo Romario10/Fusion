@@ -12,4 +12,4 @@
 //= 2.0 Adequado ao rAthena. [MaminhA]
 //============================================================
 
-//izlude,206,55,3	duplicate(Assist_do_Aeroporto_iz)	Assist. do Aeroporto#iz	90
+izlude,206,55,3	duplicate(Assist_do_Aeroporto_izlude)	Assist. do Aeroporto#iz	90

@@ -730,15 +730,15 @@ int _vShowMessage (enum msg_type flag, const char *string, va_list ap)
 			break;
 
 		case MSG_SQL: //Bright Violet (For dumping out anything related with SQL) <- Actually, this is mostly used for SQL errors with the database, as successes can as well just be anything else... [Skotlex]
-			strcat (prefix, CL_MAGENTA"[SQL]"CL_RESET":");
+			strcat (prefix, CL_MAGENTA"[SQL]"CL_RESET":     ");
 			break;
 
 		case MSG_INFORMATION: //Bright White (Variable information)
-			strcat (prefix, CL_WHITE" [Info]"CL_RESET": ");
+			strcat (prefix, CL_WHITE"[Info]"CL_RESET":  ");
 			break;
 
 		case MSG_NOTICE: //Bright White (Less than a warning)
-			strcat (prefix, CL_WHITE"[Aviso]"CL_RESET":");
+			strcat (prefix, CL_WHITE"[Aviso]"CL_RESET": ");
 			break;
 
 		case MSG_WARNING: //Bright Yellow
@@ -750,7 +750,7 @@ int _vShowMessage (enum msg_type flag, const char *string, va_list ap)
 			break;
 
 		case MSG_ERROR: //Bright Red  (Regular errors)
-			strcat (prefix, CL_RED" [Erro]"CL_RESET":  ");
+			strcat (prefix, CL_RED"[Erro]"CL_RESET":  ");
 			break;
 
 		case MSG_FATALERROR: //Bright Red (Fatal errors, abort(); if possible)

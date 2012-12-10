@@ -16,19 +16,19 @@
 //= 1.2 Fixed a lot of typos [Nexon]
 //= 1.3 Removed callfunc Is_####_Class in favor of baseClass [Silentdragon]
 //= 1.4 Added a Jawaii related npc. 1.4a Fixed a small bug to
-//=	the Jawaii warper, thanks to reddozen and Silent [MasterOfMuppets]
+//=    the Jawaii warper, thanks to reddozen and Silent [MasterOfMuppets]
 //= 1.5 Replaced iz_move_alberta with MISC_QUEST & 16 [Lupus]
 //= 1.6 Removed Duplicates [Silent]
 //= 1.7 Split quest to quests/quests_izlude.txt [Evera]
 //= 1.71 Optimized. Also thanks to CAHTEXHuK [Lupus]
 //= 1.72 Small bugfix [Paradox924X]
 //= 1.8 Rescripted to Aegis 10.3 standard. [L0ne_W0lf]
-//=	Removed Honeymoon Helper, as she is a Jawaii NPC.
-//=	Moved Signs to the msg_boards file.
+//=    Removed Honeymoon Helper, as she is a Jawaii NPC.
+//=    Moved Signs to the msg_boards file.
 //= 1.8a Made Red/Cebalis as a single NPC + duplicate [Lupus]
 //= 1.9 Fixed a small problem with Dega. (Ne default case) [L0ne_W0lf]
-//=	Re-added NPC dialog for Cebalis. The dialog differs
-//=	(even if slightly,) after the five or so lines.
+//=    Re-added NPC dialog for Cebalis. The dialog differs
+//=    (even if slightly,) after the five or so lines.
 //= 2.0 Traduzido para o Cronus-Emulator [Squall]
 //= 2.0a Revisão Geral do Script [Asus]
 //= 2.1 Traduzido e duplicado para cada versão do emulador. [MaminhA]
@@ -36,7 +36,7 @@
 
 // Izlude
 //============================================================
--	script	::Marinheiro_izlude	-1,{
+-	script	::Marinheiro_iz	-1,{
 	mes "[Marinheiro]";
 	mes "Olá, todo mundo!";
 	mes "Atenção, atenção!";
@@ -519,42 +519,3 @@ izlu2dun,108,27,0	script	Marinheiro#2izlude	100,{
 	}
 	close;
 }
-
-/* Função ainda inexistente
-// Adicionando NPCs aos mapas
-if(checkre(0)) {
-izlude,197,205,1	duplicate(Marinheiro_izlude)	Marinheiro#izlude	100
-izlude,71,92,2	duplicate(Bonne_izlude)	Bonne#izlude	90
-izlude,172,215,4	duplicate(Charfri_izlude)	Charfri#izlude	91
-izlude,127,175,4	duplicate(Cuskoal_izlude)	Cuskoal#izlude	124
-izlude,85,103,4	duplicate(Dega_izlude)	Dega#izlude	84
-izlude,141,185,4	duplicate(Kylick_izlude)	Kylick#izlude	97
-izlude,56,156,2	duplicate(Red_izlude)	Red#izlude	85
-izlude,58,156,2	duplicate(Cebalis_izlude)	Cebalis#izlude	98
-izlude,165,156,2	duplicate(Soldado_izlude)	Soldado#izlude	105
-izlude,158,130,3	duplicate(bdt)	Tony Mercador de Balas#iz	86
-izlude,155,132,3	duplicate(mdk)	Kenny Mercador de Revistas	83
-
-izlude,147,131,6	script	Forjardor#izlude	726,{
-	end;
-}
-
-prt_fild08,350,219,4	script	Guarda#izlude	105,{
-	mes "[Guarda de Izlude]";
-	mes "Bem vindo à Izlude.";
-	close;
-}
-} else {
-izlude,201,181,2	duplicate(Sailor_izlude)	Sailor#izlude	100
-izlude,55,74,2	duplicate(Bonne_izlude)	Bonne#izlude	90
-izlude,135,78,2	duplicate(Charfri_izlude)	Charfri#izlude	91
-izlude,119,121,2	duplicate(Cuskoal_izlude)	Cuskoal#izlude	124
-izlude,150,118,2	duplicate(Dega_izlude)	Dega#izlude	84
-izlude,150,143,2	duplicate(Kylick_izlude)	Kylick#izlude	97
-izlude,56,126,2	duplicate(Red_izlude)	Red#izlude	85
-izlude,58,126,2	duplicate(Cebalis_izlude)	Cebalis#izlude	98
-izlude,124,178,2	duplicate(Soldier_izlude)	Soldier#izlude	105
-izlude,171,133,3	duplicate(bdt)	Bullet Dealer Tony#iz	86
-izlude,171,127,3	duplicate(mdk)	Magazine Dealer Kenny	83
-}
-*/

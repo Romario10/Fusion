@@ -12,7 +12,7 @@
 //= 2.0 Transformado em script geral. [MaminhA]
 //============================================================
 
--	script	::Assist_do_Aeroporto_iz	-1,{
+-	script	::Assist_do_Aeroporto_izlude	-1,{
 	mes "[Assistente do Aeroporto]";
 	mes "Bem-vindo ao aeroporto!";
 	mes "Aqui você pode ir para Juno ou Rachel!";
@@ -45,11 +45,4 @@
 	mes "Muito obrigada!";
 	mes "Volte sempre.";
 	close;
-}
-
-// Teste usando função checkre()
-if( checkre(0) ) {
-izlude,204,75,3	duplicate(Assist_do_Aeroporto_iz)	Assist. do Aeroporto#iz	90
-} else {
-izlude,206,55,3	duplicate(Assist_do_Aeroporto_iz)	Assist. do Aeroporto#iz	90
 }

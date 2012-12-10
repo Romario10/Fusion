@@ -35,7 +35,7 @@
 //= 3.4 Added missing checkweights. [L0ne_W0lf]
 //= 3.5 Replaced effect numerics with constants. [L0ne_W0lf]
 //= 3.6 Fixed bartender so he no longer hangs. [L0ne_W0lf]
-//= 4.0 Traduzido e unificado. [MaminhA]
+//= 4.0 Parcialmente traduzido e unificado. [MaminhA]
 //============================================================
 
 // Jawaii
