@@ -9,7 +9,7 @@
 
 #define MIN_ELETHINKTIME 100
 #define MIN_ELEDISTANCE 2
-#define MAX_ELEDISTANCE 6
+#define MAX_ELEDISTANCE 5
 
 #define EL_MODE_AGGRESSIVE (MD_CANMOVE|MD_AGGRESSIVE|MD_CANATTACK)
 #define EL_MODE_ASSIST (MD_CANMOVE|MD_ASSIST)
@@ -43,51 +43,52 @@ struct elemental_data {
 	struct status_data base_status, battle_status;
 	struct status_change sc;
 	struct regen_data regen;
-
+	
 	struct s_elemental_db *db;
 	struct s_elemental elemental;
-
+	
 	struct map_session_data *master;
 	int summon_timer;
 	int skill_timer;
-
-	unsigned last_thinktime, last_linktime;
+	
+	unsigned last_thinktime, last_linktime, last_spdrain_time;
 	short min_chase;
 	int target_id, attacked_id;
 };
 
-bool elemental_class (int class_);
-struct view_data *elemental_get_viewdata (int class_);
+bool elemental_class(int class_);
+struct view_data * elemental_get_viewdata(int class_);
 
-int elemental_create (struct map_session_data *sd, int class_, unsigned int lifetime);
-int elemental_data_received (struct s_elemental *ele, bool flag);
-int elemental_save (struct elemental_data *ed);
+int elemental_create(struct map_session_data *sd, int class_, unsigned int lifetime);
+int elemental_data_received(struct s_elemental *ele, bool flag);
+int elemental_save(struct elemental_data *ed);
 
-int elemental_change_mode_ack (struct elemental_data *ed, int mode);
-int elemental_change_mode (struct elemental_data *ed, int mode);
+int elemental_change_mode_ack(struct elemental_data *ed, int mode);
+int elemental_change_mode(struct elemental_data *ed, int mode);
 
-void elemental_heal (struct elemental_data *ed, int hp, int sp);
-int elemental_dead (struct elemental_data *ed);
+void elemental_heal(struct elemental_data *ed, int hp, int sp);
+int elemental_dead(struct elemental_data *ed);
 
-int elemental_delete (struct elemental_data *ed, int reply);
-void elemental_summon_stop (struct elemental_data *ed);
+int elemental_delete(struct elemental_data *ed, int reply);
+void elemental_summon_stop(struct elemental_data *ed);
 
-int elemental_get_lifetime (struct elemental_data *ed);
+int elemental_get_lifetime(struct elemental_data *ed);
 
-int elemental_unlocktarget (struct elemental_data *ed);
-int elemental_skillnotok (int skillid, struct elemental_data *ed);
-int elemental_set_target (struct map_session_data *sd, struct block_list *bl);
-int elemental_clean_single_effect (struct elemental_data *ed, int skill_num);
-int elemental_clean_effect (struct elemental_data *ed);
-int elemental_action (struct elemental_data *ed, struct block_list *bl, unsigned int tick);
+int elemental_unlocktarget(struct elemental_data *ed);
+int elemental_skillnotok(int skillid, struct elemental_data *ed);
+int elemental_set_target( struct map_session_data *sd, struct block_list *bl );
+int elemental_clean_single_effect(struct elemental_data *ed, int skill_num);
+int elemental_clean_effect(struct elemental_data *ed);
+int elemental_action(struct elemental_data *ed, struct block_list *bl, unsigned int tick);
+struct skill_condition elemental_skill_get_requirements(int skill, int lv);
 
 #define elemental_stop_walking(ed, type) unit_stop_walking(&(ed)->bl, type)
 #define elemental_stop_attack(ed) unit_stop_attack(&(ed)->bl)
 
-int read_elemental_skilldb (void);
-void reload_elementaldb (void);
-void reload_elemental_skilldb (void);
-int do_init_elemental (void);
-void do_final_elemental (void);
+int read_elemental_skilldb(void);
+void reload_elementaldb(void);
+void reload_elemental_skilldb(void);
+int do_init_elemental(void);
+void do_final_elemental(void);
 
 #endif /* _ELEMENTAL_H_ */
