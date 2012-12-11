@@ -1,15 +1,16 @@
 //===== rAthena Script ======================================= 
-//= Quest NPCs located in Lighthalzen
+//= Mr. Smile Quest
 //===== By: ================================================== 
-//= Daegaladh, Masao
+//= Daegaladh
 //===== Current Version: ===================================== 
 //= 1.0
 //===== Compatible With: ===================================== 
 //= rAthena SVN
 //===== Description: ========================================= 
-//= Quests related to Lighthalzen City.
+//= [Aegis Conversion]
+//= Trade Clover, Fluff and Jellopy for a Mr. Smile mask.
 //===== Additional Comments: ================================= 
-//= 1.0 Updated to match the new Izlude Map. [Masao]
+//= 1.0 First version.
 //============================================================ 
 
-izlude,171,73,6	duplicate(Scamp)	Scamp#2	853
+izlude,129,118,4	duplicate(SmileHelper)	Smile Assistance#iz	92
