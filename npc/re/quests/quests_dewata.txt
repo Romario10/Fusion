@@ -195,7 +195,7 @@ dew_fild01,185,300,4	script	Tribe Manager	541,{
 	mes "is very important.";
 	if(checkquest(9160)==-1 || !countitem(11533)) {
 		mes "Although it is a little boring...";
-		close; 
+		close;
 	}
 	next;
 	mes "[Tribe Manager]";
