@@ -4,15 +4,15 @@
 //= SoulBlaker
 //= nestor_zulueta (Fusion)
 //= converted by Darkchild
-//===== VersÃ£o Atual: ======================================== 
+//===== Versão Atual: ======================================== 
 //= 1.8
-//===== DescriÃ§Ã£o: =========================================== 
+//===== Descrição: =========================================== 
 //= Muda a classe para Alquimista
 //===== Changelog: =========================================== 
 //= 1.4 Traduzido [Kosonome]
 //= 1.5 Quest Atualizada [Mehah]
-//= 1.6 Adaptado Classname Na FunÃ§Ã£o F_BlockHigh [Mehah]
-//= 1.6a Corrigido o recebimentos dos manuÃ¡is [Kamper]
+//= 1.6 Adaptado Classname Na Função F_BlockHigh [Mehah]
+//= 1.6a Corrigido o recebimentos dos manuáis [Kamper]
 //= 1.7 Corrigido respostas da quest de Nicholas Flamel [Page]
 //= 1.7a Removido show, additem, digit	[Yum]
 //= 1.8 Reestruturado e Otimizado script. [SoulBlaker]
@@ -23,16 +23,16 @@ alde_alche,27,185,4	script	Parmry Gianino#alch	744,{
 	{
 		mes "[Parmy Gianino]";
 		mes "Bem-vindo ao";
-		mes "ClÃ£n dos Aqluimistas.";
-		mes "I-impossÃ­vel como p-pode";
+		mes "Clãn dos Aqluimistas.";
+		mes "I-impossível como p-pode";
 		mes "algo como isto acontecer?";
 		next;
 		mes "[Parmy Gianino]";
 		mes "Espere, espere...";
 		mes "Me desculpe, eu estava confuso.";
-		mes "Isso Ã© tudo. VocÃª me parece";
-		mes "alguÃ©m que eu conheÃ§o.";
-		mes "Mesmo assim, vocÃª nÃ£o me parece estranho...";
+		mes "Isso é tudo. Você me parece";
+		mes "alguém que eu conheço.";
+		mes "Mesmo assim, você não me parece estranho...";
 		close;
 	}
 	else if( BaseJob != Job_Merchant )
@@ -41,33 +41,33 @@ alde_alche,27,185,4	script	Parmry Gianino#alch	744,{
 		{
 			mes "[Parmy Gianino]";
 			mes "Bem-vindo, " + strcharinfo(0) + ".";
-			mes "Aqui Ã© a sede do ClÃ£n dos Alquimistas, como sempre foi.";
+			mes "Aqui é a sede do Clãn dos Alquimistas, como sempre foi.";
 			next;
 			mes "[Parmy Gianino]";
-			mes "Todo mundo estÃ¡ oucupado com suas prÃ³prias pesquisas, recentemente, houve algum progresso feito no campo da biotecnologia.";
+			mes "Todo mundo está oucupado com suas próprias pesquisas, recentemente, houve algum progresso feito no campo da biotecnologia.";
 			next;
 			mes "[Parmy Gianino]";
-			mes "Todo mundo estÃ¡ esperando que os estudos biotecnolÃ³gicos irÃ¡ produzir resultados positivos. Falando nisso, me pergunto como os Alquimistas estÃ£o trabalhando sobre a vida artificial...";
+			mes "Todo mundo está esperando que os estudos biotecnológicos irá produzir resultados positivos. Falando nisso, me pergunto como os Alquimistas estão trabalhando sobre a vida artificial...";
 			close;
 		}
 		else if( BaseClass == Job_Novice )
 		{
 			mes "[Parmy Gianino]";
-			mes "Bem-vindo ao ClÃ£n dos Alquimistas. Estamos recrutando pessoas talentosas com ideias inovadoras.";
+			mes "Bem-vindo ao Clãn dos Alquimistas. Estamos recrutando pessoas talentosas com ideias inovadoras.";
 			next;
 			mes "[Parmy Gianino]";
-			mes "Se vocÃª estiver interessado em trabalhar com a quÃ­mica, volte mais tarde, assim que vocÃª estiver mais experiente.";
+			mes "Se você estiver interessado em trabalhar com a química, volte mais tarde, assim que você estiver mais experiente.";
 			next;
 			mes "[Parmy Gianino]";
 			mes "Apenas uma coisa:";
-			mes "VocÃª tem que conhecer itens como um Mercador.";
+			mes "Você tem que conhecer itens como um Mercador.";
 			close;
 		}
 		mes "[Parmy Gianino]";
-		mes "Bem-vindo ao ClÃ£n dos Alquimistas. Estamos recrutando pessoas talentosas com ideias inovadoras.";
+		mes "Bem-vindo ao Clãn dos Alquimistas. Estamos recrutando pessoas talentosas com ideias inovadoras.";
 		next;
 		mes "[Parmy Gianino]";
-		mes "Se vocÃª conhece alguns Mercadores excepcionais, de toda maneira, por favor, encaminhe para nÃ³s. Esses tipos de pessoas tendem a ter um talento para a alquimia e experimentaÃ§Ãµes~";
+		mes "Se você conhece alguns Mercadores excepcionais, de toda maneira, por favor, encaminhe para nós. Esses tipos de pessoas tendem a ter um talento para a alquimia e experimentações~";
 		close;	
 	}
 	else
@@ -76,23 +76,23 @@ alde_alche,27,185,4	script	Parmry Gianino#alch	744,{
 		if( ALCH_Q == 1 )
 		{
 			mes "[Parmry Gianino]";
-			mes "Oh, vocÃª voltou... vamos ver...";
+			mes "Oh, você voltou... vamos ver...";
 			next;
 			if( countitem(612) < 100 )
 			{
 				mes "[Parmry Gianino]";
-				mes "Como jÃ¡ foi mencionado anteriormente, vocÃª deve trazer ^FF3355100 Mini-Fornalhas^000000 para se juntar a UniÃ£o.";
+				mes "Como já foi mencionado anteriormente, você deve trazer ^FF3355100 Mini-Fornalhas^000000 para se juntar a União.";
 				mes "Por favor, volte quando tiver conseguido as Mini-Fornalhas...";
 				close;
 			}
 			else if( countitem(1005) && countitem(1006) )
 			{
 				mes "[Parmry Gianino]";
-				mes "Oh, vejo que vocÃª tem um ^5533FFGrimÃ³rio Antigo^000000 e um ^5533FFMartelo de Ferreiro^000000.....";
-				mes "Isto significa que vocÃª nÃ£o tem que pagar a taxa de entrada.";
+				mes "Oh, vejo que você tem um ^5533FFGrimório Antigo^000000 e um ^5533FFMartelo de Ferreiro^000000.....";
+				mes "Isto significa que você não tem que pagar a taxa de entrada.";
 				next;
 				mes "[Parmry Gianino]";
-				mes "Excelente.  Agora somente me dÃª o Livro, Martelo e as 100 Mini-Fornalhas. Assim vocÃª estarÃ¡ pronto para aprender o bÃ¡sico sobre ser um Alquimista.";
+				mes "Excelente.  Agora somente me dê o Livro, Martelo e as 100 Mini-Fornalhas. Assim você estará pronto para aprender o básico sobre ser um Alquimista.";
 				next;
 				delitem 1005,1;
 				delitem 1006,1;
@@ -101,164 +101,164 @@ alde_alche,27,185,4	script	Parmry Gianino#alch	744,{
 			else if( Zeny < 50000 )
 			{
 				mes "[Parmry Gianino]";
-				mes "VocÃª ainda precisa pagar a taxa de ^FF553350,000^000000 zeny.";
-				mes "Diga-me quando vocÃª tiver dinheiro o suficiente.";
+				mes "Você ainda precisa pagar a taxa de ^FF553350,000^000000 zeny.";
+				mes "Diga-me quando você tiver dinheiro o suficiente.";
 				close;
 			}
 			else {
  				set Zeny, Zeny - 50000;
 				delitem 612, 100;
 				mes "[Parmry Gianino]";
-				mes "VocÃª possui os 50,000 zeny...... VocÃª tambÃ©m trouxe as 100 Mini-Fornalhas... Maravilhoso!";
-				mes "Agora vocÃª estÃ¡ pronto para aprender o bÃ¡sico de ser um Alquimista.";
+				mes "Você possui os 50,000 zeny...... Você também trouxe as 100 Mini-Fornalhas... Maravilhoso!";
+				mes "Agora você está pronto para aprender o básico de ser um Alquimista.";
 				next;
 			}
 			mes "[Parmry Gianino]";
-			mes "PorÃ©m antes disso... ^5533FFRasputin^000000 quer ver vocÃª...";
-			mes "Hmm... NÃ£o tenho certeza do que poderia ser...";
+			mes "Porém antes disso... ^5533FFRasputin^000000 quer ver você...";
+			mes "Hmm... Não tenho certeza do que poderia ser...";
 			next;
 			mes "[Parmry Gianino]";
-			mes "VocÃª deve visitar ele agora.  Somente desÃ§a as escadas a minha direita.  Sua sala fica no canto mais a sudeste.";
+			mes "Você deve visitar ele agora.  Somente desça as escadas a minha direita.  Sua sala fica no canto mais a sudeste.";
 			set ALCH_Q,2;
 			close;
 		}
 		else if( ALCH_Q == 2 )
 		{
 			mes "[Parmry Gianino]";
-			mes "VÃ¡ visitar ^5533FFRasputin^000000 agora!";
+			mes "Vá visitar ^5533FFRasputin^000000 agora!";
 			close;
 		}
 		else if( ALCH_Q == 3 )
 		{
 			mes "[Parmry Gianino]";
-			mes "VÃ¡ visitar ^5533FFDarwin^000000 agora!";
+			mes "Vá visitar ^5533FFDarwin^000000 agora!";
 			close;
 		}
 		else if( ALCH_Q == 4 )
 		{
 			mes "[Parmry Gianino]";
-			mes "VÃ¡ visitar ^5533FFVan Helmont^000000 agora!";
+			mes "Vá visitar ^5533FFVan Helmont^000000 agora!";
 			close;
 		}
 		else if( ALCH_Q == 5 )
 		{
 			mes "[Parmry Gianino]";
-			mes "VÃ¡ visitar ^5533FFNicholas Flamel^000000 agora!";
+			mes "Vá visitar ^5533FFNicholas Flamel^000000 agora!";
 			close;
 		}
 		else if( ALCH_Q == 6 )
 		{
 			mes "[Parmry Gianino]";
 			mes "Volte para o ^5533FFNicholas Flamel^000000 agora!";
-			mes "Ele ainda tem preparado mais um teste para vocÃª.";
+			mes "Ele ainda tem preparado mais um teste para você.";
 			close;
 		}
 		else if( ALCH_Q == 7 )
 		{
 			mes "[Parmry Gianino]";
-			mes "Nossa, vocÃª acabou todos estes testes? Perfeito! Agora vocÃª pode visitar o lÃ­der, ^5533FFVincent Carsciallo^000000.";
-			mes "Ele Ã© o que te transformarÃ¡ em um Alquimista.";
+			mes "Nossa, você acabou todos estes testes? Perfeito! Agora você pode visitar o líder, ^5533FFVincent Carsciallo^000000.";
+			mes "Ele é o que te transformará em um Alquimista.";
 			close;
 		}
 		mes "[Parmry Gianino]";
-		mes "Bem vindo a UniÃ£o Alquimista.";
-		mes "Como eu poderia ajudÃ¡-lo?";
+		mes "Bem vindo a União Alquimista.";
+		mes "Como eu poderia ajudá-lo?";
 		next;
-		switch( select("Eu gostaria de aprender sobre alquÃ­mia.:Eu quero virar um Alquimista.:Nada.") )
+		switch( select("Eu gostaria de aprender sobre alquímia.:Eu quero virar um Alquimista.:Nada.") )
 		{
 			case 1:
 				mes "[Parmry Gianino]";
-				mes "Alquimistas estudam e criam novos materiais usando uma variedade de substÃ¢ncias existentes.";
-				mes "Eles pesquisam sobre os Ã¡tomos quÃ­micos, e experimentam para mudar suas propriedades quÃ­micas.";
+				mes "Alquimistas estudam e criam novos materiais usando uma variedade de substâncias existentes.";
+				mes "Eles pesquisam sobre os átomos químicos, e experimentam para mudar suas propriedades químicas.";
 				next;
 				mes "[Parmry Gianino]";
-				mes "A maioria das pessoas pensam que o objetivo final Ã© criar ouro, mas esta nÃ£o Ã© a pura verdade.";
-				mes "Eles podem fazer qualquer coisa, de simples remÃ©dios atÃ© novos materiais.";
+				mes "A maioria das pessoas pensam que o objetivo final é criar ouro, mas esta não é a pura verdade.";
+				mes "Eles podem fazer qualquer coisa, de simples remédios até novos materiais.";
 				next;
 				mes "[Parmry Gianino]";
-				mes "As vezes, atÃ© mesmo pesquisas sobre a criaÃ§Ã£o da vida... mas este poderia ser considerado um territÃ³rio de Deus...";
-				mes "Este Ã© uma Ã¡rea muito complexa, todos somente pesquisam por enquanto.";
+				mes "As vezes, até mesmo pesquisas sobre a criação da vida... mas este poderia ser considerado um território de Deus...";
+				mes "Este é uma área muito complexa, todos somente pesquisam por enquanto.";
 				next;
 				mes "[Parmry Gianino]";
-				mes "Se vocÃª estÃ¡ interresado em virar um Alquimista, eu recomendo vocÃª ter muitas experiÃªncias adquiridas enquanto Mercador.";
-				mes "Pois sendo um Mercador Ã© uma grande oportunidade para aprender sobre os materiais enquanto vocÃª negocia eles.";
+				mes "Se você está interresado em virar um Alquimista, eu recomendo você ter muitas experiências adquiridas enquanto Mercador.";
+				mes "Pois sendo um Mercador é uma grande oportunidade para aprender sobre os materiais enquanto você negocia eles.";
 				next;
 				mes "[Parmry Gianino]";
-				mes "Somente vocÃª pode decidir seu caminho.";
-				mes "A estrada para se tornar um Alquimista Ã© bem desafiadora.";
-				mes "VocÃª precisarÃ¡ se enfocar mais em experimentos e pesquisas do que seus negÃ³cios.";
+				mes "Somente você pode decidir seu caminho.";
+				mes "A estrada para se tornar um Alquimista é bem desafiadora.";
+				mes "Você precisará se enfocar mais em experimentos e pesquisas do que seus negócios.";
 				close;
 			case 2:
 				if( JobLevel < 40 )
 				{
 					mes "[Parmry Gianino]";
-					mes "VocÃª deve ao menos estar no NÃ­vel de Classe 40 para virar um Alquimista.";
+					mes "Você deve ao menos estar no Nível de Classe 40 para virar um Alquimista.";
 					close;
 				}
 				mes "[Parmry Gianino]";
-				mes "EstÃ£o era isso. Meu nome Ã© Parmry Gianino da AssociaÃ§Ã£o dos Alquimistas.";
-				mes "Prazer em conhecer vocÃª.";
+				mes "Estão era isso. Meu nome é Parmry Gianino da Associação dos Alquimistas.";
+				mes "Prazer em conhecer você.";
 				next;
 				mes "[Parmry Gianino]";
-				mes "Se vocÃª se juntar a nossa UniÃ£o e passar nos treinamentos vocÃª serÃ¡ oficial reconhecido";
+				mes "Se você se juntar a nossa União e passar nos treinamentos você será oficial reconhecido";
 				mes "como um Alquimista e apto a ajudar em nossas pesquisas.";
 				next;
 				mes "[Parmry Gianino]";
-				mes "PorÃ©m nÃ³s nÃ£o aceitamos qualquer um.";
-				mes "VocÃª deve ser dedicado, perseverante, e estar disposto a devotar a si mesmo as pesquisas.";
+				mes "Porém nós não aceitamos qualquer um.";
+				mes "Você deve ser dedicado, perseverante, e estar disposto a devotar a si mesmo as pesquisas.";
 				next;
 				mes "[Parmry Gianino]";
-				mes "HÃ¡ alguns requerimentos para vocÃª poder se juntar a associaÃ§Ã£o...";
-				mes "porÃ©m discutiremos isto assim que vocÃª se inscrever.";
+				mes "Há alguns requerimentos para você poder se juntar a associação...";
+				mes "porém discutiremos isto assim que você se inscrever.";
 				next;
 				mes "[Parmry Gianino]";
-				mes "EntÃ£o, vocÃª gostaria de se inscrever?";
+				mes "Então, você gostaria de se inscrever?";
 				next;
 				if( select("Eu gostaria de me inscrever.:Eu farei mais tarde.") == 1 )
 				{
 					mes "[Parmry Gianino]";
-					mes "Preencha este formulÃ¡rio por favor...";
+					mes "Preencha este formulário por favor...";
 					next;
-					mes "*vocÃª preenche o formulÃ¡rio e o entrega de volta*";
-					next;
-					mes "[Parmry Gianino]";
-					mes "Muito bom.  Para vocÃª poder se juntar a UniÃ£o Alquimista vocÃª deve primeiramente pagar uma taxa de  ^5533FF50,000^000000 zeny.";
-					mes "VocÃª precisarÃ¡ tambÃ©m nos trazer alguns poucos itens.";
+					mes "*você preenche o formulário e o entrega de volta*";
 					next;
 					mes "[Parmry Gianino]";
-					mes "Claro que se vocÃª nos trazer um ^5533FFGrimÃ³rio Antigo^000000 e um ^5533FFMartelo de Ferreiro^000000";
-					mes "vocÃª nÃ£o terÃ¡ que pagar a taxa.";
+					mes "Muito bom.  Para você poder se juntar a União Alquimista você deve primeiramente pagar uma taxa de  ^5533FF50,000^000000 zeny.";
+					mes "Você precisará também nos trazer alguns poucos itens.";
 					next;
 					mes "[Parmry Gianino]";
-					mes "Vamos ver... vocÃª precisarÃ¡ nos trazer ^5533FF100 Mini-Fornalhas^000000.";
-					mes "Quando vocÃª conseguir as Mini-Fornalhas, venha me ver novamente.";
+					mes "Claro que se você nos trazer um ^5533FFGrimório Antigo^000000 e um ^5533FFMartelo de Ferreiro^000000";
+					mes "você não terá que pagar a taxa.";
 					next;
 					mes "[Parmry Gianino]";
-					mes "Quando vocÃª voltar, eu tambÃ©m irei coletar a taxa de ^5533FF50,000^000000 zeny, entÃ£o nÃ£o se esqueÃ§a disso tambÃ©m.";
-					mes "Vejo vocÃª brevemente...";
+					mes "Vamos ver... você precisará nos trazer ^5533FF100 Mini-Fornalhas^000000.";
+					mes "Quando você conseguir as Mini-Fornalhas, venha me ver novamente.";
+					next;
+					mes "[Parmry Gianino]";
+					mes "Quando você voltar, eu também irei coletar a taxa de ^5533FF50,000^000000 zeny, então não se esqueça disso também.";
+					mes "Vejo você brevemente...";
 					set JBLVL, JobLevel; // used to determine what item to get at the end
 					set ALCH_Q,1;
 					close;
 				}
 				mes "[Parmry Gianino]";
-				mes "Se vocÃª Ã© um Mercador talentoso,";
-				mes "vocÃª sempre serÃ¡ bem vindo aqui.";
+				mes "Se você é um Mercador talentoso,";
+				mes "você sempre será bem vindo aqui.";
 				mes "Volte sempre.";
 				close;
 			case 3:
 				mes "[Parmry Gianino]";
-				mes "Hmmm... Por favor, quando precisar de algo, somente peÃ§a.";
+				mes "Hmmm... Por favor, quando precisar de algo, somente peça.";
 				close;
 		}
 	}
 	else if( BaseJob == Job_Alchem )
 	{
 		mes "[Parmry Gianino]";
-		mes "OlÃ¡ companheiro Alquimista.  Como os negÃ³cios estÃ£o progredindo?  Espero que bem, boa sorte para vocÃª.";
+		mes "Olá companheiro Alquimista.  Como os negócios estão progredindo?  Espero que bem, boa sorte para você.";
 		close;
 	}
 	mes "[Parmry Gianino]";
-	mes "Bem vindo a UniÃ£o Alquimista.  Ah, minhas sinceras desculpas mas estou ocupado no momento.";
+	mes "Bem vindo a União Alquimista.  Ah, minhas sinceras desculpas mas estou ocupado no momento.";
 	close;
 }
 
@@ -271,17 +271,17 @@ alde_alche,175,107,4	script	Rasputin Gregory#alch	749,{
 			if( ALCH_Q2 == 1 )
 			{
 				mes "[Rasputin Gregory]";
-				mes "O que? VocÃª quer refazer o teste?";
-				mes "Eu achei que tivesse mandado vocÃª ir embora.";
+				mes "O que? Você quer refazer o teste?";
+				mes "Eu achei que tivesse mandado você ir embora.";
 				next;
 				mes "[Rasputin Gregory]";
-				mes "Bem, eu irei permitir vocÃª tentar mais uma vez...";
-				mes "Eu perdoo vocÃª... Kekeke.";
-				mes "FaÃ§a direito desta vez...";
+				mes "Bem, eu irei permitir você tentar mais uma vez...";
+				mes "Eu perdoo você... Kekeke.";
+				mes "Faça direito desta vez...";
 				next;
 				mes "[Rasputin Gregory]";
-				mes "Agora entÃ£o, responda as minhas perguntas.";
-				mes "Vamos ver o quÃ£o esperto vocÃª Ã©.";
+				mes "Agora então, responda as minhas perguntas.";
+				mes "Vamos ver o quão esperto você é.";
 				next;
 				set .@score, 0;
 				mes "[Rasputin Gregory]";
@@ -321,8 +321,8 @@ alde_alche,175,107,4	script	Rasputin Gregory#alch	749,{
 				if( .@num == 742 ) set .@score, .@score + 10;
 				mes "[Rasputin Gregory]";
 				mes "Se comprando estes itens com 24% de";
-				mes "desconto, qual o preÃ§o total de";
-				mes "15 PoÃ§Ãµes Verdes,";
+				mes "desconto, qual o preço total de";
+				mes "15 Poções Verdes,";
 				mes "6 Lupas e 4 Armadilhas?";
 				next;
 				input .@num;
@@ -335,18 +335,18 @@ alde_alche,175,107,4	script	Rasputin Gregory#alch	749,{
 				input .@num;
 				if( .@num == 550 ) set .@score, .@score + 10;
 				mes "[Rasputin Gregory]";
-				mes "Qual Ã© o total de defesa de um";
-				mes "Broquel, um Casaco, uma MÃ¡scara de GÃ¡s,";
-				mes "um LaÃ§o Grande, um LaÃ§o, um ChapÃ©u ChinÃªs e";
-				mes "um Ã“culos?";
+				mes "Qual é o total de defesa de um";
+				mes "Broquel, um Casaco, uma Máscara de Gás,";
+				mes "um Laço Grande, um Laço, um Chapéu Chinês e";
+				mes "um Óculos?";
 				next;
 				input .@num;
 				if( .@num == 16 ) set .@score, .@score + 10;
 				mes "[Rasputin Gregory]";
-				mes "Quantos zeny vocÃª tem de lucro";
-				mes "se vocÃª comprar uma Malha com 24%";
+				mes "Quantos zeny você tem de lucro";
+				mes "se você comprar uma Malha com 24%";
 				mes "de desconto";
-				mes "e vender a mesma com 20% do preÃ§o normal?";
+				mes "e vender a mesma com 20% do preço normal?";
 				next;
 				input .@num;
 				if( .@num == 2840 ) set .@score, .@score+10;
@@ -354,9 +354,9 @@ alde_alche,175,107,4	script	Rasputin Gregory#alch	749,{
 			else if( JobLevel == 50 )
 			{
 				mes "[Rasputin Gregory]";
-				mes "Hmm... vocÃª tem um nÃ­vel de classe bem alto... Eu irei ser legal hoje e deixar vocÃª passar.";
-				mes "VocÃª agora vÃ¡ ver o ^5533FFDarwin^000000.";
-				mes "Ele irÃ¡ te ensinar como fazer os experimentos.";
+				mes "Hmm... você tem um nível de classe bem alto... Eu irei ser legal hoje e deixar você passar.";
+				mes "Você agora vá ver o ^5533FFDarwin^000000.";
+				mes "Ele irá te ensinar como fazer os experimentos.";
 				mes "Diga a ele que eu te enviei.";
 				set ALCH_Q,3;
 				set ALCH_Q2, 0;
@@ -366,23 +366,23 @@ alde_alche,175,107,4	script	Rasputin Gregory#alch	749,{
 			{
 				mes "[Rasputin Gregory]";
 				mes "Keke, outro idiota que falhou aqui dentro.";
-				mes "Juntar-se a UniÃ£o?";
+				mes "Juntar-se a União?";
 				next;
 				mes "[Rasputin Gregory]";
-				mes "Eu nÃ£o gostei... Eu NÃƒO gostei...!";
-				mes "Todo lugar, todos se juntam a UniÃ£o e sÃ£o chamados de Alquimista somente por saberem como misturar ervas!!!";
+				mes "Eu não gostei... Eu NÃO gostei...!";
+				mes "Todo lugar, todos se juntam a União e são chamados de Alquimista somente por saberem como misturar ervas!!!";
 				next;
 				mes "[Rasputin Gregory]";
-				mes "Kikiki, entÃ£o por esse motivo uma entrevista Ã© necessÃ¡ria!";
+				mes "Kikiki, então por esse motivo uma entrevista é necessária!";
 				mes "Eu planejo castigar todos os incompetentes e persegui-los!!";
 				next;
 				mes "[Rasputin Gregory]";
-				mes "VocÃª estÃ¡ com uma cara de estÃºpido. Deve estar sendo pouco doido.";
-				mes "Se vocÃª estava pensando que era somente mudar suas roupas, vocÃª pensou errado... Kekeke...";
+				mes "Você está com uma cara de estúpido. Deve estar sendo pouco doido.";
+				mes "Se você estava pensando que era somente mudar suas roupas, você pensou errado... Kekeke...";
 				next;
 				mes "[Rasputin Gregory]";
-				mes "Agora tente resolver estes problemas que eu der a vocÃª.";
-				mes "Vamos ver o quÃ£o esperto vocÃª Ã©.";
+				mes "Agora tente resolver estes problemas que eu der a você.";
+				mes "Vamos ver o quão esperto você é.";
 				next;
 				set .@score, 0;
 				mes "[Rasputin Gregory]";
@@ -407,7 +407,7 @@ alde_alche,175,107,4	script	Rasputin Gregory#alch	749,{
 				if( .@num == 742 ) set .@score, .@score + 10;
 				mes "[Rasputin Gregory]";
 				mes "Com um desconto de 24%";
-				mes "quanto vale 12 PoÃ§Ãµes Vermelhas,";
+				mes "quanto vale 12 Poções Vermelhas,";
 				mes "5 Asas de Mosca , e ";
 				mes "1 Asa de Borboleta em zenys?";
 				next;
@@ -422,15 +422,15 @@ alde_alche,175,107,4	script	Rasputin Gregory#alch	749,{
 				if( .@num == 450 ) set .@score, .@score + 10;
 				mes "[Rasputin Gregory]";
 				mes "Qual a defesa total de";
-				mes "uma SolidÃ©u, um Capote, uma MÃ¡scara do Fantasma,";
-				mes "um LaÃ§o, um Sobrepeliz,";
+				mes "uma Solidéu, um Capote, uma Máscara do Fantasma,";
+				mes "um Laço, um Sobrepeliz,";
 				mes "um par de Botas, e um Aquecedor de Orelha?";
 				next;
 				input .@num;
 				if( .@num == 19 ) set .@score, .@score + 10;
 				mes "[Rasputin Gregory]";
-				mes "Se vocÃª comprar 5 Elmos com 24%";
-				mes "de desconto e vender eles a 20%, quanto vocÃª";
+				mes "Se você comprar 5 Elmos com 24%";
+				mes "de desconto e vender eles a 20%, quanto você";
 				mes "ganharia em zenys?";
 				next;
 				input .@num;
@@ -442,16 +442,16 @@ alde_alche,175,107,4	script	Rasputin Gregory#alch	749,{
 				mes "[Rasputin Gregory]";
 				set ALCH_Q2,1;
 				mes "...Kekeke, seu idiota!";
-				mes "Eu me senti um idiota fazendo todas essas perguntas a vocÃª!";
-				mes "VOCÃŠ ERROU TODAS ELAS!!!";
+				mes "Eu me senti um idiota fazendo todas essas perguntas a você!";
+				mes "VOCÊ ERROU TODAS ELAS!!!";
 				next;
 				mes "[Rasputin Gregory]";
 				mes "Como pode uma pessoa que nem ao menos respondeu uma destas perguntas PENSAR em se tornar um Alquimista!?";
-				mes "Que? VocÃª fez alguma certa?";
+				mes "Que? Você fez alguma certa?";
 				next;
 				mes "[Rasputin Gregory]";
-				mes "EstÃºpido! Se vocÃª ao menos errar uma, todas estarÃ£o erradas para um Alquimista!";
-				mes "Saia! Deixe-me! VÃ¡ embora daqui!";
+				mes "Estúpido! Se você ao menos errar uma, todas estarão erradas para um Alquimista!";
+				mes "Saia! Deixe-me! Vá embora daqui!";
 				close;
 			}
 			else
@@ -459,56 +459,56 @@ alde_alche,175,107,4	script	Rasputin Gregory#alch	749,{
 				set ALCH_Q,3;
 				set ALCH_Q2, 0;
 				mes "[Rasputin Gregory]";
-				mes "Kikiki... Eu deixarei vocÃª ir.";
-				mes "FaÃ§a algumas boas pesquisas e seja de alguma ajuda para o Rasputin... Kikiki!";
+				mes "Kikiki... Eu deixarei você ir.";
+				mes "Faça algumas boas pesquisas e seja de alguma ajuda para o Rasputin... Kikiki!";
 				next;	
 				mes "[Rasputin Gregory]";
-				mes "Bem, agora vÃ¡! ^5533FFVÃ¡ atÃ© Darwin^000000.";
-				mes "Ele te ensinarÃ¡ como fazer os experimentos.";
+				mes "Bem, agora vá! ^5533FFVá até Darwin^000000.";
+				mes "Ele te ensinará como fazer os experimentos.";
 				mes "Diga a ele que eu te enviei.";
 				next;
 				mes "[Rasputin Gregory]";
 				mes "Kikikikekeke.";
-				mes "NÃ£o pense que jÃ¡ terminou!";
+				mes "Não pense que já terminou!";
 				close;
 			}
 		}
 		else if( ALCH_Q == 3 )
 		{
 			mes "[Rasputin Gregory]";
-			mes "O que vocÃª estÃ¡ fazendo? Saia daqui.";
-			mes "VÃ¡ ver ^5533FFDarwin^000000.";
-			mes "Ele irÃ¡ te ensinar como fazer os experimentos.";
+			mes "O que você está fazendo? Saia daqui.";
+			mes "Vá ver ^5533FFDarwin^000000.";
+			mes "Ele irá te ensinar como fazer os experimentos.";
 			mes "Diga a ele que eu te enviei.";
 			next;
 			mes "[Rasputin Gregory]";
 			mes "Kikikikekeke.";
-			mes "NÃ£o pense que jÃ¡ terminou!";
+			mes "Não pense que já terminou!";
 			close;
 		}
 		mes "[Rasputin Gregory]";
 		mes "Kikikikikekekekeke.";
-		mes "O que Ã©?! Seu inÃºtil!";
+		mes "O que é?! Seu inútil!";
 		next;
 		mes "[Rasputin Gregory]";
-		mes "Um Mercador poderia ir embora e fazer seu comÃ©rcio...";
-		mes "Porque vocÃª viria em um local como este!?";
-		mes "VocÃª estÃ¡ procurando por algo para vender?";
+		mes "Um Mercador poderia ir embora e fazer seu comércio...";
+		mes "Porque você viria em um local como este!?";
+		mes "Você está procurando por algo para vender?";
 		next;
 		mes "[Rasputin Gregory]";
-		mes "Kikiki... saÃ­a, vÃ¡ embora daqui.";
-		mes "NÃ£o desperdice tempo... Kekeke.";
+		mes "Kikiki... saía, vá embora daqui.";
+		mes "Não desperdice tempo... Kekeke.";
 		close;
 	}
 	mes "[Rasputin Gregory]";
-	mes "Que Ã© isso, kikikiki.  VocÃª estÃ¡ curiosos sobre o que estou fazendo...?";
-	mes "Eu somente falarei especialmente para vocÃª. Veja, eu... Kekeke..";
+	mes "Que é isso, kikikiki.  Você está curiosos sobre o que estou fazendo...?";
+	mes "Eu somente falarei especialmente para você. Veja, eu... Kekeke..";
 	next;
 	mes "[Rasputin Gregory]";
-	mes "Estou pesquisando! Uma vez esta poÃ§Ã£o for completada... vocÃª serÃ¡ capaz de dominar um paÃ­s inteiro!!";
+	mes "Estou pesquisando! Uma vez esta poção for completada... você será capaz de dominar um país inteiro!!";
 	next;
 	mes "[Rasputin Gregory]";
-	mes "Kikikikikekekekek.  Ã‰ um segredo para as pessoas de Prontera.....";
+	mes "Kikikikikekekekek.  É um segredo para as pessoas de Prontera.....";
 	close;
 }
 
@@ -520,21 +520,21 @@ alde_alche,13,15,8	script	Darwin#alch	750,{
 		{
 			if( ALCH_Q2 == 1 )
 			{
-				mes "Â´[Darwin]";
+				mes "´[Darwin]";
 				mes "...........";
 				mes ".........";
-				mes "...Quem Ã©...?";
+				mes "...Quem é...?";
 				next;
 				mes "[Darwin]";
-				mes "Ah, vocÃª Ã© aquele que queria aprender sobre alquimia...";
-				mes "EntÃ£o vocÃª providenciou os itens?";
+				mes "Ah, você é aquele que queria aprender sobre alquimia...";
+				mes "Então você providenciou os itens?";
 				next;
 				if( countitem(7134) < 3 || countitem(713) < 3 || countitem(507) < 1 || countitem(508) < 1 || countitem(509) < 1 )
 				{
 					mes "[Darwin]";
-					mes "...VocÃª deve ter esquecido de quais ingredientes trazer.";
+					mes "...Você deve ter esquecido de quais ingredientes trazer.";
 					mes "Vou dizer de novo.";
-					mes "NÃ£o os esqueÃ§a dessa vez.";
+					mes "Não os esqueça dessa vez.";
 					next;
 					mes "[Darwin]";
 					mes "^5533FF3 Vasilhas de Mistura";
@@ -544,7 +544,7 @@ alde_alche,13,15,8	script	Darwin#alch	750,{
 					mes "1 Erva Branca^000000";
 					next;
 					mes "[Darwin]";
-					mes "Volte quando vocÃª estiver pronto...";
+					mes "Volte quando você estiver pronto...";
 					close;	
 				}
 				delitem 7134,3;
@@ -553,31 +553,31 @@ alde_alche,13,15,8	script	Darwin#alch	750,{
 				delitem 508,1;
 				delitem 509,1;
 				mes "[Darwin]";
-				mes "Parece que vocÃª jÃ¡ tem tudo pronto.";
-				mes "Como prometi, ensinar-lhe-ei como fazer o remÃ©dio.";
+				mes "Parece que você já tem tudo pronto.";
+				mes "Como prometi, ensinar-lhe-ei como fazer o remédio.";
 				next;
 				mes "[Darwin]";
 				mes "Primeiramente, prepare a Vasilha de Mistura e coloque as ervas em cima, fazendo assim.";
-				mes "E vocÃª, com cuidado, esmaga elas.";
+				mes "E você, com cuidado, esmaga elas.";
 				next;
 				mes "[Darwin]";
-				mes "Coloque poucas quantidades de Ã¡gua limpa e misture atÃ© ela ficar grossa,";
-				mes "entÃ£o vocÃª adicionar mais ervas.";
+				mes "Coloque poucas quantidades de água limpa e misture até ela ficar grossa,";
+				mes "então você adicionar mais ervas.";
 				next;
 				mes "[Darwin]";
-				mes "Ã‰ assim que se faz. Quando vocÃª achar que jÃ¡ tem o suficiente de ervas,";
+				mes "É assim que se faz. Quando você achar que já tem o suficiente de ervas,";
 				mes "gentilmente coloque-o na Garrafa Vazia.";
 				next;
 				mes "[Darwin]";
-				mes "Aqui estÃ¡, ficou completa.";
-				mes "Dessa vez, faÃ§a como eu mostrei a vocÃª.";
-				mes "DeverÃ¡ ser fÃ¡cil porque Ã© realmente simples.";
+				mes "Aqui está, ficou completa.";
+				mes "Dessa vez, faça como eu mostrei a você.";
+				mes "Deverá ser fácil porque é realmente simples.";
 				next;
 				mes "[Darwin]";
-				mes "...mesmo assim, porque nÃ£o tenta fazer um?"; //even though you don't have one?
+				mes "...mesmo assim, porque não tenta fazer um?"; //even though you don't have one?
 				next;
 				set .@score, 0;
-				if( select("Preparar a Vasilha de Mistura.:Vestir a Vasilha de Mistura na cabeÃ§a.:Chutar a Vasilhas de Mistura.") == 1 )
+				if( select("Preparar a Vasilha de Mistura.:Vestir a Vasilha de Mistura na cabeça.:Chutar a Vasilhas de Mistura.") == 1 )
 				{
 					set .@score, .@score + 10;
 				}
@@ -587,17 +587,17 @@ alde_alche,13,15,8	script	Darwin#alch	750,{
 					set .@score, .@score + 10;
 				}
 
-				if( select("Esmagar as ervas.:Esmagar a Vasilha de Mistura.:Esmagar os pÃ©s de Darwin") == 1 )
+				if( select("Esmagar as ervas.:Esmagar a Vasilha de Mistura.:Esmagar os pés de Darwin") == 1 )
 				{
 					set .@score, .@score + 10;
 				}
 
-				if( select("Gotear a Ã¡gua.:Beber a Ã¡gua.:Colocar poucas quantidades de Ã¡gua.") == 3 )
+				if( select("Gotear a água.:Beber a água.:Colocar poucas quantidades de água.") == 3 )
 				{
 					set .@score, .@score + 10;
 				}
 
-				if( select("Continuar esmagando as ervas.:Continuar comendo as ervas.:Continuar danÃ§ando e cantando.") == 1 )
+				if( select("Continuar esmagando as ervas.:Continuar comendo as ervas.:Continuar dançando e cantando.") == 1 )
 				{
 					set .@score, .@score + 10;
 				}
@@ -610,13 +610,13 @@ alde_alche,13,15,8	script	Darwin#alch	750,{
 				if( .@score < 60 )
 				{
 					mes "[Darwin]";
-					mes "... VocÃª estragou todos os ingredientes.";
-					mes "... VÃ¡ buscar mais alguns.";
+					mes "... Você estragou todos os ingredientes.";
+					mes "... Vá buscar mais alguns.";
 					close;
 				}
 				mes "[Darwin]";
-				mes "... Bom trabalho. Ficou muito bom considerando que Ã© sua primeira vez...";
-				mes "Como uma lembranÃ§a, pegue isso.";
+				mes "... Bom trabalho. Ficou muito bom considerando que é sua primeira vez...";
+				mes "Como uma lembrança, pegue isso.";
 				getitem 501,1;
 				getitem 503,1;
 				getitem 504,1;
@@ -629,37 +629,37 @@ alde_alche,13,15,8	script	Darwin#alch	750,{
 				mes "[Darwin]";
 				mes "...........";
 				mes ".........";
-				mes "....Quem Ã© esse...";
+				mes "....Quem é esse...";
 				next;
 				mes "[Darwin]";
 				mes "Um lobo? Ou um humano...";
-				mes "VocÃª deve estar procurando por algo tambÃ©m.";
+				mes "Você deve estar procurando por algo também.";
 				next;
 				mes "[Darwin]";
-				mes "Se vocÃª tem algo precioso, tenha cuidado.";
-				mes "VocÃª pode perder alguma coisa a mais enquanto estiver atrÃ¡s de outra...";
+				mes "Se você tem algo precioso, tenha cuidado.";
+				mes "Você pode perder alguma coisa a mais enquanto estiver atrás de outra...";
 				next;
 				mes "[Darwin]";
 				mes "..........";
 				next;
 				mes "[Darwin]";
-				mes "...mas o que trÃ¡s vocÃª aqui?";
+				mes "...mas o que trás você aqui?";
 				mes "Vindo em um lugar como esse?";
 				next;
 				if( select("Eu quero aprender como fazer experimentos.:Diga-me mais sobre as flores.") == 1 )
 				{
 					mes "[Darwin]";
-					mes "VocÃª quer aprender alquimia...";
+					mes "Você quer aprender alquimia...";
 					mes "Todo conhecimento que eu possuo...";
 					mes "Eu tive que tornar meus sonhos verdadeiros..."; //I made to make my dreams come true...
 					next;
 					mes "[Darwin]";
-					mes "Eu ensinarei vocÃª o bÃ¡sico...";
-					mes "Mas vocÃª tem que determinar seus prÃ³prios desejos.";
+					mes "Eu ensinarei você o básico...";
+					mes "Mas você tem que determinar seus próprios desejos.";
 					next;
 					mes "[Darwin]";
-					mes "EntÃ£o, aqui vai o bÃ¡sico.";
-					mes "Isto Ã© como se faz um remÃ©dio simples...";
+					mes "Então, aqui vai o básico.";
+					mes "Isto é como se faz um remédio simples...";
 					mes "Prepare os ingredientes...";
 					next;
 					mes "[Darwin]";
@@ -670,7 +670,7 @@ alde_alche,13,15,8	script	Darwin#alch	750,{
 					mes "1 Erva Branca^000000";
 					next;
 					mes "[Darwin]";
-					mes "Depois que vocÃª providenciar todos esses... venha aqui.";
+					mes "Depois que você providenciar todos esses... venha aqui.";
 					set ALCH_Q2, 1;
 					close;
 				}
@@ -680,59 +680,59 @@ alde_alche,13,15,8	script	Darwin#alch	750,{
 				mes "...pense sobre suas coisas preciosas...";
 				next;
 				mes "[Darwin]";
-				mes ".... HÃ¡ uma flor que eu vagamente me lembro....";
+				mes ".... Há uma flor que eu vagamente me lembro....";
 				next;
 				mes "[Darwin]";
 				mes "Eu me envolvi pesquisando uma coisa...";
-				mes "Para a Ãºnica que eu amo...";
+				mes "Para a única que eu amo...";
 				next;
 				mes "[Darwin]";
 				mes "Vamos dizer que era sobre um relacionamento entre lobo e flores...";
-				mes "Eu nÃ£o direi vocÃª os detalhes.";
+				mes "Eu não direi você os detalhes.";
 				next;
 				mes "[Darwin]";
 				mes "Mas sim... era uma flor.";
-				mes "Com seu brilho, assim mesmo como diziam, a paradisÃ­aca Flor da IlusÃ£o."; // with its shine, it was said to  let you see paradise Illusion Flower...
+				mes "Com seu brilho, assim mesmo como diziam, a paradisíaca Flor da Ilusão."; // with its shine, it was said to  let you see paradise Illusion Flower...
 				next;
 				mes "[Darwin]";
-				mes "Eu fiz um homÃºnculo.";
-				mes "NinguÃ©m acreditou em mim. Eu criei vida de uma flor!!!";
+				mes "Eu fiz um homúnculo.";
+				mes "Ninguém acreditou em mim. Eu criei vida de uma flor!!!";
 				mes "Com minhas pesquisas!";
 				next;
 				mes "[Darwin]";
 				mes "Mas agora, nada sobrou...";
-				mes "Tudo estÃ¡ terminado.";
+				mes "Tudo está terminado.";
 				mes "A minha vida parou naquele instante..."; //Time has stopped at that moment in my life...
 				next;
 				mes "[Darwin]";
 				mes "Aargh... Harmona, nos lindos campos de flores,";
-				mes "Aonde vocÃª foi parar...";
+				mes "Aonde você foi parar...";
 				close;
 			}
 		}
 		
 		mes "[Darwin]";
-		mes "VÃ¡ atÃ© ^5533FFVan Helmont^000000 na prÃ³xima sala...";
-		mes "Ele te ensinarÃ¡ a vocÃª mais detalhes.";
-		mes "VÃ¡ aprender com ele.";
+		mes "Vá até ^5533FFVan Helmont^000000 na próxima sala...";
+		mes "Ele te ensinará a você mais detalhes.";
+		mes "Vá aprender com ele.";
 		next;
 		mes "[Darwin]";
-		mes "NÃ£o se esqueÃ§a...";
-		mes "VocÃª deve proteger o que Ã© realmente precioso para vocÃª...";
+		mes "Não se esqueça...";
+		mes "Você deve proteger o que é realmente precioso para você...";
 		close;
 	}
 
 	mes "[Darwin]";
 	mes "Mas para perder ou ganhar...";
-	mes "Ã‰ sempre assim...";
+	mes "É sempre assim...";
 	next;
 	mes "[Darwin]";
-	mes "Tudo que eu posso ver com meus olhos amaldiÃ§oados";
-	mes "sÃ£o ilusÃµes do passado,";
+	mes "Tudo que eu posso ver com meus olhos amaldiçoados";
+	mes "são ilusões do passado,";
 	mes "Ahahahaha...";
 	next;
 	mes "[Darwin]";
-	mes "NÃ£o hÃ¡ coisas como o paraÃ­so... hÃ¡?";
+	mes "Não há coisas como o paraíso... há?";
 	mes "Minha amada Harmona.... Aah....";
 	close;
 }
@@ -748,80 +748,80 @@ alde_alche,79,19,4	script	Van Helmont#alch	748,{
 				if( al_morgen != 1 )
 				{
 					mes "[Van Helmont]";
-					mes "Eu nÃ£o disse a vocÃª para visitar Morgenstein em Geffen!?!";
-					mes "Ele Ã© um homem sÃ¡bio! VocÃª deveria falar com ele!";
+					mes "Eu não disse a você para visitar Morgenstein em Geffen!?!";
+					mes "Ele é um homem sábio! Você deveria falar com ele!";
 					close;
 				}
 				mes "[Van Helmont]";
-				mes "Sim, cortando o TentÃ¡culo";
+				mes "Sim, cortando o Tentáculo";
 				mes "e misturando alguns Mucos Pegajosos,";
-				mes "A soluÃ§Ã£o de Jellopys no tubo de testes... Droga, aonde a Vasilha de Mistura foi parar?";
+				mes "A solução de Jellopys no tubo de testes... Droga, aonde a Vasilha de Mistura foi parar?";
 				next;
 				mes "[Van Helmont]";
-				mes "SerÃ¡ que eu usei todas elas? Em uma hora como esse... Grrrrr. Creio que Nicolas tem algumas sobrando.";
+				mes "Será que eu usei todas elas? Em uma hora como esse... Grrrrr. Creio que Nicolas tem algumas sobrando.";
 				mes "Ganfunnit... que droga.";
 				mes "....mas, espera, espera.";
 				next;
 				mes "[Van Helmont]";
-				mes "Ah, vocÃª Ã© o Mercador de antes. EntÃ£o, aprendeu algo?";
-				mes "Eu nÃ£o mandei vocÃª lÃ¡ para brincar.";
+				mes "Ah, você é o Mercador de antes. Então, aprendeu algo?";
+				mes "Eu não mandei você lá para brincar.";
 				next;
 				mes "[Van Helmont]";
-				mes "Deixe-me perguntar a vocÃª algumas perguntas. Responda com o que vocÃª aprendeu.";
+				mes "Deixe-me perguntar a você algumas perguntas. Responda com o que você aprendeu.";
 				next;
 				set .@score, 0;
 				mes "[Van Helmont]";
-				mes "Que item Ã© necessÃ¡rio para produzir o AntÃ­geno?";
+				mes "Que item é necessário para produzir o Antígeno?";
 				next;
 				select("Pluma:Muco Pegajoso:Sangue de Animal");
 				mes "[Van Helmont]";
-				mes "Quais desses itens nÃ£o Ã© necessÃ¡rio para a formaÃ§Ã£o do AntÃ­geno?";
+				mes "Quais desses itens não é necessário para a formação do Antígeno?";
 				next;
-				if( select("Karvodailnirol:Detrimindexta:Ãlcool") == 1 ) set .@score, .@score + 10;
+				if( select("Karvodailnirol:Detrimindexta:Álcool") == 1 ) set .@score, .@score + 10;
 				mes "[Van Helmont]";
-				mes "Que item Ã© necessÃ¡rio para fazer uma Mistura?";
+				mes "Que item é necessário para fazer uma Mistura?";
 				next;
-				select("RaÃ§Ã£o para Monstros:LÃ¡bios Fossilizados:Bandagem Estragada");
+				select("Ração para Monstros:Lábios Fossilizados:Bandagem Estragada");
 				mes "[Van Helmont]";
-				mes "Qual desses itens nÃ£o Ã© necessÃ¡rio no processo para fazer uma Mistura?";
+				mes "Qual desses itens não é necessário no processo para fazer uma Mistura?";
 				next;
-				if( select("Karvodailnirol:Detrimindexta:Ãlcool") == 2 ) set .@score, .@score + 10;
+				if( select("Karvodailnirol:Detrimindexta:Álcool") == 2 ) set .@score, .@score + 10;
 
 				if( .@score < 20 )
 				{
 					mes "[Van Helmont]";
-					mes "...Seja sincero. VocÃª nÃ£o sabe,";
-					mes "estou errado? Eu disse para vocÃª aprender direito com o Morgenstein...";
+					mes "...Seja sincero. Você não sabe,";
+					mes "estou errado? Eu disse para você aprender direito com o Morgenstein...";
 					next;
 					mes "[Van Helmont]";
 					mes "Nem sequer pense em voltar antes de ter aprendido tudo com certeza!";
-					mes "Pare de me atrapalhar e vÃ¡ embora!";
+					mes "Pare de me atrapalhar e vá embora!";
 					close;
 				}
 				mes "[Van Helmont]";
-				mes "Hmmm, vocÃª aprendeu direito. Tudo bem, agora vocÃª sabe algo sobre remÃ©dios?";
+				mes "Hmmm, você aprendeu direito. Tudo bem, agora você sabe algo sobre remédios?";
 				mes "Ahn?";
-				mes "Eu sei, vocÃª deve ter muito o que dizer mas deixe-me continuar com meu experimento.";
+				mes "Eu sei, você deve ter muito o que dizer mas deixe-me continuar com meu experimento.";
 				next;
 				mes "[Van Helmont]";
-				mes "Saia e vÃ¡ atÃ© o prÃ³ximo aposento.  ^5533FFNicholas^000000 provavelmente tem mais o que ensinar a vocÃª do que eu.";
+				mes "Saia e vá até o próximo aposento.  ^5533FFNicholas^000000 provavelmente tem mais o que ensinar a você do que eu.";
 				set ALCH_Q,5;
 				set ALCH_Q2,0;
 				close;
 			}
 			mes "[Van Helmont]";
-			mes "Arrrrgh... Porque esta formula nÃ£o continua...? O que hÃ¡ de errado?"; //Why does this formula just stop... What's wrong.
-			mes "Teoricamente estÃ¡ tudo correto...";
-			mes "Tenho certeza que Ã© algum erro na fÃ³rmula o motivo disso...";
+			mes "Arrrrgh... Porque esta formula não continua...? O que há de errado?"; //Why does this formula just stop... What's wrong.
+			mes "Teoricamente está tudo correto...";
+			mes "Tenho certeza que é algum erro na fórmula o motivo disso...";
 			mes "Em algum lugar...";
 			next;
 			mes "[Van Helmont]";
-			mes "Ã‰ isto, eu despejo aqui e poderia funcionar... Mas aqui na soluÃ§Ã£o da formula nÃ£o faz nenhum sentindo..."; //That's it, I pour it here and it should stop... but this is the formula that solution doesn't stop flowing.
+			mes "É isto, eu despejo aqui e poderia funcionar... Mas aqui na solução da formula não faz nenhum sentindo..."; //That's it, I pour it here and it should stop... but this is the formula that solution doesn't stop flowing.
 			mes "Como eu pude fazer tal erro... Quando foi que eu inverti esses...";
 			next;
 			mes "[Van Helmont]";
 			mes "Sim, achei. Eu preciso consertar esta parte.";
-			mes "NÃ£o hÃ¡ necessidade de comeÃ§ar de novo.";
+			mes "Não há necessidade de começar de novo.";
 			mes "Eu somente tenho que consertar...";
 			mes "....Mas, espera, espera.";
 			next;
@@ -829,57 +829,57 @@ alde_alche,79,19,4	script	Van Helmont#alch	748,{
 			mes ".....................";
 			next;
 			mes "[Van Helmont]";
-			mes "....Quem Ã© vocÃª?";
+			mes "....Quem é você?";
 			next;
 			if( select("Eu quero me tornar um Alquimista.:.....") == 1 )
 			{
 				mes "[Van Helmont]";
 				mes "Oh, entendo....";
-				mes "Hahahaha, vocÃª quer aprender alquimia em um mundo como esse, que Mercador engraÃ§ado.... hmmm.";
+				mes "Hahahaha, você quer aprender alquimia em um mundo como esse, que Mercador engraçado.... hmmm.";
 				next;
 				mes "[Van Helmont]";
-				mes "Bem, isso Ã© bom, mas eu tenho um experimento urgente que eu devo fazer.";
-				mes "EntÃ£o nÃ£o fique no caminho.";
+				mes "Bem, isso é bom, mas eu tenho um experimento urgente que eu devo fazer.";
+				mes "Então não fique no caminho.";
 				next;
 				if( select("Ensine me alguma coisa.:..........") == 1 )
 				{
 					mes "[Van Helmont]";
-					mes "Argh... eu nÃ£o disse para nÃ£o me atrapalhar?";
-					mes "Porque vocÃª nÃ£o consigue entender quando eu falo algo?!";
+					mes "Argh... eu não disse para não me atrapalhar?";
+					mes "Porque você não consigue entender quando eu falo algo?!";
 					next;
 					mes "[Van Helmont]";
-					mes "Tudo bem, darei vocÃª uma tarefa.";
-					mes "VÃ¡ estudar e volte. Vamos ver...";
+					mes "Tudo bem, darei você uma tarefa.";
+					mes "Vá estudar e volte. Vamos ver...";
 					mes "O que poderia ser bom... Hmm...";
 					next;
 					mes "[Van Helmont]";
-					mes "Oh, jÃ¡ sei. VÃ¡ aprender do ^5533FFMorgenstein^000000. Aprenda como fazer um ^009500AntÃ­geno^000000 e uma ^FF3355Mistura^000000.";
-					mes "VocÃª pode encontrar ele em ^5533FFGeffen^000000.";
+					mes "Oh, já sei. Vá aprender do ^5533FFMorgenstein^000000. Aprenda como fazer um ^009500Antígeno^000000 e uma ^FF3355Mistura^000000.";
+					mes "Você pode encontrar ele em ^5533FFGeffen^000000.";
 					next;
 					mes "[Van Helmont]";
-					mes "VocÃª nÃ£o precisa trazer o que vocÃª fizer. Mas sÃ³ vÃ¡ assistir como ele faz os remÃ©dios."; // You don't need to bring what you made. But just go watch how he makes medicine and stuff.
+					mes "Você não precisa trazer o que você fizer. Mas só vá assistir como ele faz os remédios."; // You don't need to bring what you made. But just go watch how he makes medicine and stuff.
 					mes "Entendeu?";
 					next;
 					mes "[Van Helmont]";
-					mes "Bem entÃ£o, vejo vocÃª mais tarde.";
-					mes "VocÃª deveria ir o mais brevemente possÃ­vel.";
+					mes "Bem então, vejo você mais tarde.";
+					mes "Você deveria ir o mais brevemente possível.";
 					set ALCH_Q2,1;
 					close;
 				}
 			}
 			mes "[Van Helmont]";
-			mes "Se vocÃª nÃ£o tem negÃ³cios aqui, vÃ¡ embora! JÃ¡!!!";
+			mes "Se você não tem negócios aqui, vá embora! Já!!!";
 			close;
 		}
 		else if( ALCH_Q == 5 )
 		{
 			mes "[Van Helmont]";
-			mes "O que vocÃª estÃ¡ fazendo? Saia e vÃ¡ atÃ© o prÃ³ximo aposento.  ^5533FFNicholas^000000 provavelmente tem mais o que te ensinar do que eu.";
-			mes "Eu nÃ£o tenho mais negÃ³cios a tratar com vocÃª.";
+			mes "O que você está fazendo? Saia e vá até o próximo aposento.  ^5533FFNicholas^000000 provavelmente tem mais o que te ensinar do que eu.";
+			mes "Eu não tenho mais negócios a tratar com você.";
 			close;
 		}
 	}
-	mes "Somente mais um pouco... sim, sÃ³ mais um pouquinho...";
+	mes "Somente mais um pouco... sim, só mais um pouquinho...";
 	mes "ARGH! Somente mais um pouco e eu poderia ter feito!";
 	next;
 	mes "[Van Helmont]";
@@ -902,45 +902,45 @@ alde_alche,145,19,4	script	Nicholas Flamel#alch	57,{
 			if( ALCH_Q2 == 1 )
 			{
 				mes "[Nicholas Flamel]";
-				mes "Hmmm, vocÃª voltou.";
-				mes "Bem, veremos se vocÃª mudou..."; 
+				mes "Hmmm, você voltou.";
+				mes "Bem, veremos se você mudou..."; 
 				next;
 			}
 			else
 			{
 				mes "[Nicholas Flamel]";
-				mes "Ooh... vocÃª Ã© o novo Mercador que quer se tornar um Alquimista?";
-				mes "Mas vocÃª sabe... nÃ£o todo mundo pode ser tornar um.";
+				mes "Ooh... você é o novo Mercador que quer se tornar um Alquimista?";
+				mes "Mas você sabe... não todo mundo pode ser tornar um.";
 				next;
 				mes "[Nicholas Flamel]";
-				mes "A UniÃ£o nÃ£o gosta daqueles que somente viram Alquimista sem um objetivo bem nÃ­tido.";
-				mes "EntÃ£o... para ver se vocÃª Ã© capacitado, eu vou testar o quÃ£o inteligente vocÃª Ã©.";
+				mes "A União não gosta daqueles que somente viram Alquimista sem um objetivo bem nítido.";
+				mes "Então... para ver se você é capacitado, eu vou testar o quão inteligente você é.";
 				next;
 				mes "[Nicholas Flamel]";
-				mes "Como vocÃª sabe, Alquimistas devem memoriza muitas equaÃ§Ãµes,";	
-				mes "equaÃ§Ãµes quÃ­micas e muitas outras informaÃ§Ãµes.";
-				mes "Se vocÃª nÃ£o Ã© de um certo nÃ­vel,";
+				mes "Como você sabe, Alquimistas devem memoriza muitas equações,";	
+				mes "equações químicas e muitas outras informações.";
+				mes "Se você não é de um certo nível,";
 				mes "vai ser bem complicado."; //it's actually pretty tough.
 				next;
 				mes "[Nicholas Flamel]";
-				mes "A idÃ©ia Ã© previnir que Alquimistas desnecessÃ¡rios se juntem a UniÃ£o!";
+				mes "A idéia é previnir que Alquimistas desnecessários se juntem a União!";
 				next;
 				mes "[Nicholas Flamel]";
-				mes "Certo... Aqui vÃ£o as perguntas!";
-				mes "Isto Ã© para testar sua concentraÃ§Ã£o entÃ£o nÃ£o fique confuso enquanto estiver olhando para os grÃ¡ficos.";
+				mes "Certo... Aqui vão as perguntas!";
+				mes "Isto é para testar sua concentração então não fique confuso enquanto estiver olhando para os gráficos.";
 				next;
 				mes "[Nicholas Flamel]";
-				mes "Encontre as palavras em um grupo de letras. As palavras tÃªm que ser feitas usando todas ou algumas letras disponÃ­veis que lhe sÃ£o dados.";
+				mes "Encontre as palavras em um grupo de letras. As palavras têm que ser feitas usando todas ou algumas letras disponíveis que lhe são dados.";
 				next;
 				mes "[Nicholas Flamel]";
-				mes "VocÃª passa se a palavra estive 'Dentro' do quebra-cabeÃ§a.";
+				mes "Você passa se a palavra estive 'Dentro' do quebra-cabeça.";
 				next;
 			}
 			set .@score, 0;
 			mes "[Nicholas Flamel]";
 			mes "s m i e x b w u n e n t a g l r";
 			next;
-			if( select("tigre:lobo:abobora:tropeÃ§ar") == 1 ) set .@score, .@score + 10; 
+			if( select("tigre:lobo:abobora:tropeçar") == 1 ) set .@score, .@score + 10; 
 			mes "[Nicholas Flamel]";
 			mes "n i e g b o p r c o a u w r v";
 			next;
@@ -950,15 +950,15 @@ alde_alche,145,19,4	script	Nicholas Flamel#alch	57,{
 			next;
 			if( select("alberta:latifoliate:carmesim:borbo:sempre-verde") == 2 ) set .@score, .@score + 10; 
 			mes "[Nicholas Flamel] ";
-			mes "r o e h n Ã§ r o f m c a i n d p t Ã£ t";
+			mes "r o e h n ç r o f m c a i n d p t ã t";
 			next;
-			if( select("forjadormercador:poÃ§Ã£omercador:descmercador:vendedormercador") == 2 ) set .@score, .@score + 10;
+			if( select("forjadormercador:poçãomercador:descmercador:vendedormercador") == 2 ) set .@score, .@score + 10;
 
 			if( .@score < 40 )
 			{
 				mes "[Nicholas Flamel]";
-				mes "Hmmm... VocÃª falhou!";
-				mes "Pegue seus Ã³culos, talvez vocÃª consiga passar da prÃ³xima vez usando eles.";
+				mes "Hmmm... Você falhou!";
+				mes "Pegue seus óculos, talvez você consiga passar da próxima vez usando eles.";
 				set ALCH_Q2,1;
 				close;
 			}
@@ -966,16 +966,16 @@ alde_alche,145,19,4	script	Nicholas Flamel#alch	57,{
 			set ALCH_Q,6;
 			set ALCH_Q2,0;
 			mes "[Nicholas Flamel]";
-			mes "VocÃª parece que terminou.";
+			mes "Você parece que terminou.";
 			next;
 			mes "[Nicholas Flamel]";
 			mes "Vamos ver.";
 			mes "...Bom trabalho. Excelente.";
 			next;
 			mes "[Nicholas Flamel]";
-			mes "De alguma maneira vocÃª encontrou todas.";
-			mes "Com este tipo de concentraÃ§Ã£o, vocÃª poderia facilmente estar apto a ler os dicionÃ¡rios dos remÃ©dios.";
-			mes "Vamos ver... o prÃ³ximo Ã©...";
+			mes "De alguma maneira você encontrou todas.";
+			mes "Com este tipo de concentração, você poderia facilmente estar apto a ler os dicionários dos remédios.";
+			mes "Vamos ver... o próximo é...";
 			next;
 			mes "[Nicholas Flamel]";
 			mes "Volte daqui a pouco.";
@@ -988,7 +988,7 @@ alde_alche,145,19,4	script	Nicholas Flamel#alch	57,{
 				if( ALCH_Q2 < 2 )
 				{
 					mes "[Nicholas Flamel]";
-					mes "Os irmÃ£os Bain e Bajin estÃ£o em Yuno esperando sua ajuda.";
+					mes "Os irmãos Bain e Bajin estão em Yuno esperando sua ajuda.";
 					close;
 				}
 				else
@@ -997,26 +997,26 @@ alde_alche,145,19,4	script	Nicholas Flamel#alch	57,{
 					set ALCH_Q2, 0;
 					mes "[Nicholas Flamel]";
 					mes "Ooh! Muito bom ao ter vindo dessa longa viagem."; //Well done on such a long  trip.
-					mes "Eu recebi a mensagem dizendo que os irmÃ£os Bain e Bajin ficarÃ£o felizes com sua visita.";
+					mes "Eu recebi a mensagem dizendo que os irmãos Bain e Bajin ficarão felizes com sua visita.";
 					next;
 					mes "[Nicholas Flamel]";
-					mes "VocÃª tem que suceder em os ajudar.";
-					mes "Se vocÃª for bom o suficiente em ajudar os irmÃ£os... tudo bem, eu acho que vocÃª serÃ¡ aceito.";
+					mes "Você tem que suceder em os ajudar.";
+					mes "Se você for bom o suficiente em ajudar os irmãos... tudo bem, eu acho que você será aceito.";
 					next;
 					mes "[Nicholas Flamel]";
-					mes "VÃ¡ atÃ© o LÃ­der da UniÃ£o no segundo andar!";
-					mes "ParabÃ©ns. VocÃª irÃ¡ mudar de classe em breve!";
+					mes "Vá até o Líder da União no segundo andar!";
+					mes "Parabéns. Você irá mudar de classe em breve!";
 					close;
 				}
 			}
 			else
 			{
 				mes "[Nicholas Flamel]";
-				mes "PrÃ³ximo, vocÃª ter que ir a um lugar.";
-				mes "VÃ¡ atÃ© ^5533FF'A Cidade Esquecida de Yuno'^000000 e encontre os irmÃ£os ^FF3355Bain e Bajin^000000 que estÃ£o pesquisando alquimia com os sÃ¡bios.";
+				mes "Próximo, você ter que ir a um lugar.";
+				mes "Vá até ^5533FF'A Cidade Esquecida de Yuno'^000000 e encontre os irmãos ^FF3355Bain e Bajin^000000 que estão pesquisando alquimia com os sábios.";
 				next;
 				mes "[Nicholas Flamel]";
-				mes "VÃ¡ ajudÃ¡-los e volte aqui. Pegue isto... vai ajudar vocÃª."; //it will help you get close to them
+				mes "Vá ajudá-los e volte aqui. Pegue isto... vai ajudar você."; //it will help you get close to them
 				next;
 				getitem 974,1;
 				getitem 7068,5;
@@ -1027,21 +1027,21 @@ alde_alche,145,19,4	script	Nicholas Flamel#alch	57,{
 				mes "1 Mistura";
 				mes "5 Madeira Queimada";
 				mes "5 Areia Fina";
-				mes "3 MinÃ©rio de Oridecon";
-				mes "3 MinÃ©rio de Elunium";
+				mes "3 Minério de Oridecon";
+				mes "3 Minério de Elunium";
 				set ALCH_Q2,1;
 				next;
 				mes "[Nicholas Flamel]";
 				mes "Tenha uma viagem segura.";
-				mes "Ã‰ Yuno. Venha em um piscar de olhos."; //Come back in one piece.
+				mes "É Yuno. Venha em um piscar de olhos."; //Come back in one piece.
 				close;
 			}
 		}
 		else if( ALCH_Q == 7 )
 		{
 			mes "[Nicholas Flamel]";
-			mes "VÃ¡ atÃ© o LÃ­der da UniÃ£o no segundo andar!";
-			mes "ParabÃ©ns. VocÃª irÃ¡ mudar de classe em breve!";
+			mes "Vá até o Líder da União no segundo andar!";
+			mes "Parabéns. Você irá mudar de classe em breve!";
 			close;
 		}
 	}
@@ -1068,59 +1068,59 @@ alde_alche,101,184,4	script	Vincent Carsciallo#alch	122,{
 				close;	
 			}
 			mes "[Vincent Carsciallo]";
-			mes "Ooh, certo. VocÃª jÃ¡ junto-se e aprendeu o bÃ¡sico tambÃ©m. Muito bom.";
+			mes "Ooh, certo. Você já junto-se e aprendeu o básico também. Muito bom.";
 			next;
 			set .@gift, JBLVL;
 			callfunc "Job_Change",Job_Alchem;
 			callfunc "F_ClearJobVar";
 			emotion e_grat;
 			mes "[Vincent Carsciallo]";
-			mes "De agora em diante, vocÃª tambÃ©m Ã© um membro reconhecido da UniÃ£o dos Alquimistas.";
-			mes "Eu acredito que vocÃª aprendeu bastante...";
+			mes "De agora em diante, você também é um membro reconhecido da União dos Alquimistas.";
+			mes "Eu acredito que você aprendeu bastante...";
 			next;
 			getitem (.@gift==50?7133:7127), 1;
 			mes "[Vincent Carsciallo]";
-			mes "Aqui estÃ¡ uma pequena coisa.";
-			mes "Use-o para comeÃ§ar com alguma pesquisa.";
+			mes "Aqui está uma pequena coisa.";
+			mes "Use-o para começar com alguma pesquisa.";
 			next;
 			mes "[Vincent Carsciallo]";
-			mes "Eu verei vocÃª mais tarde entÃ£o...";
+			mes "Eu verei você mais tarde então...";
 			mes "Tenha orgulho de ser um Alquimista!";
 			close;
 		}
 		mes "[Vincent Carsciallo]";
 		mes "Hmmm? Um Mercador.";
-		mes "VocÃª estÃ¡ interresado em alquimia?";
+		mes "Você está interresado em alquimia?";
 		next;
 		mes "[Vincent Carsciallo]";
-		mes "Esta Ã© a UniÃ£o Alquimista.";
-		mes "NÃ³s pesquisamos muitas substÃ¢ncias diferentes.";
-		mes "Nosso objetivo Ã© fazer alguma coisa nova sem o poder da magia.";
+		mes "Esta é a União Alquimista.";
+		mes "Nós pesquisamos muitas substâncias diferentes.";
+		mes "Nosso objetivo é fazer alguma coisa nova sem o poder da magia.";
 		next;
 		mes "[Vincent Carsciallo]";
-		mes "Criar nova vida, e estudar como vive mais e nÃ£o morrer...";
-		mes "NÃ³s tambÃ©m fazemos novos materiais a partir dos que jÃ¡ existem...";
-		mes "Estas sÃ£o algumas das coisas que fazemos.";
+		mes "Criar nova vida, e estudar como vive mais e não morrer...";
+		mes "Nós também fazemos novos materiais a partir dos que já existem...";
+		mes "Estas são algumas das coisas que fazemos.";
 		next;
 		mes "[Vincent Carsciallo]";
 		mes "Depois de ser um Mercador por um longo tempo";
-		mes "vocÃª comeÃ§a a se tornar interresado em tudo.";
-		mes "Se vocÃª gosta de aprender alquimia tambÃ©m,";
-		mes "tente fazer parte da nossa UniÃ£o.";
+		mes "você começa a se tornar interresado em tudo.";
+		mes "Se você gosta de aprender alquimia também,";
+		mes "tente fazer parte da nossa União.";
 		close;
 		
 	}
 	else if( BaseJob == Job_Alchem )
 	{
 		mes "[Vincent Carsciallo]";
-		mes "Como a alquimia prosegue? Tenha certeza em ser cuidadoso e pensar sobre seguranÃ§a em todos os momentos.";
-		mes "Eu nÃ£o gostaria que vocÃª se explodisse ou qualquer coisa assim...";
+		mes "Como a alquimia prosegue? Tenha certeza em ser cuidadoso e pensar sobre segurança em todos os momentos.";
+		mes "Eu não gostaria que você se explodisse ou qualquer coisa assim...";
 		close;
 	}
 	mes "[Vincent Carsciallo]";
-	mes "Hmmm? O que um cidadÃ£o faria em um local como este?";
+	mes "Hmmm? O que um cidadão faria em um local como este?";
 	next;
 	mes "[Vincent Carsciallo]";
-	mes "NÃ£o hÃ¡ nada do que se divertir. NÃ£o fique vagando e saia daqui.";
+	mes "Não há nada do que se divertir. Não fique vagando e saia daqui.";
 	close;
 }

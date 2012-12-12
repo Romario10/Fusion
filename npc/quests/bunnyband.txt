@@ -20,50 +20,50 @@
 //= 1.7 Traduzido e Otimizado. [Matheus]
 //============================================================ 
 
-alberta,26,229,0	script	Funcion√°rio Kafra#bunny	83,{
+alberta,26,229,0	script	Funcion·rio Kafra#bunny	83,{
 	if (BUNYBND == 1) {
-		mes "[Respons√°vel pelo Festival]";
-		mes "Eu sou respons√°vel pelo ^529DFFFestival das ^FF0000Orelhas de Coelho^529DFF!!^000000";
+		mes "[Respons·vel pelo Festival]";
+		mes "Eu sou respons·vel pelo ^529DFFFestival das ^FF0000Orelhas de Coelho^529DFF!!^000000";
 		next;
-		switch( select( "Participar do festival:Informa√ß√µes sobre o festival:Cancelar" ) ){
+		switch( select( "Participar do festival:InformaÁıes sobre o festival:Cancelar" ) ){
 			case 1:
-				mes "[Respons√°vel pelo Festival]";					
-				mes "Vamos ver se voc√™ trouxe todo os materiais nec√©ssarios.";
+				mes "[Respons·vel pelo Festival]";					
+				mes "Vamos ver se vocÍ trouxe todo os materiais necÈssarios.";
 				next;
 				setarray .@Items[0],949,100,706,1,722,1,2213,1;
 				for(set .@i,0; .@i<8; set .@i,.@i+2)
 					if (countitem(.@Items[.@i]) < .@Items[.@i+1]) {
 						mes "[Kafra Employee]";
 						mes "Ah, me desculpe,";
-						mes "mas voc√™ precisa me trazer pelo menos";
+						mes "mas vocÍ precisa me trazer pelo menos";
 						mes .@Items[.@i+1]+" "+getitemname(.@Items[.@i])+((!.@i)?"s.":".");
 						close;
 					}
-				mes "[Respons√°vel pelo Festival]";
-				mes "Puxa vida! Voc√™ trouxe todos os itens!";
+				mes "[Respons·vel pelo Festival]";
+				mes "Puxa vida! VocÍ trouxe todos os itens!";
 				mes "Ok, eu vou fazer as suas Orelhas de Coelho.";
-				mes "Aguarde s√≥ um minutinho.";
+				mes "Aguarde sÛ um minutinho.";
 				next;
 				for(set .@i,0; .@i<8; set .@i,.@i+2)
 					if (countitem(.@Items[.@i]) < .@Items[.@i+1]) {
 						mes "[Kafra Employee]";
 						mes "Hm ? Me desculpe,";
-						mes "mas eu n√£o posso fazer isso agora";
-						mes "Voc√™ precisa de";
+						mes "mas eu n„o posso fazer isso agora";
+						mes "VocÍ precisa de";
 						mes .@Items[.@i+1]+" "+getitemname(.@Items[.@i])+((!.@i)?"s":"");
 						mes "Para eu lhe entregar as Orelhas de Coelho...";
 						close;
 					}
 				for( set .@i, 0; .@i < 8; set .@i, .@i + 2 )
 					delitem .@Items[.@i], .@Items[(.@i+1)];
-				mes "[Respons√°vel pelo Festival]";
-				mes "Aqui est√° a sua Orelhas de Coelho!";
+				mes "[Respons·vel pelo Festival]";
+				mes "Aqui est· a sua Orelhas de Coelho!";
 				getitem 2214,1; //Orelhas de Coelho
 				set BUNYBND,0;
 				next;
-				mes "[Respons√°vel pelo Festival]";
-				mes "Obrigado por participar do festival! Espero que voc√™ goste das suas Orelhas de Coelho!";
-				mes "Espero v√™-lo novamente!";
+				mes "[Respons·vel pelo Festival]";
+				mes "Obrigado por participar do festival! Espero que vocÍ goste das suas Orelhas de Coelho!";
+				mes "Espero vÍ-lo novamente!";
 				close;
 				
 			case 2:
@@ -73,15 +73,15 @@ alberta,26,229,0	script	Funcion√°rio Kafra#bunny	83,{
 				close;
 		}
 	}
-	mes "[Respons√°vel pelo Festival]";
+	mes "[Respons·vel pelo Festival]";
 	mes "Festival das Orelhas de Coelho!";
 	next;
-	switch( select( "Participar do festival:Informa√ß√µes sobre o festival:Cancelar" ) ){
+	switch( select( "Participar do festival:InformaÁıes sobre o festival:Cancelar" ) ){
 		case 1:
 			set BUNYBND,1;
-			mes "[Respons√°vel pelo Festival]";
+			mes "[Respons·vel pelo Festival]";
 			mes "Obrigado pelo seu interesse no festival!";
-			mes "Volte quando tiver todos os itens necess√°rios para se fazer Orelhas de Coelho.";
+			mes "Volte quando tiver todos os itens necess·rios para se fazer Orelhas de Coelho.";
 			close;
 		case 2:
 			break;
@@ -89,27 +89,27 @@ alberta,26,229,0	script	Funcion√°rio Kafra#bunny	83,{
 			close;
 	}
 L_Info:
-	mes "[Respons√°vel pelo Festival]";
-    mes "Para servi-lo cada vez melhor, n√≥s da Corpora√ß√£o Kafra organizamos este Festival das Orelhas de Coelho.";
+	mes "[Respons·vel pelo Festival]";
+    mes "Para servi-lo cada vez melhor, nÛs da CorporaÁ„o Kafra organizamos este Festival das Orelhas de Coelho.";
 	next;
-	mes "[Respons√°vel pelo Festival]";				
-	mes "Eu sou respons√°vel pelo ^529DFFFestival das ^FF0000Orelhas de Coelho^529DFF!!^000000";
-	mes "N√≥s faremos para voc√™ o fant√°stico item chamado ^FF0000Orelhas de Coelho^000000!";
-	mes "(Patroc√≠nio: Guilda dos Arqueiros de Payon)";
+	mes "[Respons·vel pelo Festival]";				
+	mes "Eu sou respons·vel pelo ^529DFFFestival das ^FF0000Orelhas de Coelho^529DFF!!^000000";
+	mes "NÛs faremos para vocÍ o fant·stico item chamado ^FF0000Orelhas de Coelho^000000!";
+	mes "(PatrocÌnio: Guilda dos Arqueiros de Payon)";
 	next;
-	mes "[Respons√°vel pelo Festival]";
-	mes "Basta que voc√™ nos traga os materiais necess√°rios para a manufatura.";
-	mes "As Orelhas de Coelho ser√£o feitas na hora pelo Respons√°vel pelo Festival.";
-	mes "Os itens necess√°rios s√£o os seguintes:";
+	mes "[Respons·vel pelo Festival]";
+	mes "Basta que vocÍ nos traga os materiais necess·rios para a manufatura.";
+	mes "As Orelhas de Coelho ser„o feitas na hora pelo Respons·vel pelo Festival.";
+	mes "Os itens necess·rios s„o os seguintes:";
 	next;
-	mes "[Respons√°vel pelo Festival]";
+	mes "[Respons·vel pelo Festival]";
 	mes "100 plumas";
 	mes "1 Trevo de Quatro Folhas";
-	mes "1 P√©rola";
+	mes "1 PÈrola";
 	mes "1 Orelhas de Gato";
 	next;
-	mes "[Respons√°vel pelo Festival]";
-	mes "Quando voc√™ tiver todos os itens, n√≥s faremos uma Orelhas de Coelho para voc√™.";
+	mes "[Respons·vel pelo Festival]";
+	mes "Quando vocÍ tiver todos os itens, nÛs faremos uma Orelhas de Coelho para vocÍ.";
 	mes "Boa Sorte!";
 	close;
 }

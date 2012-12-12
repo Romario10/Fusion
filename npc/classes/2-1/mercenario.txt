@@ -1,60 +1,60 @@
 //===== Cronus Script ======================================== 
-//= Script MercenÃ¡rio
+//= Script Mercenário
 //===== Por: =================================================
 //= Lupus/SoulBlaker
-//===== VersÃ£o Atual: ======================================== 
+//===== Versão Atual: ======================================== 
 //= 2.6
-//===== DescriÃ§Ã£o: =========================================== 
-//= Muda a classe para MercenÃ¡rio
+//===== Descrição: =========================================== 
+//= Muda a classe para Mercenário
 //===== Changelog: =========================================== 
 //= Traduzido [AerilKsurk]
 //= Quest Atualizada [Mehah]
-//= Adaptado Classname Na FunÃ§Ã£o F_BlockHigh [Mehah]
+//= Adaptado Classname Na Função F_BlockHigh [Mehah]
 //= Traduzido o nome Mercenary Huey [Kamper]
 //= Arrumado grafia de alguns callfuncs [Pudim]
 //= Corrigido a checagem do item [Kamper]
 //= Corrigido katar exploit [Hildds]
 //= 2.5a Removido show, additem	[Yum]
-//= Corrigido pequeno erro no cÃ³digo [JulioCF]
+//= Corrigido pequeno erro no código [JulioCF]
 //= 2.6 Reestruturado script. [SoulBlaker]
 //============================================================
 
-in_moc_16,19,33,4	script	Guia de MercenÃ¡rio#merc	55,{
+in_moc_16,19,33,4	script	Guia de Mercenário#merc	55,{
 
 	if( Upper == 1 )
 	{
 		mes "[Homem Raivoso]";
-		mes "Hm? VocÃª....?";
+		mes "Hm? Você....?";
 		next;
 		mes "[Homem Raivoso]";
-		mes "Pressinto que vocÃª Ã© diferente da maioria das pessoas...";
+		mes "Pressinto que você é diferente da maioria das pessoas...";
 		next;
 		mes "[Homem Raivoso]";
-		mes "Eu nunca conheci ninguÃ©m tÃ£o intimidador como vocÃª! Por alguma motivo, eu nÃ£o gosto de vocÃª. Acho que vocÃª deveria Ã­r embora!";
+		mes "Eu nunca conheci ninguém tão intimidador como você! Por alguma motivo, eu não gosto de você. Acho que você deveria ír embora!";
 		close;
 	}
 	else
 	if( SkillPoint )
 	{
 		mes "[Homem Raivoso]";
-		mes "VocÃª nÃ£o pode mudar classe se vocÃª tem algum ponto de habilidade nÃ£o utilizados da sua 1Âª Classe. VocÃª deve usar eles primeiro.";
+		mes "Você não pode mudar classe se você tem algum ponto de habilidade não utilizados da sua 1ª Classe. Você deve usar eles primeiro.";
 		close;
 	}
 	else
 	if( BaseJob == Job_Assassin )
 	{
 		mes "[Assassino Huey]";
-		mes "Oohh! Ã‰ vocÃª. VocÃª Ã© o...." + strcharinfo(0) + ", certo?";
+		mes "Oohh! É você. Você é o...." + strcharinfo(0) + ", certo?";
 		next;
 		mes "[Assassino Huey]";
-		mes "Que pena que vocÃª naum tem nada pra fazer aqui. agora. Por que vocÃª naum treina mais um pouco. AtÃ©.";
+		mes "Que pena que você naum tem nada pra fazer aqui. agora. Por que você naum treina mais um pouco. Até.";
 		close;
 	}
 	else
 	if( BaseClass == Job_Novice )
 	{
 		mes "[Homem Raivoso]";
-		mes "....HEI! Aprendiz!!! Some daqui, agora!! Eu nÃ£o vo ser responsÃ¡vel por qualquer coisa de ruim que aconteÃ§a com vocÃª.......";
+		mes "....HEI! Aprendiz!!! Some daqui, agora!! Eu não vo ser responsável por qualquer coisa de ruim que aconteça com você.......";
 		emotion e_gasp;
 		close;
 	}
@@ -62,11 +62,11 @@ in_moc_16,19,33,4	script	Guia de MercenÃ¡rio#merc	55,{
 	if( baseClass == Job_Swordman )
 	{
 		mes "[Homem Raivoso]";
-		mes "....O que vocÃª estÃ¡ fazendo aqui? TÃ¡ perdido??";
+		mes "....O que você está fazendo aqui? Tá perdido??";
 		emotion e_what;
 		next;
 		mes "[Homem Raivoso]";
-		mes "Fazendo o que vocÃª foi mandado fazer, nÃ©?........ VocÃªs nÃ£o sÃ£o nada alem de cachorrinhos que fazem tudu que os seus donos mandam.............";
+		mes "Fazendo o que você foi mandado fazer, né?........ Vocês não são nada alem de cachorrinhos que fazem tudu que os seus donos mandam.............";
 		emotion e_pif;
 		close;
 	}
@@ -74,7 +74,7 @@ in_moc_16,19,33,4	script	Guia de MercenÃ¡rio#merc	55,{
 	if( baseClass == Job_Mage )
 	{
 		mes "[Homem Raivoso]";
-		mes "...O que um Mago como vocÃª estÃ¡ fazendo aqui? VocÃª deveria prestar mais atenÃ§Ã£o no seu treino.....";
+		mes "...O que um Mago como você está fazendo aqui? Você deveria prestar mais atenção no seu treino.....";
 		emotion e_hmm;
 		close;
 	}
@@ -82,11 +82,11 @@ in_moc_16,19,33,4	script	Guia de MercenÃ¡rio#merc	55,{
 	if( baseClass == Job_Archer )
 	{
 		mes "[Homem Raivoso]";
-		mes "hUmmh.... vocÃª Ã© um desses que usa arco, nÃ©? Me desculpe mas aqui nÃ£o tem bichinhos fofinho pra vocÃª roubar... (KS).......";
+		mes "hUmmh.... você é um desses que usa arco, né? Me desculpe mas aqui não tem bichinhos fofinho pra você roubar... (KS).......";
 		emotion e_swt;
 		next;
 		mes "[Homem Raivoso]";
-		mes "Espere...... VocÃª nÃ£o estÃ¡ aqui para criar problemas, estÃ¡!!? ....SOME DAQUII!!";
+		mes "Espere...... Você não está aqui para criar problemas, está!!? ....SOME DAQUII!!";
 		emotion e_gasp;
 		close;
 	}
@@ -94,8 +94,8 @@ in_moc_16,19,33,4	script	Guia de MercenÃ¡rio#merc	55,{
 	if( baseClass == Job_Acolyte )
 	{
 		mes "[Homem Raivoso]";
-		mes "...Oh! Um ajudante de Deus..... O que vocÃª estÃ¡ fazendo aqui, num lugar tÃ£o pecaminoso como esse?";
-		mes "Confie em mim, vocÃª nÃ£o vai acha nenhuma salvaÃ§Ã£o aqui... nem ninguÃªm pra salvar..... Por que vocÃª nÃ£o vai embora, ok?........";
+		mes "...Oh! Um ajudante de Deus..... O que você está fazendo aqui, num lugar tão pecaminoso como esse?";
+		mes "Confie em mim, você não vai acha nenhuma salvação aqui... nem ninguêm pra salvar..... Por que você não vai embora, ok?........";
 		emotion e_hmm;
 		close;
 	}
@@ -103,39 +103,39 @@ in_moc_16,19,33,4	script	Guia de MercenÃ¡rio#merc	55,{
 	if( baseClass == Job_Merchant )
 	{
 		mes "[Homem Raivoso]";
-		mes ".... OQUE??? VocÃª tem ideia de quem Ã© vocÃª??...... PORCOS CHUVINISTAS como vocÃª nÃ£o sÃ£o bem vindos aqui!!!";
+		mes ".... OQUE??? Você tem ideia de quem é você??...... PORCOS CHUVINISTAS como você não são bem vindos aqui!!!";
 		emotion e_gg;
 		close;
 	}
 	else
 	if(baseClass != Job_Thief || BaseJob == Job_Rogue){
 		mes "[Homem Raivoso]";
-		mes ".... Humm.... jÃ¡ que vocÃª nÃ£o Ã© um MercenÃ¡rio ou Gatuno... Eu acho melhor vocÃª se contentar com aquilo que vocÃª Ã©.";
+		mes ".... Humm.... já que você não é um Mercenário ou Gatuno... Eu acho melhor você se contentar com aquilo que você é.";
 		close;
 	}
 	else
 	if( JobLevel < 40 )
 	{
 		mes "[Homem Raivoso]";
-		mes "Hmm? O que o traz aqui?.... Eu acho que nÃ£o gosto do jeito que vocÃª estÃ¡ olhando pra mim....?!";
+		mes "Hmm? O que o traz aqui?.... Eu acho que não gosto do jeito que você está olhando pra mim....?!";
 		emotion e_what;
 		next;
 		mes "[Homem Raivoso]";
-		mes ".... Hmm.... VocÃª nÃ£o estÃ¡ pronto ainda.  Para se tornar um Assasino, vocÃª precisarÃ¡ encontrar nossas expectativas.";
+		mes ".... Hmm.... Você não está pronto ainda.  Para se tornar um Assasino, você precisará encontrar nossas expectativas.";
 		next;
 		mes "[Homem Raivoso]";
-		mes "Por que vocÃª nÃ£o vai treinar um pouco mais?...... VocÃª precisa ter um NÃ­vel de Classe de no mÃ­nimo 40 para pensar em se tornar um de nÃ³s....";
+		mes "Por que você não vai treinar um pouco mais?...... Você precisa ter um Nível de Classe de no mínimo 40 para pensar em se tornar um de nós....";
 		close;
 	}
 	else
 	if(ASSIN_Q == 1)
 	{
 		mes "[Homem Raivoso]";
-		mes "O que Ã© isso? Eu nÃ£o acredito que vocÃª falhou no primeiro teste.";
+		mes "O que é isso? Eu não acredito que você falhou no primeiro teste.";
 		mes "~Sigh~........................";
 		close2;
-		disablenpc "MercenÃ¡rio Kai#1";
-		enablenpc "MercenÃ¡rio Kai#2";
+		disablenpc "Mercenário Kai#1";
+		enablenpc "Mercenário Kai#2";
 		warp "in_moc_16", 19, 76;
 		end;
 	}
@@ -143,7 +143,7 @@ in_moc_16,19,33,4	script	Guia de MercenÃ¡rio#merc	55,{
 	if(ASSIN_Q == 2)
 	{
 		mes "[Homem Raivoso]";
-		mes "O que vocÃª estÃ¡ fazendo aqui?? Volte e termine o segundo teste!!";
+		mes "O que você está fazendo aqui?? Volte e termine o segundo teste!!";
 		close2;
 		warp "in_moc_16", 21, 160;
 		end;
@@ -154,32 +154,32 @@ in_moc_16,19,33,4	script	Guia de MercenÃ¡rio#merc	55,{
 		if( SkillPoint > 0 )
 		{
 			mes "[Homem Raivoso]";
-			mes "VocÃª precisarÃ¡ usar todos os seus pontos de habilidade se vocÃª quer se tornar um MercenÃ¡rio.";
+			mes "Você precisará usar todos os seus pontos de habilidade se você quer se tornar um Mercenário.";
 	       		close;
 		}
 		else
 		if( countitem(1008) < 1 )
 		{
 			mes "[Homem Raivoso]";
-			mes "Hmm? VocÃª quer que eu o promova vocÃª para a classe MercenÃ¡rio? Bom me mostre seu ^5544FF'Colar de OblÃ­vio'^000000 entÃ£o.......";
+			mes "Hmm? Você quer que eu o promova você para a classe Mercenário? Bom me mostre seu ^5544FF'Colar de Oblívio'^000000 então.......";
 			next;
-			mes "[MercenÃ¡rio Huey]";
-			mes "VocÃª nÃ£o tem um, nÃ£o Ã©? SÃ³ aqueles que tiverem ganhado o 'Colar de OblÃ­vio' pelo Mestre da Guilda Ã© que tem o direito de se tornar um Assasino.";
+			mes "[Mercenário Huey]";
+			mes "Você não tem um, não é? Só aqueles que tiverem ganhado o 'Colar de Oblívio' pelo Mestre da Guilda é que tem o direito de se tornar um Assasino.";
 			next;
-			if( select("Ah sim.... EstÃ¡ nÃ¡ minha outra calÃ§a de Gatuno....:Bom... Ele foi roubado... heh....") == 1 )
+			if( select("Ah sim.... Está ná minha outra calça de Gatuno....:Bom... Ele foi roubado... heh....") == 1 )
 			{
-				mes "[MercenÃ¡rio Huey]";
-				mes "Eu nÃ£o me importo aonde ele estÃ¡.... se vocÃª quer se tornar um MercenÃ¡rio Ã© melhor vocÃª consegui-lo.";
+				mes "[Mercenário Huey]";
+				mes "Eu não me importo aonde ele está.... se você quer se tornar um Mercenário é melhor você consegui-lo.";
 				close;
 			}
-			mes "[MercenÃ¡rio Huey]";
+			mes "[Mercenário Huey]";
 			mes "........................................";
 			next;
-			mes "[MercenÃ¡rio Huey]";
-			mes "!!(Que muleque otÃ¡rio...hahaha)!!";
+			mes "[Mercenário Huey]";
+			mes "!!(Que muleque otário...hahaha)!!";
 			next;
-			mes "[MercenÃ¡rio Huey]";
-			mes "Divirta-se comeÃ§ando TUDO DENOVO!!";
+			mes "[Mercenário Huey]";
+			mes "Divirta-se começando TUDO DENOVO!!";
 			set ASSIN_Q, 0;
 			set ASSIN_Q2, 0;
 			close2;
@@ -187,82 +187,82 @@ in_moc_16,19,33,4	script	Guia de MercenÃ¡rio#merc	55,{
 			end;
 		}
 		mes "[Homem Raivoso]";
-		mes "Ah... o Colar do OblÃ­vio..... isso quer dizer que o Mestre da Guilda aceitou vocÃª no ClÃ£ dos MercenÃ¡rios.";
+		mes "Ah... o Colar do Oblívio..... isso quer dizer que o Mestre da Guilda aceitou você no Clã dos Mercenários.";
 		next;
-		mes "[MercenÃ¡rio Huey]";
-		mes "ParabÃ©ns! Depois de todo o seu esforÃ§o, vocÃª finalmente pode se tornar um MercenÃ¡rio!";
+		mes "[Mercenário Huey]";
+		mes "Parabéns! Depois de todo o seu esforço, você finalmente pode se tornar um Mercenário!";
 		emotion e_no1;
 		next;
-		mes "[MercenÃ¡rio Huey]";
-		mes "Muito bem, agora vocÃª estÃ¡ oficialmente um MercenÃ¡rio. Embora que vocÃª serÃ¡ sempre bem-vindo aqui..............";
+		mes "[Mercenário Huey]";
+		mes "Muito bem, agora você está oficialmente um Mercenário. Embora que você será sempre bem-vindo aqui..............";
 		setlook 7,0;
 		callfunc "Job_Change",Job_Assassin;
 		callfunc "F_ClearJobVar";		// clears all job variables for the current player
 		set kaitrig, 0;
 		next;
-		mes "[MercenÃ¡rio Huey]";
-		mes "Lembre que vocÃª estÃ¡ por si mesmo agora.  A escuridÃ£o Ã© sua nova casa e seus melhores amigos sÃ£o as facas em suas mÃ£os...........";
+		mes "[Mercenário Huey]";
+		mes "Lembre que você está por si mesmo agora.  A escuridão é sua nova casa e seus melhores amigos são as facas em suas mãos...........";
 		close;
 
 		
 	}
 
 	mes "[Homem Raivoso]";
-	mes ".... Um Gatuno nÃ©?..... Um bom treino para essa causa, porque parece que eu nÃ£o acho meu relÃ³gio!";
+	mes ".... Um Gatuno né?..... Um bom treino para essa causa, porque parece que eu não acho meu relógio!";
 	emotion e_heh;
 	next;
 	mes "[Homem Raivoso]";
-	mes "NÃ³s precisamos de pessoas como vocÃª, sabe........ EntÃ£o o que vocÃª acha de pegar o prÃ³ximo passo no mundo do crime, e se tornar um MercenÃ¡rio?";
+	mes "Nós precisamos de pessoas como você, sabe........ Então o que você acha de pegar o próximo passo no mundo do crime, e se tornar um Mercenário?";
 	next;
 	while(1)
 	{
-		switch( select("VocÃª acertou! Eu escolhi meu Ãºltimo bolso.:Quais sÃ£o os requerimentos?:Talvez mais tarde.... Eu preciso roubar algumas coisas primeiro.") )
+		switch( select("Você acertou! Eu escolhi meu último bolso.:Quais são os requerimentos?:Talvez mais tarde.... Eu preciso roubar algumas coisas primeiro.") )
 		{
 			case 1:
 				mes "[Homem Raivoso]";
-				mes "Faz muito tempo desde que nÃ³s recebemos candidatos para MercenÃ¡rio..... De qualquer jeito deixe-me te levar ao ^5533FFMercenÃ¡rio 'Kai'^000000.";
-				mes "Ele ficarÃ¡ encarregado do registro.";
-				enablenpc "MercenÃ¡rio Kai#1";
-				disablenpc "MercenÃ¡rio Kai#2";
+				mes "Faz muito tempo desde que nós recebemos candidatos para Mercenário..... De qualquer jeito deixe-me te levar ao ^5533FFMercenário 'Kai'^000000.";
+				mes "Ele ficará encarregado do registro.";
+				enablenpc "Mercenário Kai#1";
+				disablenpc "Mercenário Kai#2";
 				savepoint "in_moc_16", 19, 27;
 				close2;
 				warp "in_moc_16", 19, 76;
 				end;
 			case 2:
 				mes "[Homem Raivoso]";
-				mes "Requerimentos? Aqui estÃ£o eles....";
-				mes "#1. VocÃª precisa ser um Gatuno.";
-				mes "#2. Precisa ter um NÃ­vel de Classe de no mÃ­nimo 40.";
-				mes "#3. VocÃª precisa passar nos testes da Guilda dos MercenÃ¡rios.";
+				mes "Requerimentos? Aqui estão eles....";
+				mes "#1. Você precisa ser um Gatuno.";
+				mes "#2. Precisa ter um Nível de Classe de no mínimo 40.";
+				mes "#3. Você precisa passar nos testes da Guilda dos Mercenários.";
 				next;
 				mes "[Homem Raivoso]";
-				mes "Ã‰ tudo muito fÃ¡cil.  Se vocÃª acredita em suas habilidades, entÃ£o o teste serÃ¡ muito fÃ¡cil.";
+				mes "É tudo muito fácil.  Se você acredita em suas habilidades, então o teste será muito fácil.";
 				next;
 				break;
 			case 3:
 				mes "[Homem Raivoso]";
-				mes "Hmm..? Ok entÃ£o... entÃ£o Ã© isso........";
+				mes "Hmm..? Ok então... então é isso........";
 				close;
 		}
 	}
 }
 
 
-in_moc_16,21,91,4	script	MercenÃ¡rio Kai#1	730,4,4,{
+in_moc_16,21,91,4	script	Mercenário Kai#1	730,4,4,{
 	end;
 
 OnTouch:
-	mes "[MercenÃ¡rio Kai]";
+	mes "[Mercenário Kai]";
 	mes "Ummm???....";
-	disablenpc "MercenÃ¡rio Kai#1";
-	enablenpc "MercenÃ¡rio Kai#2";
+	disablenpc "Mercenário Kai#1";
+	enablenpc "Mercenário Kai#2";
 	close;
 }
 
-in_moc_16,25,90,4	script	MercenÃ¡rio Kai#2	730,2,1,{
+in_moc_16,25,90,4	script	Mercenário Kai#2	730,2,1,{
 	if( kaitrig != 1 )
 	{
-		mes "[MercenÃ¡rio Kai]";
+		mes "[Mercenário Kai]";
 		mes "Chegue mais perto, eu gosto de ver o rosto das pessoas enquanto estou falando com elas.";
 		close;
 	}
@@ -270,168 +270,168 @@ OnTouch:
 	set kaitrig, 1;
 	if( ASSIN_Q == 1 )
 	{
-		mes "[MercenÃ¡rio Kai]";
-		mes "Ehhh? VocÃª nÃ£o estava aqui a um minuto atrÃ¡s?";
+		mes "[Mercenário Kai]";
+		mes "Ehhh? Você não estava aqui a um minuto atrás?";
 		emotion e_what;
 		next;
-		mes "[MercenÃ¡rio Kai]";
-		mes "O que Ã© isso?..... VocÃª falhou no primeiro teste?";
+		mes "[Mercenário Kai]";
+		mes "O que é isso?..... Você falhou no primeiro teste?";
 		next;
-		mes "[MercenÃ¡rio Kai]";
+		mes "[Mercenário Kai]";
 		mes "HAHAHAHAAHAHAHAHA!!!!";
 		emotion e_heh;
 		next;
-		mes "[MercenÃ¡rio Kai]";
-		mes "Hehe...HAHA...~cough~..Droga.... Faz tempo desde que eu conheci um perdedor que nem vocÃª..... Ha Ha....";
+		mes "[Mercenário Kai]";
+		mes "Hehe...HAHA...~cough~..Droga.... Faz tempo desde que eu conheci um perdedor que nem você..... Ha Ha....";
 		emotion e_heh;
 		next;
-		mes "[MercenÃ¡rio Kai]";
-		mes "Ah...desculpe por rir na sua cara desse jeito.... mas Ã© muito engraÃ§ado... hahahehehe....";
+		mes "[Mercenário Kai]";
+		mes "Ah...desculpe por rir na sua cara desse jeito.... mas é muito engraçado... hahahehehe....";
 		emotion e_heh;
 		next;
-		mes "[MercenÃ¡rio Kai]";
-		mes "EntÃ£o..... vocÃª precisa de mim para eu lhe dar algumas sugestÃµes?";
+		mes "[Mercenário Kai]";
+		mes "Então..... você precisa de mim para eu lhe dar algumas sugestões?";
 		next;
-		switch( select("...Sim ...por favor:Pare de rir e me dÃª logo as coisas.:Cale a boca! Eu nÃ£o preciso da sua ajuda!!") )
+		switch( select("...Sim ...por favor:Pare de rir e me dê logo as coisas.:Cale a boca! Eu não preciso da sua ajuda!!") )
 		{
 			case 1:
-				mes "[MercenÃ¡rio Kai]";
-				mes "Hahaahhaha!!! Bom pelo menos vocÃª Ã© honesto.....";
-				mes "Haha....Meu estÃ´mago...ai... meu estÃ´mago doi!! VocÃª estÃ¡ me matando! Hahahaha!!!";
+				mes "[Mercenário Kai]";
+				mes "Hahaahhaha!!! Bom pelo menos você é honesto.....";
+				mes "Haha....Meu estômago...ai... meu estômago doi!! Você está me matando! Hahahaha!!!";
 				emotion e_heh;
 				next;
 				mes "[O Sem Nome]";
 				mes ".....Hahaha.";
 				next;
 				mes "[Assasino Kai]";
-				mes "HAHAHAHA!! O Sem Nome, vocÃª tambÃ©m acha que Ã© engraÃ§ado?";
+				mes "HAHAHAHA!! O Sem Nome, você também acha que é engraçado?";
 				emotion e_heh;
 				next;
 				mes "[O Sem Nome]";
 				mes "Hehehe..... sim muito.....";
 				next;
-				mes "[MercenÃ¡rio Kai]";
+				mes "[Mercenário Kai]";
 				mes "Heh heh..... Ah meu.....";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "..... EntÃ£o vocÃª quer algums pontos nÃ£o Ã©?";
+				mes "[Mercenário Kai]";
+				mes "..... Então você quer algums pontos não é?";
 				next;
-				mes "[MercenÃ¡rio Kai]";
+				mes "[Mercenário Kai]";
 				mes "...";
 				next;
-				mes "[MercenÃ¡rio Kai]";
+				mes "[Mercenário Kai]";
 				mes ".....";
 				next;
-				mes "[MercenÃ¡rio Kai]";
+				mes "[Mercenário Kai]";
 				mes "........";
 				next;
-				mes "[MercenÃ¡rio Kai]";
+				mes "[Mercenário Kai]";
 				mes "...............";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "......Hmmm..... Muito mal.  Eu nÃ£o estou com vontade de te dar nenhum.";
+				mes "[Mercenário Kai]";
+				mes "......Hmmm..... Muito mal.  Eu não estou com vontade de te dar nenhum.";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "Hahaha.... Eu nÃ£o acredito..... hahaha.....";
+				mes "[Mercenário Kai]";
+				mes "Hahaha.... Eu não acredito..... hahaha.....";
 				emotion e_heh;
 				close2;
 				warp "in_moc_16", 19, 141;
 				end;
 			case 2:
-				mes "[MercenÃ¡rio Kai]";
+				mes "[Mercenário Kai]";
 				mes "Hmm..... To vendo... Desculpe-me por exagerar na minha risada...... as pessoas cometem erros toda hora..... Eu entendo isso.";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "Embora eu nÃ£o possa lhe dar nenhuma resposta para o teste, eu posso lhe dar informaÃ§Ãµes Ãºteis sobre MercenÃ¡rios que pode te ajudar......";
+				mes "[Mercenário Kai]";
+				mes "Embora eu não possa lhe dar nenhuma resposta para o teste, eu posso lhe dar informações úteis sobre Mercenários que pode te ajudar......";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "Para um MercenÃ¡rio, honra e orgulho sÃ£o os mais importantes.  VocÃª nÃ£o pode ser um MercenÃ¡rio sem nenhuma honra.";
-				mes "....Um dia as pessoas irÃ£o confiar em vocÃª.  Esperar por esse dia Ã© o destino dos MercenÃ¡rios.";
+				mes "[Mercenário Kai]";
+				mes "Para um Mercenário, honra e orgulho são os mais importantes.  Você não pode ser um Mercenário sem nenhuma honra.";
+				mes "....Um dia as pessoas irão confiar em você.  Esperar por esse dia é o destino dos Mercenários.";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "MercenÃ¡rios sÃ£o destinados para viver uma vida solitÃ¡ria.  Nosso estilo de vida dificulta de nÃ³s chegarmos perto de qualquer pessoa.";
-				mes "Imagine se os seus melhores amigos pensariam se vissem suas mÃ£os com sangue.......";
+				mes "[Mercenário Kai]";
+				mes "Mercenários são destinados para viver uma vida solitária.  Nosso estilo de vida dificulta de nós chegarmos perto de qualquer pessoa.";
+				mes "Imagine se os seus melhores amigos pensariam se vissem suas mãos com sangue.......";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "..... Sem nenhuma dÃºvida, eles ficariam chocados e comeÃ§ariam a odiar vocÃª.";
-				mes "Eles nÃ£o seriam capaz para ficar ao seu lado, deixando vocÃª totalmente sozinho com seus negÃ³cios com os MercenÃ¡rios.";
+				mes "[Mercenário Kai]";
+				mes "..... Sem nenhuma dúvida, eles ficariam chocados e começariam a odiar você.";
+				mes "Eles não seriam capaz para ficar ao seu lado, deixando você totalmente sozinho com seus negócios com os Mercenários.";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "Embora Ã© solitÃ¡rio, Ã© ainda uma existÃªncia digna.";
-				mes "Como um MercenÃ¡rio vocÃª Ã© livre para escolher sem ninguÃ©m o pertubando ou prendendo.";
+				mes "[Mercenário Kai]";
+				mes "Embora é solitário, é ainda uma existência digna.";
+				mes "Como um Mercenário você é livre para escolher sem ninguém o pertubando ou prendendo.";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "Isso Ã© tudo o que eu posso dizer sobre MercenÃ¡rios...... Eu espero que o que eu disse nÃ£o o tenha comprimido?";
+				mes "[Mercenário Kai]";
+				mes "Isso é tudo o que eu posso dizer sobre Mercenários...... Eu espero que o que eu disse não o tenha comprimido?";
 				close2;
 				warp "in_moc_16", 19, 141;
 				end;
 			case 3:
-				mes "[MercenÃ¡rio Kai]";
+				mes "[Mercenário Kai]";
 				mes "...Hmmm.....";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "Bom.  Esse Ã© o espirito. Nunca deixe ninguÃ©m pegar sua confianÃ§a.";
-				mes "MercenÃ¡rios devem ser fortes e determinados.  Me desculpe por ter rido de vocÃª antes.";
+				mes "[Mercenário Kai]";
+				mes "Bom.  Esse é o espirito. Nunca deixe ninguém pegar sua confiança.";
+				mes "Mercenários devem ser fortes e determinados.  Me desculpe por ter rido de você antes.";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "Infelizmente hoje em dia existem muitos trouxas , os quais nÃ£o tÃªm muito conhecimento sobre as suas classes.......";
+				mes "[Mercenário Kai]";
+				mes "Infelizmente hoje em dia existem muitos trouxas , os quais não têm muito conhecimento sobre as suas classes.......";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "Como eles esqueÃ§eram do esforÃ§o necessÃ¡rio para se tornar um MercenÃ¡rio??!!  Eles sÃ£o simplismente idiotas......";
+				mes "[Mercenário Kai]";
+				mes "Como eles esqueçeram do esforço necessário para se tornar um Mercenário??!!  Eles são simplismente idiotas......";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "EntÃ£o por favor.............";
+				mes "[Mercenário Kai]";
+				mes "Então por favor.............";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "Sempre lembre de ser orgulhoso do fato de que vocÃª Ã© um MercenÃ¡rio.";
+				mes "[Mercenário Kai]";
+				mes "Sempre lembre de ser orgulhoso do fato de que você é um Mercenário.";
 				mes "Tenha respeito do sangue que fica em suas katars e adagas!!";
 				next;
 				if( select("Ok.:Uh... Estou confuso.....") == 1 )
 				{
-					mes "[MercenÃ¡rio Kai]";
-					mes ".... Ã“timo! Estou feliz que vocÃª entenda o que eu estou falando.  Aqui, deixe-me lhe dar dicas sobre o primeiro teste......";
+					mes "[Mercenário Kai]";
+					mes ".... Ótimo! Estou feliz que você entenda o que eu estou falando.  Aqui, deixe-me lhe dar dicas sobre o primeiro teste......";
 					next;
-					mes "[MercenÃ¡rio Kai]";
-					mes "Primeiro de tudo, a habilidade ^554433Tocaia^000000 sÃ³ pode ser usada com ^554433Katar^000000.  Ã‰ inÃºtil com Adaga.";
+					mes "[Mercenário Kai]";
+					mes "Primeiro de tudo, a habilidade ^554433Tocaia^000000 só pode ser usada com ^554433Katar^000000.  É inútil com Adaga.";
 					next;
-					mes "[MercenÃ¡rio Kai]";
-					mes "Veneno Ã© obrigaÃ§Ã£o para todos os MercenÃ¡rios.";
+					mes "[Mercenário Kai]";
+					mes "Veneno é obrigação para todos os Mercenários.";
 					next;
-					mes "[MercenÃ¡rio Kai]";
-					mes "VocÃª usou ^554433Ataque Duplo^000000? ...essa habilidade faz com que vocÃª ataque o inimigo duas vezes ^554433sem gastar SP^000000.";
+					mes "[Mercenário Kai]";
+					mes "Você usou ^554433Ataque Duplo^000000? ...essa habilidade faz com que você ataque o inimigo duas vezes ^554433sem gastar SP^000000.";
 					next;
-					mes "[MercenÃ¡rio Kai]";
-					mes "^554433Gemas Vermelhas^000000 sÃ£o as Ãºnicas pedras que os MercenÃ¡rios usam.  Gemas Azuis sÃ£o inÃºteis para os MercenÃ¡rios!";
+					mes "[Mercenário Kai]";
+					mes "^554433Gemas Vermelhas^000000 são as únicas pedras que os Mercenários usam.  Gemas Azuis são inúteis para os Mercenários!";
 					next;
-					mes "[MercenÃ¡rio Kai]";
-					mes "Ãgua Ã© mais forte do que Fogo... entÃ£o significa que Ãgua Ã© boa contra monstros de tipo Fogo.";
+					mes "[Mercenário Kai]";
+					mes "Água é mais forte do que Fogo... então significa que Água é boa contra monstros de tipo Fogo.";
 					next;
-					mes "[MercenÃ¡rio Kai]";
-					mes "Ãgua Ã© movida pelo Vento, entÃ£o isso significa que ^554433Ãgua Ã© mais fraca contra Vento^000000.";
+					mes "[Mercenário Kai]";
+					mes "Água é movida pelo Vento, então isso significa que ^554433Água é mais fraca contra Vento^000000.";
 					next;
-					mes "[MercenÃ¡rio Kai]";
-					mes "VocÃª usa ^554433Furtividade somente quando vocÃª estÃ¡ perto de uma parede^000000.  VocÃª tem que ser 1 cubÃ­culo longe da parede ou se nÃ£o vocÃª serÃ¡ visto .";
+					mes "[Mercenário Kai]";
+					mes "Você usa ^554433Furtividade somente quando você está perto de uma parede^000000.  Você tem que ser 1 cubículo longe da parede ou se não você será visto .";
 					next;
-					mes "[MercenÃ¡rio Kai]";
-					mes "Eu falei muito e eu estou meio cansado agora.  Espero que vocÃª farÃ¡ melhor desta vez.";
-					mes "Esteja preparado, eu irei mandÃ¡-lo para a sala do teste denovo.";
+					mes "[Mercenário Kai]";
+					mes "Eu falei muito e eu estou meio cansado agora.  Espero que você fará melhor desta vez.";
+					mes "Esteja preparado, eu irei mandá-lo para a sala do teste denovo.";
 					close2;
 					warp "in_moc_16", 19, 141;
 					end;
 				}
-				mes "[MercenÃ¡rio Kai]";
-				mes ".... Hmm... como vocÃª pode ser um idiota??? VocÃª nÃ£o pÃ´de entender o que eu estava falando??";
+				mes "[Mercenário Kai]";
+				mes ".... Hmm... como você pode ser um idiota??? Você não pôde entender o que eu estava falando??";
 				emotion e_omg;
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "A honra de um MercenÃ¡rio Ã© dificil de compreender?!";
+				mes "[Mercenário Kai]";
+				mes "A honra de um Mercenário é dificil de compreender?!";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "Grrrrr!!! VocÃª provÃ¡velmente serÃ¡ um trouxa em toda a sua vida...........";
+				mes "[Mercenário Kai]";
+				mes "Grrrrr!!! Você provávelmente será um trouxa em toda a sua vida...........";
 				emotion e_an;
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "SAIA DAQUI! Saia daqui agora!! VocÃª nÃ£o estÃ¡ pronto para se tornar um MercenÃ¡rio!!";
+				mes "[Mercenário Kai]";
+				mes "SAIA DAQUI! Saia daqui agora!! Você não está pronto para se tornar um Mercenário!!";
 				emotion e_pif;
 				close2;
 				warp "c_tower4", 64, 76;
@@ -440,46 +440,46 @@ OnTouch:
 
 	}
 
-	mes "[MercenÃ¡rio Kai]";
-	mes "EntÃ£o vocÃª Ã© um candidato de MercenÃ¡rio.... ~sigh~.... Deixa eu me desculpar pela minha bobeira....";
-	mes "VocÃª vÃª, quando alguÃ©m vem perto de mim, Eu nÃ£o posso ajudar mas esconder...... Ã© um pÃ©ssimo hÃ¡bito....";
+	mes "[Mercenário Kai]";
+	mes "Então você é um candidato de Mercenário.... ~sigh~.... Deixa eu me desculpar pela minha bobeira....";
+	mes "Você vê, quando alguém vem perto de mim, Eu não posso ajudar mas esconder...... é um péssimo hábito....";
 	next;
-	mes "[MercenÃ¡rio Kai]";
-	mes "De qualquer jeito, bem vindo.  EntÃ£o, vocÃª quer se tornar um MercenÃ¡rio, nÃ£o Ã©?";
+	mes "[Mercenário Kai]";
+	mes "De qualquer jeito, bem vindo.  Então, você quer se tornar um Mercenário, não é?";
 	next;
-	set .@Choose, select("Sim.:.NÃ£o");
+	set .@Choose, select("Sim.:.Não");
 	while(1)
 	{
 		if( .@Choose == 1 )
 		{
-			mes "[MercenÃ¡rio Kai]";
-			mes "Ok, bom.  Preencha esse formulÃ¡rio primeiro.  Certifique-se de escrever seu nome e NÃ­vel de Classe abaixo.";
+			mes "[Mercenário Kai]";
+			mes "Ok, bom.  Preencha esse formulário primeiro.  Certifique-se de escrever seu nome e Nível de Classe abaixo.";
 			next;
-			mes "(Preencha o formulÃ¡rio e entrega-o de volta)";
+			mes "(Preencha o formulário e entrega-o de volta)";
 			next;
-			mes "[MercenÃ¡rio Kai]";
-			mes "Vamos ver... seu nome Ã© ^5533FF" +strcharinfo(0)+ "^000000... e seu NÃ­vel de Classe Ã© "+JobLevel+"....";
+			mes "[Mercenário Kai]";
+			mes "Vamos ver... seu nome é ^5533FF" +strcharinfo(0)+ "^000000... e seu Nível de Classe é "+JobLevel+"....";
 			next;
 			if(JobLevel == 50)
 			{
-				mes "[MercenÃ¡rio Kai]";
-				mes "Uau seu NÃ­vel de Classe Ã© 50! VocÃª treinou muito, nÃ£o Ã©?";
-				mes "O Mestre da Guilda ficarÃ¡ feliz em ver alguÃ©m com suas qualificaÃ§Ãµes .";
+				mes "[Mercenário Kai]";
+				mes "Uau seu Nível de Classe é 50! Você treinou muito, não é?";
+				mes "O Mestre da Guilda ficará feliz em ver alguém com suas qualificações .";
 				next;
-				mes "[MercenÃ¡rio Kai]";
-				mes "O seu primeiro teste serÃ¡ com o ^5533FF'O Sem Nome'^000000.  Eu irei mandÃ¡-lo a ele agora mesmo.";
+				mes "[Mercenário Kai]";
+				mes "O seu primeiro teste será com o ^5533FF'O Sem Nome'^000000.  Eu irei mandá-lo a ele agora mesmo.";
 				set JBLVL, 50;
 				close2;
 				warp "in_moc_16", 19, 141;
 				end;
 			}
 
-			mes "[MercenÃ¡rio Kai]";
-			mes "Bom, vocÃª nÃ£o passou legal nos requerimentos mas, isso nÃ£o importa";
+			mes "[Mercenário Kai]";
+			mes "Bom, você não passou legal nos requerimentos mas, isso não importa";
 			next;
-			mes "[MercenÃ¡rio Kai]";
-			mes "Hmm? O que Ã© isso? Eu estava falando sozinho.... nÃ£o era nada realmente.......";
-			mes "De qualquer jeito, deixe-me mandÃ¡-lo para a sala do teste para seu primeiro teste.";
+			mes "[Mercenário Kai]";
+			mes "Hmm? O que é isso? Eu estava falando sozinho.... não era nada realmente.......";
+			mes "De qualquer jeito, deixe-me mandá-lo para a sala do teste para seu primeiro teste.";
 			set JBLVL, 40;
 			close2;
 			warp "in_moc_16", 19, 141;
@@ -487,25 +487,25 @@ OnTouch:
 		}
 		else
 		{
-			mes "[MercenÃ¡rio Kai]";
-			mes "Huh?? VocÃª nÃ£o?........";
+			mes "[Mercenário Kai]";
+			mes "Huh?? Você não?........";
 			emotion e_what;
 			next;
-			mes "[MercenÃ¡rio Kai]";
-			mes "VocÃª estÃ¡ tentando brincar comigo??";
+			mes "[Mercenário Kai]";
+			mes "Você está tentando brincar comigo??";
 			next;
-			mes "[MercenÃ¡rio Kai]";
-			mes "VocÃª nÃ£o quer se tornar um MercenÃ¡rio?............";
+			mes "[Mercenário Kai]";
+			mes "Você não quer se tornar um Mercenário?............";
 			next;
-			if( select("NÃ£o realmente....:Sim, Ã© claro que eu quero.") == 1 )
+			if( select("Não realmente....:Sim, é claro que eu quero.") == 1 )
 			{
-				mes "[MercenÃ¡rio Kai]";
-				mes "....Bom, se esse Ã© o caso,........ SAIA DAQUI!!";
+				mes "[Mercenário Kai]";
+				mes "....Bom, se esse é o caso,........ SAIA DAQUI!!";
 				close2;
 				warp "moc_fild16", 206, 229;
 				end;
 			}
-			mes "[MercenÃ¡rio Kai]";
+			mes "[Mercenário Kai]";
 			mes "...... Hmf...... De qualquer jeito......";
 			next;
 			set .@Choose,1;
@@ -518,57 +518,57 @@ in_moc_16,19,150,1	script	O Sem Nome#ass01	139,{
 	{
 	
 		mes "[O Sem Nome]";
-		mes "Hmm vocÃª voltou..... entÃ£o vocÃª ainda estÃ¡ obsecado em virar MercenÃ¡rio nÃ©?";
+		mes "Hmm você voltou..... então você ainda está obsecado em virar Mercenário né?";
 		next;
 		mes "[O Sem Nome]";
-		mes "Se for verdade seu desejo de virar um MercenÃ¡rio, eu irei ajudÃ¡-lo......";
+		mes "Se for verdade seu desejo de virar um Mercenário, eu irei ajudá-lo......";
 		next;
 		mes "[O Sem Nome]";
-		mes "Entretanto, se vocÃª falhar denovo.... Eu sugiro que vocÃª desista de virar um MercenÃ¡rio!";
+		mes "Entretanto, se você falhar denovo.... Eu sugiro que você desista de virar um Mercenário!";
 		next;
-		if( select("VocÃª estÃ¡ certo, eu nÃ£o estou pronto pra isso.....:Eu nÃ£o me importo! Eu nÃ£o irei desistir!") == 1 )
+		if( select("Você está certo, eu não estou pronto pra isso.....:Eu não me importo! Eu não irei desistir!") == 1 )
 		{
 			mes "[O Sem Nome]";
-			mes "~Cough~cough~... Essa Ã© uma boa escolhe... Ser um MercenÃ¡rio Ã© solitÃ¡rio.....";
+			mes "~Cough~cough~... Essa é uma boa escolhe... Ser um Mercenário é solitário.....";
 			next;
 			mes "[O Sem Nome]";
-			mes "Saia da Guilda dos MercenÃ¡rios agora.  Volte para o lugar daonde vocÃª veio!";
+			mes "Saia da Guilda dos Mercenários agora.  Volte para o lugar daonde você veio!";
 			close2;
 			warp "moc_fild16", 206, 241;
 			end;
 		}
 		mes "[O Sem Nome]";
-		mes "Certo entÃ£o... Eu irei tentar ajudÃ¡-lo a virar um MercenÃ¡rio solitÃ¡rio, hahahahah.";
+		mes "Certo então... Eu irei tentar ajudá-lo a virar um Mercenário solitário, hahahahah.";
 		next;
 	}
 	else
 	{
 		mes "[O Sem Nome]";
-		mes "Bem vindo, meu hÃ³spede.  Muhahaha!!!...... NÃ£o existe nenhum meio de me achar porque sou perfeitamente invisÃ­vel!";
-		mes "A habilidade de ficar completamente invisÃ­vel Ã© a MARCA de um Ã“TIMO MercenÃ¡rio!!";
+		mes "Bem vindo, meu hóspede.  Muhahaha!!!...... Não existe nenhum meio de me achar porque sou perfeitamente invisível!";
+		mes "A habilidade de ficar completamente invisível é a MARCA de um ÓTIMO Mercenário!!";
 		next;
 		mes "[O Sem Nome]";
-		mes "O que? Por que eu nÃ£o tenho um nome? Muhahahahaha!!!... A melhor pergunte Ã© por que estou invisÃ­vel.....";
+		mes "O que? Por que eu não tenho um nome? Muhahahahaha!!!... A melhor pergunte é por que estou invisível.....";
 		next;
 		mes "[O Sem Nome]";
-		mes "Depois de tudo eu poderia estÃ¡r tentando te assassinar!!........ Isso te assusta?";
+		mes "Depois de tudo eu poderia estár tentando te assassinar!!........ Isso te assusta?";
 		next;
-		if( select("Eeek! Ah... Eu acho que mijei nas calÃ§as.....:Bleh! VocÃª sÃ³ fala! Vem, me enfrente!") == 1 )
+		if( select("Eeek! Ah... Eu acho que mijei nas calças.....:Bleh! Você só fala! Vem, me enfrente!") == 1 )
 		{
 			mes "[O Sem Nome]";
-			mes "Heh.... nÃ£o me surpreende.  Eu poderia dizer que vocÃª Ã© nada e sim um perdedor!";
-			mes "Se nÃ³s nos tivÃ©ssemos conhecido em outro lugar, eu poderia tÃª-lo cortado em pedaÃ§inhos.....";
+			mes "Heh.... não me surpreende.  Eu poderia dizer que você é nada e sim um perdedor!";
+			mes "Se nós nos tivéssemos conhecido em outro lugar, eu poderia tê-lo cortado em pedaçinhos.....";
 			next;
 			mes "[O Sem Nome]";
-			mes "Hmf..... Eu nÃ£o tenho tempo para bobeiras..... saia......";
+			mes "Hmf..... Eu não tenho tempo para bobeiras..... saia......";
 			close2;
-			disablenpc "MercenÃ¡rio Kai#1";
-			enablenpc "MercenÃ¡rio Kai#2";
+			disablenpc "Mercenário Kai#1";
+			enablenpc "Mercenário Kai#2";
 			warp "in_moc_16", 19, 76;
 			end;
 		}
 		mes "[O Sem Nome]";
-		mes "O que?.... VocÃª acha que vocÃª Ã© grandÃ£o?............";
+		mes "O que?.... Você acha que você é grandão?............";
 		next;
 		mes "[O Sem Nome]";
 		mes "................";
@@ -583,115 +583,115 @@ in_moc_16,19,150,1	script	O Sem Nome#ass01	139,{
 		mes "Eu sou matador de sangue frio.... aonde eu vou, um pouco de sangue segue cada passo que eu dou.....";
 		next;
 		mes "[O Sem Nome]";
-		mes "Um verdadeiro MercenÃ¡rio assim como eu nÃ£o precisa ser reconhecido pelo seu nome..... Eu sÃ³ sou conhecido pelas lÃ¢minas afiadas de minhas lÃ¢minas, hahaha.";
+		mes "Um verdadeiro Mercenário assim como eu não precisa ser reconhecido pelo seu nome..... Eu só sou conhecido pelas lâminas afiadas de minhas lâminas, hahaha.";
 		next;
 		mes "[O Sem Nome]";
-		mes "Ã‰ meu trabalho duro que me avanÃ§ou esse tanto..... Eu nunca tive nenhum remorÃ§o de nenhuma das atribuiÃ§Ãµes que eu tive ....";
-		mes "Para 'eliminar' alvos, Ã© isso que estou aqui para fazer.";
+		mes "É meu trabalho duro que me avançou esse tanto..... Eu nunca tive nenhum remorço de nenhuma das atribuições que eu tive ....";
+		mes "Para 'eliminar' alvos, é isso que estou aqui para fazer.";
 		next;
 		mes "[O Sem Nome]";
-		mes "Embora vocÃª possa falar com confidÃªncia, entenda isso.........";
+		mes "Embora você possa falar com confidência, entenda isso.........";
 		next;
 		mes "[O Sem Nome]";
-		mes "SÃ³ aqueles que sÃ£o verdadeiramente sangues frios e sem medo, podem se tornar MercenÃ¡rios....";
-		mes "VocÃª terÃ¡ que fazer muito mais do que agir como um tolo arrogante para convencer-me que vocÃª Ã© digno de ser um.........";
+		mes "Só aqueles que são verdadeiramente sangues frios e sem medo, podem se tornar Mercenários....";
+		mes "Você terá que fazer muito mais do que agir como um tolo arrogante para convencer-me que você é digno de ser um.........";
 		next;
 		mes "[O Sem Nome]";
-		mes "Antes de eu comeÃ§ar o quiz, eu irei deixÃ¡-lo me perguntar algumas questÃµes bÃ¡sicas.";
+		mes "Antes de eu começar o quiz, eu irei deixá-lo me perguntar algumas questões básicas.";
 		next;
 		set .@m, 0;
 		while(.@m)
 		{
-			switch( select("...Quais sÃ£o as habilidades?:...O que Ã© mais importante sobre um MercenÃ¡rio?:...Isso Ã© suficiente, eu quero comeÃ§ar o teste.") )
+			switch( select("...Quais são as habilidades?:...O que é mais importante sobre um Mercenário?:...Isso é suficiente, eu quero começar o teste.") )
 			{
 				case 1:
 					mes "[O Sem Nome]";
-					mes "Sim, as habilidades.  Habilidades sÃ£o muito Ãºteis para um MercenÃ¡rio.  As habilidades bÃ¡sicas sÃ£o as mais Ãºteis.  Eu irei falar sobre elas primeiro.";
+					mes "Sim, as habilidades.  Habilidades são muito úteis para um Mercenário.  As habilidades básicas são as mais úteis.  Eu irei falar sobre elas primeiro.";
 					next;
 					mes "[O Sem Nome]";
-					mes "Primeiro, tem a ^5533FFPerÃ­cia com Katar^000000. Ela irÃ¡ aumentar seu dano de ataque enquanto usar Katar.";
-					mes "Essa habilidade Ã© muito Ãºtil para os que usam Katar.";
+					mes "Primeiro, tem a ^5533FFPerícia com Katar^000000. Ela irá aumentar seu dano de ataque enquanto usar Katar.";
+					mes "Essa habilidade é muito útil para os que usam Katar.";
 					next;
 					mes "[O Sem Nome]";
-					mes "MercenÃ¡rios tem a habilidade de usar duas armas na mesma hora.  isso faz com que tornem eles guerreiros ferozes.";
+					mes "Mercenários tem a habilidade de usar duas armas na mesma hora.  isso faz com que tornem eles guerreiros ferozes.";
 					mes "De qualquer jeito usando duas armas de uma vez tem suas desvantagens.....";
 					next;
 					mes "[O Sem Nome]";
-					mes "E bem mais difÃ­cil de usar 2 armas de uma vez e conseqÃ¼entemente o dano serÃ¡ menor para cada mÃ£o.";
+					mes "E bem mais difícil de usar 2 armas de uma vez e conseqüentemente o dano será menor para cada mão.";
 					next;
 					mes "[O Sem Nome]";
-					mes "Ã‰ por isso que tem ^5533FF'PerÃ­cia com MÃ£o Esquerda' e 'PerÃ­cia com MÃ£o Direita'^000000.";
-					mes "Quando vocÃª aprende essas habilidades, vocÃª poderÃ¡ recuperar seu poder de ataque para ambas mÃ£os.";
+					mes "É por isso que tem ^5533FF'Perícia com Mão Esquerda' e 'Perícia com Mão Direita'^000000.";
+					mes "Quando você aprende essas habilidades, você poderá recuperar seu poder de ataque para ambas mãos.";
 					next;
 					mes "[O Sem Nome]";
-					mes "PerÃ­cia com MÃ£o Esquerda sÃ³ pode ser aprendida quando vocÃª tiver ganhando 2 leveis de PerÃ­cia com MÃ£o Direita.";
-					mes "Combinado com PerÃ­cia com Katar, vocÃª poderÃ¡ se tornar certamente um MercenÃ¡rio mortal.";
+					mes "Perícia com Mão Esquerda só pode ser aprendida quando você tiver ganhando 2 leveis de Perícia com Mão Direita.";
+					mes "Combinado com Perícia com Katar, você poderá se tornar certamente um Mercenário mortal.";
 					next;
 					mes "[O Sem Nome]";
-					mes "^5533FF'Ataque SÃ´nico'^000000 Ã© uma habilidade extremamente de rÃ¡pido ataque.  PermitirÃ¡ que vocÃª bata no inimigo atÃ© 8 vezes num piscar de olhos.";
+					mes "^5533FF'Ataque Sônico'^000000 é uma habilidade extremamente de rápido ataque.  Permitirá que você bata no inimigo até 8 vezes num piscar de olhos.";
 					next;
 					mes "[O Sem Nome]";
-					mes "EssÃ¡ habilidade sÃ³ funciona com Katar.  VocÃª tambÃ©m precisarÃ¡ ter pelo menos 4 leveis de PerÃ­cia com Katar para aprende-la.";
-					mes "A quantia de dano feita por Ataque SÃ´nico depende de quanta forÃ§a vocÃª tem.";
+					mes "Essá habilidade só funciona com Katar.  Você também precisará ter pelo menos 4 leveis de Perícia com Katar para aprende-la.";
+					mes "A quantia de dano feita por Ataque Sônico depende de quanta força você tem.";
 					next;
 					mes "[O Sem Nome]";
-					mes "^5533FF'Tocaia^000000 .... e se vocÃª pudesse atacar alguÃ©m sem ser visto?";
-					mes "A habilidade Tocaia permite vocÃª sÃ³ para fazer isso.  Enquanto vocÃª estÃ¡ invisÃ­vel vocÃª pode fazer uma longa distÃ¢ncia, esguinchando dano de ataque com Tocaia.";
+					mes "^5533FF'Tocaia^000000 .... e se você pudesse atacar alguém sem ser visto?";
+					mes "A habilidade Tocaia permite você só para fazer isso.  Enquanto você está invisível você pode fazer uma longa distância, esguinchando dano de ataque com Tocaia.";
 					next;
 					mes "[O Sem Nome]";
-					mes "Por causa do dano esguinchado, Tocaia pode ser muito Ãºtil em situaÃ§Ãµes de muitos monstros.";
-					mes "O level maior que vocÃª tiver de Tocaia melhor a distÃ¢ncia que vocÃª pode atacar.";				
+					mes "Por causa do dano esguinchado, Tocaia pode ser muito útil em situações de muitos monstros.";
+					mes "O level maior que você tiver de Tocaia melhor a distância que você pode atacar.";				
 					next;
 					mes "[O Sem Nome]";
-					mes "'Pra aprender ^5533FFFurtividade^000000, vocÃª precisa ter 2 leveis de Esconder.";
-					mes "Furtividade permite vocÃª nÃ£o somente para ficar invisÃ­vel, mas permite vocÃª para andar por ai enquanto estÃ¡ invisÃ­vel tambÃ©m.";
+					mes "'Pra aprender ^5533FFFurtividade^000000, você precisa ter 2 leveis de Esconder.";
+					mes "Furtividade permite você não somente para ficar invisível, mas permite você para andar por ai enquanto está invisível também.";
 					next;
 					mes "[O Sem Nome]";
-					mes "Embora vocÃª sÃ³ pode mover enquanto vocÃª estÃ¡ perto de uma parede.";
+					mes "Embora você só pode mover enquanto você está perto de uma parede.";
 					next;
 					mes "[O Sem Nome]";
-					mes "HÃ¡ uma tÃ©cnica que permite que vocÃª dÃª a uma arma a propriedade Veneno.  Ela Ã© chamada de ^5533FFEnvenenar Arma^000000.";
+					mes "Há uma técnica que permite que você dê a uma arma a propriedade Veneno.  Ela é chamada de ^5533FFEnvenenar Arma^000000.";
 					next;
 					mes "[O Sem Nome]";
-					mes "Uma vez que vocÃª estÃ¡ encantado com Veneno, tem uma chance de um inimigo que for atacado por sua arma se tornarÃ¡ envenenado.";
-					mes "VocÃª precisa pelo menos de 1 level de Envenenar para usar essa habilidade.";
+					mes "Uma vez que você está encantado com Veneno, tem uma chance de um inimigo que for atacado por sua arma se tornará envenenado.";
+					mes "Você precisa pelo menos de 1 level de Envenenar para usar essa habilidade.";
 					next;
 					mes "[O Sem Nome]";
-					mes "^5533FF'Refletir Veneno'^000000.  Esta habilidade permitirÃ¡ que vocÃª oponha um ataque feito por um monstro do tipo Veneno";
-					mes "Se vocÃª quiser aprender Refletir Veneno vocÃª precisa ter pelo menos 3 leveis de Envenenar arma.";
+					mes "^5533FF'Refletir Veneno'^000000.  Esta habilidade permitirá que você oponha um ataque feito por um monstro do tipo Veneno";
+					mes "Se você quiser aprender Refletir Veneno você precisa ter pelo menos 3 leveis de Envenenar arma.";
 					next;
 					mes "[O Sem Nome]";
-					mes "^5533FF'NÃ©voa TÃ³xica'^000000.  Com esta habilidade vocÃª poderÃ¡ envenenar uma Ã¡rea no chÃ£o.";
-					mes "Quando um monstro entra na Ã¡rea cuja vocÃª envenenou tem uma grande possibilidade de tornar o envenenado tambÃ©m.";
+					mes "^5533FF'Névoa Tóxica'^000000.  Com esta habilidade você poderá envenenar uma área no chão.";
+					mes "Quando um monstro entra na área cuja você envenenou tem uma grande possibilidade de tornar o envenenado também.";
 					next;
 					mes "[O Sem Nome]";
-					mes "Quanto maior o level da habilidade, mais tempo o veneno permanece.  VocÃª precisarÃ¡ de Gema Vermelha para usar essa habilidade.";
-					mes "Level 5 Envenenar Arma Ã© um requerimento para aprender NÃ©voa TÃ³xica.";
+					mes "Quanto maior o level da habilidade, mais tempo o veneno permanece.  Você precisará de Gema Vermelha para usar essa habilidade.";
+					mes "Level 5 Envenenar Arma é um requerimento para aprender Névoa Tóxica.";
 					next;
 					mes "[O Sem Nome]";
-					mes "^5533FF'ExplosÃ£o TÃ³xica'^000000.  NÃ£o somente esta habilidade envenena um alvo, mas faz o alvo explodir espirrando o veneno em toda parte.";
+					mes "^5533FF'Explosão Tóxica'^000000.  Não somente esta habilidade envenena um alvo, mas faz o alvo explodir espirrando o veneno em toda parte.";
 					next;
 					mes "[O Sem Nome]";
-					mes "Um monstro que Ã© atacado com ExplosÃ£o TÃ³xica somente explodirÃ¡ quando sei HP estÃ¡ no 1/3 do mÃ¡ximo.";
+					mes "Um monstro que é atacado com Explosão Tóxica somente explodirá quando sei HP está no 1/3 do máximo.";
 					next;
 					mes "[O Sem Nome]";
-					mes "Esta Ã© a habilidade mais difÃ­cil de aprender para um MercenÃ¡rio.  VocÃª precisarÃ¡ pelo menos de 5 leveis de NÃ©voa TÃ³xica e 5 leveis de Refletir Veneno para aprender essa habilidade";
+					mes "Esta é a habilidade mais difícil de aprender para um Mercenário.  Você precisará pelo menos de 5 leveis de Névoa Tóxica e 5 leveis de Refletir Veneno para aprender essa habilidade";
 					next;
 					mes "[O Sem Nome]";
-					mes "Essas sÃ£o todas as habilidades de MercenÃ¡rio.";
+					mes "Essas são todas as habilidades de Mercenário.";
 					set .@listen, .@listen + 1;
 					next;
 					break;
 				case 2:
 					mes "[O Sem Nome]";
-					mes "Hmm.... Bom, para os MercenÃ¡rios o atributo mais importante Ã© Agilidade.";
-					mes "Quando investir em Agilidade, sua habilidade de evitar e sua velocidade de ataque aumentarÃ£o extremamente.";
+					mes "Hmm.... Bom, para os Mercenários o atributo mais importante é Agilidade.";
+					mes "Quando investir em Agilidade, sua habilidade de evitar e sua velocidade de ataque aumentarão extremamente.";
 					next;
 					mes "[O Sem Nome]";
-					mes "Outro atributo bom para investir Ã© ForÃ§a.  Tendo uma quantia boa de ForÃ§a aumenta seu ataque permitindo que vocÃª mate mais rÃ¡pido.";
+					mes "Outro atributo bom para investir é Força.  Tendo uma quantia boa de Força aumenta seu ataque permitindo que você mate mais rápido.";
 					next;
 					mes "[O Sem Nome]";
-					mes "Isso Ã© tudo que eu posso dizer sobre atributos.  O resto vocÃª terÃ¡ que descobrir sozinho atravÃ©s de sua prÃ³pria experimentaÃ§Ã£o";
+					mes "Isso é tudo que eu posso dizer sobre atributos.  O resto você terá que descobrir sozinho através de sua própria experimentação";
 					set .@listen, .@listen + 1;
 					break;
 				case 3:
@@ -699,10 +699,10 @@ in_moc_16,19,150,1	script	O Sem Nome#ass01	139,{
 					if( !.@listen )
 					{
 						mes "[O Sem Nome]";
-						mes "Hahaha! VocÃª Ã© muito galinha nÃ£o Ã©..... NÃ£o quer escutar o que eu tenho pra dizer, nÃ£o Ã©?!";
+						mes "Hahaha! Você é muito galinha não é..... Não quer escutar o que eu tenho pra dizer, não é?!";
 						next;
 						mes "[O Sem Nome]";
-						mes "Muito bem entÃ£o........ Eu quero ver se vocÃª pode ou nÃ£o pode passar nesse teste.....";
+						mes "Muito bem então........ Eu quero ver se você pode ou não pode passar nesse teste.....";
 						next;
 					}
 					set .@m, 0;
@@ -714,13 +714,13 @@ in_moc_16,19,150,1	script	O Sem Nome#ass01	139,{
 	while(1)
 	{
 		mes "[O Sem Nome]";
-		mes "Ok, agora Ã© a hora para o teste.  Se vocÃª tiver mais de 1 questÃ£o ^FF5533errada^000000, vocÃª falharÃ¡ no teste.";
+		mes "Ok, agora é a hora para o teste.  Se você tiver mais de 1 questão ^FF5533errada^000000, você falhará no teste.";
 		next;
 		mes "[O Sem Nome]";
-		mes "VocÃª nÃ£o serÃ¡ informado das respostas que vocÃª acertou e das respostas que vocÃª errou.";
+		mes "Você não será informado das respostas que você acertou e das respostas que você errou.";
 		next;
 		mes "[O Sem Nome]";
-		mes "Ok, vamos comeÃ§ar.....";
+		mes "Ok, vamos começar.....";
 		next;
 		set .@temp, rand(3);
 		set .@score, 0;
@@ -729,7 +729,7 @@ in_moc_16,19,150,1	script	O Sem Nome#ass01	139,{
 			mes "[O Sem Nome]";
 			mes "1. Qual monstro dropa Katar com slot?";
 			next;
-			if( select("Besouro-LadrÃ£o Macho:PecoPeco:Lobo do Deserto:Cobold") == 3 )
+			if( select("Besouro-Ladrão Macho:PecoPeco:Lobo do Deserto:Cobold") == 3 )
 			{
 				set .@score, .@score + 10;
 			}
@@ -748,51 +748,51 @@ in_moc_16,19,150,1	script	O Sem Nome#ass01	139,{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "4. Que arma abaixo nÃ£o Ã© uma arma da classe Katar?";
+			mes "4. Que arma abaixo não é uma arma da classe Katar?";
 			next;
 			if( select("Jur:Jamadhar:Infiltrador:Gladius") == 4 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "5. Em Bybalan uma grande quantidade de monstros sÃ£o de que elemento?";
+			mes "5. Em Bybalan uma grande quantidade de monstros são de que elemento?";
 			next;
-			if( select("Ãgua:Fogo:Vento:Terra") == 1 )
+			if( select("Água:Fogo:Vento:Terra") == 1 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "6. Qual monstro abaixo nÃ£o pode ser domado e se tornar um lindo bichinho de estimaÃ§Ã£o?";
+			mes "6. Qual monstro abaixo não pode ser domado e se tornar um lindo bichinho de estimação?";
 			next;
-			if( select("Poring:Sapo de Roda:LunÃ¡tico:Esporo Venenoso") == 2 )
+			if( select("Poring:Sapo de Roda:Lunático:Esporo Venenoso") == 2 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "7. Escolha o monstro que Ã© fraco contra Fogo.";
+			mes "7. Escolha o monstro que é fraco contra Fogo.";
 			next;
-			if( select("Cobold (Espada):Cobold (MaÃ§a):Cobold (Martelo):Cobold (Machado)") == 4 )
+			if( select("Cobold (Espada):Cobold (Maça):Cobold (Martelo):Cobold (Machado)") == 4 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "8. Escolha a ^FF5533nÃ£o^000000-elemental Katar.";
+			mes "8. Escolha a ^FF5533não^000000-elemental Katar.";
 			next;
-			if( select("Katar da Chama Impetuosa:Katar da Espinheira Empoeirada:Osso Afiad de CarniÃ§al:Infiltrador") == 4 )
+			if( select("Katar da Chama Impetuosa:Katar da Espinheira Empoeirada:Osso Afiad de Carniçal:Infiltrador") == 4 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "9. Escolha o monstro que nÃ£o pertence ao grupo.";
+			mes "9. Escolha o monstro que não pertence ao grupo.";
 			next;
 			if( select("Poring:Ghostring:Creamy:Drops") == 3 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "10. Escolha um ^FF3355nÃ£o^000000-imortal monstro.";
+			mes "10. Escolha um ^FF3355não^000000-imortal monstro.";
 			next;
-			if( select("Drake:Esqueleto Arqueiro:Esporo Venenoso:MÃºmia Antiga") == 3 )
+			if( select("Drake:Esqueleto Arqueiro:Esporo Venenoso:Múmia Antiga") == 3 )
 			{
 				set .@score, .@score + 10;
 			}
@@ -801,28 +801,28 @@ in_moc_16,19,150,1	script	O Sem Nome#ass01	139,{
 		if( .@temp == 2 )
 		{
 			mes "[O Sem Nome]";
-			mes "1. Qual Ã© a taxa de esquiva aumentada quando vocÃª tem a habilidade 'Aumentar Esquiva' no level 1?";
+			mes "1. Qual é a taxa de esquiva aumentada quando você tem a habilidade 'Aumentar Esquiva' no level 1?";
 			next;
 			if( select("20:30:140:15") == 2 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "2. Qual monstro pode detectar alguÃ©m que estÃ¡ invisÃ­vel/escondido?";
+			mes "2. Qual monstro pode detectar alguém que está invisível/escondido?";
 			next;
 			if( select("Hodes:Sussurros:Porings:Munaks") == 2 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "3. MercenÃ¡rios podem usar armas duplas.  Qual set das armas abaixo um MercenÃ¡rio ^5544FFpode^000000 usar?";
+			mes "3. Mercenários podem usar armas duplas.  Qual set das armas abaixo um Mercenário ^5544FFpode^000000 usar?";
 			next;
-			if( select("Jur e MaÃ§a:Damascus e Claymore:Damascus e Stiletto:Machado e Stiletto") == 3 )
+			if( select("Jur e Maça:Damascus e Claymore:Damascus e Stiletto:Machado e Stiletto") == 3 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "4. Em qual cidade vocÃª vira Gatuno?";
+			mes "4. Em qual cidade você vira Gatuno?";
 			next;
 			if( select("Prontera:Lutie:Al De Baran:Morroc") == 4 )
 			{
@@ -831,26 +831,26 @@ in_moc_16,19,150,1	script	O Sem Nome#ass01	139,{
 			mes "[O Sem Nome]";
 			mes "5. Qual carta tem ^FF3355nada^000000 para fazer com ^5533FFAgilidade^000000?";
 			next;
-			if( select("Carta Baphomet Jr.:Carta Sussurro:Carta Besouro-LadrÃ£o Macho:Carta Chonchon") == 3 )
+			if( select("Carta Baphomet Jr.:Carta Sussurro:Carta Besouro-Ladrão Macho:Carta Chonchon") == 3 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "6. O que faz os MercenÃ¡rios tÃ£o especiais?";
+			mes "6. O que faz os Mercenários tão especiais?";
 			next;
-			if( select("Excelente habilidade de canto:Excelente habilidade de aÃ§Ã£o:Excelente habilidade de danÃ§a:Excelente habilidade de esquiva") == 4 )
+			if( select("Excelente habilidade de canto:Excelente habilidade de ação:Excelente habilidade de dança:Excelente habilidade de esquiva") == 4 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "7. Quando um MercenÃ¡rio alcanÃ§a ^5533FFNÃ­vel de Classe 50 ^000000, qual Ã© o bonus adicionado que ele/ela recebe em Agilidade?";
+			mes "7. Quando um Mercenário alcança ^5533FFNível de Classe 50 ^000000, qual é o bonus adicionado que ele/ela recebe em Agilidade?";
 			next;
 			if( select("7:8:9:10") == 4 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "8. Qual equipamento nÃ£o pode ser usado por um MercenÃ¡rio?";
+			mes "8. Qual equipamento não pode ser usado por um Mercenário?";
 			next;
 			if( select("Espada:Elmo Dourado:Adaga:Jur") == 2 )
 			{
@@ -859,14 +859,14 @@ in_moc_16,19,150,1	script	O Sem Nome#ass01	139,{
 			mes "[O Sem Nome]";
 			mes "9. Quando um Aprendiz quer se tornar um Gatuno, quais cogumelos ele/ela precisa roubar?";
 			next;
-			if( select("Cogumelos Venenosos e Borrachentos:Cogumelos Vermelhos e Laranja:Cogumelos do CÃ©u e Inferno:Cogumelos Negros e Brancos") == 1 )
+			if( select("Cogumelos Venenosos e Borrachentos:Cogumelos Vermelhos e Laranja:Cogumelos do Céu e Inferno:Cogumelos Negros e Brancos") == 1 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "10. Qual carta abaixo Ã© inÃºtil para um MercenÃ¡rio?";
+			mes "10. Qual carta abaixo é inútil para um Mercenário?";
 			next; 
-			if( select("Carta Ghostring:Carta Salgueiro AnciÃ£o:Carta Esqueleto Soldado:Carta Cobold") == 2 )
+			if( select("Carta Ghostring:Carta Salgueiro Ancião:Carta Esqueleto Soldado:Carta Cobold") == 2 )
 			{
 				set .@score, .@score + 10;
 			}
@@ -874,9 +874,9 @@ in_moc_16,19,150,1	script	O Sem Nome#ass01	139,{
 		else
 		{
 			mes "[O Sem Nome]";
-			mes "1. O que aqui ^FF5533nÃ£o Ã©^000000 um prÃ©-requisito da habilidade Tocaia?";
+			mes "1. O que aqui ^FF5533não é^000000 um pré-requisito da habilidade Tocaia?";
 			next;
-			if( select("Furtividade Lv 2:Ataque SÃ´nico Lv 5:Esconder Lv 2:PerÃ­cia com MÃ£o Esquerda Lv 2") == 4 )
+			if( select("Furtividade Lv 2:Ataque Sônico Lv 5:Esconder Lv 2:Perícia com Mão Esquerda Lv 2") == 4 )
 			{
 				set .@score, .@score + 10;
 			}
@@ -888,58 +888,58 @@ in_moc_16,19,150,1	script	O Sem Nome#ass01	139,{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "3. Qual Ã© a funÃ§Ã£o de level 4 de PerÃ­cia com MÃ£o ^5533FFEsquerda^000000?";
+			mes "3. Qual é a função de level 4 de Perícia com Mão ^5533FFEsquerda^000000?";
 			next;
 			if( select("Ataque +80%:Ataque +70%:Ataque +90%:Ataque +108%!!") == 2 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "4. Qual item vocÃª precisa usar quando vocÃª usa 'NÃ©voa TÃ³xica'?";
+			mes "4. Qual item você precisa usar quando você usa 'Névoa Tóxica'?";
 			next;
 			if( select("Gema Verde:Gema Azul:Gema Amarela:Gema Vermelha") == 4 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "5. Quando vocÃª aumenta Envenenar Arma para o level 5, qual nova habilidade irÃ¡ aparecer?";
+			mes "5. Quando você aumenta Envenenar Arma para o level 5, qual nova habilidade irá aparecer?";
 			next;
-			if( select("ExplosÃ£o TÃ³xica:Tocaia:Ataque SÃ´nico:NÃ©voa TÃ³xica") == 4 )
+			if( select("Explosão Tóxica:Tocaia:Ataque Sônico:Névoa Tóxica") == 4 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "6. Que habilidade abaixo permite que vocÃª possa caminhar por ai despercebido?";
+			mes "6. Que habilidade abaixo permite que você possa caminhar por ai despercebido?";
 			next;
 			if( select("Esconder:Recua:Furtividade:Chutar Areia") == 3 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "7. Qual Ã© o requerimento para NÃ©voa TÃ³xica?";
+			mes "7. Qual é o requerimento para Névoa Tóxica?";
 			next;
-			if( select("Inimigo precisa ser fraco.:Precisa usar uma Gema Vermelha.:VocÃª precisa ter uma quantia certa de HP.") == 2 )
+			if( select("Inimigo precisa ser fraco.:Precisa usar uma Gema Vermelha.:Você precisa ter uma quantia certa de HP.") == 2 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "8. Qual carta dos monstros abaixo adiciona para InteligÃªncia?";
+			mes "8. Qual carta dos monstros abaixo adiciona para Inteligência?";
 			next;
-			if( select("Chonchon de AÃ§o:Deviruchi:Salgueiro AnciÃ£o:Baphomet") == 3 )
+			if( select("Chonchon de Aço:Deviruchi:Salgueiro Ancião:Baphomet") == 3 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "9. Quanto SP vocÃª gasta quando vocÃª bate dobrado usando uma adaga?";
+			mes "9. Quanto SP você gasta quando você bate dobrado usando uma adaga?";
 			next;
 			if( select("15:0:10:54") == 2 )
 			{
 				set .@score, .@score + 10;
 			}
 			mes "[O Sem Nome]";
-			mes "10. Qual Ã© o melhor tipo de espada para se usar em Bybalan?";
+			mes "10. Qual é o melhor tipo de espada para se usar em Bybalan?";
 			next;
-			if( select("Espada do Vento da PerfuraÃ§Ã£o:Espada de Gelo:Espada de Terra:Espada de Fogo") == 1 )
+			if( select("Espada do Vento da Perfuração:Espada de Gelo:Espada de Terra:Espada de Fogo") == 1 )
 			{
 				set .@score, .@score + 10;
 			}
@@ -947,36 +947,36 @@ in_moc_16,19,150,1	script	O Sem Nome#ass01	139,{
 	}
 
 	mes "[O Sem Nome]";
-	mes "Ok, deixe-me sÃ³ registrar os resultados.........";
+	mes "Ok, deixe-me só registrar os resultados.........";
 	next;
 	mes "[O Sem Nome]";
-	mes "Aqui estÃ¡ a contagem de seu teste: ^FF5544" +@score+ "^000000/100....";
+	mes "Aqui está a contagem de seu teste: ^FF5544" +@score+ "^000000/100....";
 	if( .@score < 90 )
 	{
-		mes "VocÃª falhou no teste!";
+		mes "Você falhou no teste!";
 		next;
 		mes "[O Sem Nome]";
-		mes "Parece que vocÃª nÃ£o estÃ¡ bem-qualificado.... como vocÃª espera se tornar um MercenÃ¡rio com uma contagem que nem essa?";
+		mes "Parece que você não está bem-qualificado.... como você espera se tornar um Mercenário com uma contagem que nem essa?";
 		next;
 		mes "[O Sem Nome]";
-		mes "Desde que vocÃª parece nÃ£o ter um pingo de inteligÃªncia, Eu irei lhe dar algumas dicas.......";
+		mes "Desde que você parece não ter um pingo de inteligência, Eu irei lhe dar algumas dicas.......";
 		next;
 		mes "[O Sem Nome]";
-		mes "Fale com o MercenÃ¡rio 'Kai', ele talvez possa te ajudar.  Se vocÃª nÃ£o tentar interpretar este cÃ³digo:";
+		mes "Fale com o Mercenário 'Kai', ele talvez possa te ajudar.  Se você não tentar interpretar este código:";
 		mes "^5533FFwww.emperium.org......^000000";
 		next;
 		mes "[O Sem Nome]";
 		mes "Tem boatos de que veio de outro mundo...... em algum lugar chamado.... a 'Internet'.......";
 		close2;
-		disablenpc "MercenÃ¡rio Kai#1";
-		enablenpc "MercenÃ¡rio Kai#2";
+		disablenpc "Mercenário Kai#1";
+		enablenpc "Mercenário Kai#2";
 		warp "in_moc_16", 19, 76;
 		end;
 	}
-	mes "... Muito bom, vocÃª passou no quiz.";
+	mes "... Muito bom, você passou no quiz.";
 	next;
 	mes "[O Sem Nome]";
-	mes "Espere nÃ£o fique tÃ£o feliz ainda, ainda tem outro teste... Fale com a Barkadi e ela irÃ¡ lhe falar sobre o segundo teste..";
+	mes "Espere não fique tão feliz ainda, ainda tem outro teste... Fale com a Barkadi e ela irá lhe falar sobre o segundo teste..";
 	savepoint "in_moc_16", 21, 160;
 	set ASSIN_Q, 2;
 	close;
@@ -990,48 +990,48 @@ OnTouch:
 in_moc_16,21,165,4	script	Barcardi	725,{
 
 	mes "[Barcardi]";
-	mes "Eu vejo que vocÃª passou no primeiro teste ^5533FF" + strcharinfo(0) + "^000000.";
+	mes "Eu vejo que você passou no primeiro teste ^5533FF" + strcharinfo(0) + "^000000.";
 	next;
 	while(1)
 	{
-		switch( select("Qual Ã© o prÃ³ximo teste?:Eu quero comeÃ§ar o teste.:Eu preciso voltar e descanÃ§ar.") )
+		switch( select("Qual é o próximo teste?:Eu quero começar o teste.:Eu preciso voltar e descançar.") )
 		{
 			case 1:
 				mes "[Barcardi]";
-				mes "Deixe-me lhe falar sobre o segundo teste.  Esse teste tem 2 partes. A primeira parte irÃ¡ testar sua agilidade em achar e eliminar alvos.";
-				mes "VocÃª precisarÃ¡ de uma Ã³tima precisÃ£o e paciÃªncia para escolher seus alvos entre um grupo de nÃ£o-alvos.";
+				mes "Deixe-me lhe falar sobre o segundo teste.  Esse teste tem 2 partes. A primeira parte irá testar sua agilidade em achar e eliminar alvos.";
+				mes "Você precisará de uma ótima precisão e paciência para escolher seus alvos entre um grupo de não-alvos.";
 				next;
 				mes "[Barcardi]";
-				mes "VocÃª estÃ¡ procurando pelos monstros chamados de ^5533FF'Alvo Classe'^000000.  Mate qualquer outro alvo e vocÃª falharÃ¡ no teste.";
-				mes "VocÃª tambÃ©m serÃ¡ cronometrado durante o teste.  Se vocÃª demorar mais de ^FF55333 minutos^000000 para cumprir sua missÃ£o vocÃª tambÃ©m falharÃ¡.";
+				mes "Você está procurando pelos monstros chamados de ^5533FF'Alvo Classe'^000000.  Mate qualquer outro alvo e você falhará no teste.";
+				mes "Você também será cronometrado durante o teste.  Se você demorar mais de ^FF55333 minutos^000000 para cumprir sua missão você também falhará.";
 				next;
 				mes "[Barcardi]";
-				mes "Poder identificar o alvo correto rapidamente Ã© um requerimento bÃ¡sico do MercenÃ¡rio.";
-				mes "Outro requerimento Ã© segredo.  Um MercenÃ¡rio NUNCA deve ser visto!";
+				mes "Poder identificar o alvo correto rapidamente é um requerimento básico do Mercenário.";
+				mes "Outro requerimento é segredo.  Um Mercenário NUNCA deve ser visto!";
 				next;
 				mes "[Barcardi]";
-				mes "A Ãºltima parte do teste requer que vocÃª ande apÃ³s um grande grupo de agressivos e perigosos monstros.";
-				mes "Sua habilidade de ^5544FFinvisibilidade^000000 serÃ¡ Ãºtil aqui.  VocÃª tem ^FF55333 minutos^000000 para terminar essa parte do teste tambÃ©m.";
+				mes "A última parte do teste requer que você ande após um grande grupo de agressivos e perigosos monstros.";
+				mes "Sua habilidade de ^5544FFinvisibilidade^000000 será útil aqui.  Você tem ^FF55333 minutos^000000 para terminar essa parte do teste também.";
 				next;
 				mes "[Barcardi]";
-				mes "Se vocÃª for descoberto pelos monstros e for matado, ou se seu tempo acabar, vocÃª falharÃ¡ no teste.";
+				mes "Se você for descoberto pelos monstros e for matado, ou se seu tempo acabar, você falhará no teste.";
 				next;
 				mes "[Barcardi]";
-				mes "VocÃª precisa passar em AMBAS partes do teste se vocÃª quiser continuar pro prÃ³ximo exame.";
-				mes "Se vocÃª falhar em uma delas, vocÃª precisarÃ¡ comeÃ§ar todo o teste denovo.";
+				mes "Você precisa passar em AMBAS partes do teste se você quiser continuar pro próximo exame.";
+				mes "Se você falhar em uma delas, você precisará começar todo o teste denovo.";
 				next;
 				break;
 			case 2:
 				mes "[Barcardi]";
-				mes "Somente 1 pessoa pode fazer o teste por vez.  Quando vocÃª estiver pronto, por favor entre na sala de espera.";
-				mes "O teste comeÃ§arÃ¡ automaticamente quando a sala de teste for aberta.";
+				mes "Somente 1 pessoa pode fazer o teste por vez.  Quando você estiver pronto, por favor entre na sala de espera.";
+				mes "O teste começará automaticamente quando a sala de teste for aberta.";
 				close;
 			case 3:
 				mes "[Barcardi]";
-				mes ".... Ok, volte quando vocÃª tiver descansado o bastante.....";
+				mes ".... Ok, volte quando você tiver descansado o bastante.....";
 				next;
 				mes "[Barcardi]";
-				mes "....... Ah, e nÃ£o se esqueÃ§a de levar um pouco de coragem com vocÃª perdedor!";
+				mes "....... Ah, e não se esqueça de levar um pouco de coragem com você perdedor!";
 				emotion e_pif;
 				close2;
 				warp "moc_fild16", 206, 241;
@@ -1040,7 +1040,7 @@ in_moc_16,21,165,4	script	Barcardi	725,{
 	}
 
 OnInit:
-	waitingroom "Sala de Espera do Teste de MercenÃ¡rio",8,"Barcardi::OnStart",1;
+	waitingroom "Sala de Espera do Teste de Mercenário",8,"Barcardi::OnStart",1;
 	end;
 OnStart:
 	set $@SinUsers, getareausers("in_moc_16", 60, 136, 93, 177);
@@ -1077,28 +1077,28 @@ OnStart:
 	monster "in_moc_16",60,158,"Soldado Alvo",1113,1,"SinTest2::OnFailed";
 	monster "in_moc_16",64,169,"Alvo",1002,1,"SinTest2::OnFailed";
 	monster "in_moc_16",71,173,"Sou EU!!!",1063,1,"SinTest2::OnFailed";
-	monster "in_moc_16",77,172,"NÃ£o me bata",1002,1,"SinTest2::OnFailed";
+	monster "in_moc_16",77,172,"Não me bata",1002,1,"SinTest2::OnFailed";
 	monster "in_moc_16",76,172,"Alvu Classe",1063,1,"SinTest2::OnFailed";
 	monster "in_moc_16",75,172,"Alvo Classi",1113,1,"SinTest2::OnFailed";
 	monster "in_moc_16",67,167,"Auvo Classe",1063,1,"SinTest2::OnFailed";
 	monster "in_moc_16",86,170,"Aqui Seu Alvo!",1031,1,"SinTest2::OnFailed";
 	monster "in_moc_16",86,171,"Alvo",1002,1,"SinTest2::OnFailed";
 	monster "in_moc_16",86,170,"Alvo",1113,1,"SinTest2::OnFailed";
-	monster "in_moc_16",86,173,"Morrer Ã© legal hehe",1063,"SinTest2::OnFailed";
+	monster "in_moc_16",86,173,"Morrer é legal hehe",1063,"SinTest2::OnFailed";
 	monster "in_moc_16",85,170,"Vamos todos MORRER!",1031,1,"SinTest2::OnFailed";
 	monster "in_moc_16",89,156,"Alv4o Cla6sse",1002,1,"SinTest2::OnFailed";
-	monster "in_moc_16",89,156,"Mate-me e venÃ§a o teste",1113,1,"SinTest2::OnFailed";
-	monster "in_moc_16",89,156,"Seja um MercenÃ¡rio",1063,1,"SinTest2::OnFailed";
+	monster "in_moc_16",89,156,"Mate-me e vença o teste",1113,1,"SinTest2::OnFailed";
+	monster "in_moc_16",89,156,"Seja um Mercenário",1063,1,"SinTest2::OnFailed";
 	monster "in_moc_16",89,156,"Por favor me mate",1113,1,"SinTest2::OnFailed";
 	monster "in_moc_16",89,156,"Estou aqui para morrer",1031,1,"SinTest2::OnFailed";
 	monster "in_moc_16",83,169,"Sirvo para ser morto",1002,1,"SinTest2::OnFailed";
 	monster "in_moc_16",63,158,"Alvo pra Mudar Classe",1063,1,"SinTest2::OnFailed";
 	monster "in_moc_16",63,157,"Adoro Morrer",1002,1,"SinTest2::OnFailed";
-	monster "in_moc_16",64,159,"Se nÃ£o me matar, vocÃª Ã© burro",1002,1,"SinTest2::OnFailed";
+	monster "in_moc_16",64,159,"Se não me matar, você é burro",1002,1,"SinTest2::OnFailed";
 	monster "in_moc_16",63,159,"Alvo Klasse",1063,1,"SinTest2::OnFailed";
-	monster "in_moc_16",63,159,"vocÃª Ã© burro",1002,1,"SinTest2::OnFailed";
-	monster "in_moc_16",63,159,"vocÃª Ã© burro",1002,1,"SinTest2::OnFailed";
-	monster "in_moc_16",83,148,"vocÃª Ã© burro",1002,1,"SinTest2::OnFailed";
+	monster "in_moc_16",63,159,"você é burro",1002,1,"SinTest2::OnFailed";
+	monster "in_moc_16",63,159,"você é burro",1002,1,"SinTest2::OnFailed";
+	monster "in_moc_16",83,148,"você é burro",1002,1,"SinTest2::OnFailed";
 	monster "in_moc_16",82,148,"Alvo Job",1002,1,"SinTest2::OnFailed";
 	monster "in_moc_16",84,148,"Alvo Base",1002,1,"SinTest2::OnFailed";
 	set $@sinRmX1, 60;
@@ -1113,22 +1113,22 @@ OnStart:
 
 OnTimer500:
 	stopnpctimer;
-	areaannounce "in_moc_16", 60, 136, 93, 177, "Ok, o teste estÃ¡ a ponto de comeÃ§ar! Lembre de eliminar os monstros chamados de 'Alvo Classe'",8;
+	areaannounce "in_moc_16", 60, 136, 93, 177, "Ok, o teste está a ponto de começar! Lembre de eliminar os monstros chamados de 'Alvo Classe'",8;
 	end;
 OnMobDead:
 	set $@SinMob, $@SinMob -1;
-	areaannounce "in_moc_16", 60, 136, 93, 177, "Ã“timo.  VocÃª tem " + $@SinMob + " alvos restantes para eliminar.",8;
+	areaannounce "in_moc_16", 60, 136, 93, 177, "Ótimo.  Você tem " + $@SinMob + " alvos restantes para eliminar.",8;
 	if($@SinMob > 0) end;
 
 	stopnpctimer "TimerSin";
 	killmonsterall "in_moc_16";
 	enablenpc "sinWarp1";
-	areaannounce "in_moc_16", 60, 136, 93, 177,"ParabÃ©ns! VocÃª passou no teste! Um portal acabou de abir.  Use-o e saia da sala do teste.",8;
+	areaannounce "in_moc_16", 60, 136, 93, 177,"Parabéns! Você passou no teste! Um portal acabou de abir.  Use-o e saia da sala do teste.",8;
 	addtimer 30000, "sinWarp1::OnTimer30000";		// warps player after 30 sec to move test along
 	end;
 OnFailed:
 	stopnpctimer "TimerSin";
-	areaannounce "in_moc_16", 60, 136, 93, 177,"VocÃª falhou!",8;
+	areaannounce "in_moc_16", 60, 136, 93, 177,"Você falhou!",8;
 	addtimer 3000, "TimerSin::OnTimer188000";
 	end;
 }
@@ -1136,7 +1136,7 @@ OnFailed:
 in_moc_16,62,153,1	script	Observador	55,{
 
 	mes "[Observador]";
-	mes "NÃ£o se preocupe comigo, eu sÃ³ estou aqui para ver o quanto bem vocÃª sai no seu teste.....";
+	mes "Não se preocupe comigo, eu só estou aqui para ver o quanto bem você sai no seu teste.....";
 	close;
 }
 
@@ -1259,13 +1259,13 @@ OnTimer600:
 	}
 
 	mes "[Thomas]";
-	mes "Meu nome Ã© Thomas e eu estou no comando dessa parte do teste .";
+	mes "Meu nome é Thomas e eu estou no comando dessa parte do teste .";
 	next;
 	mes "[Thomas]";
-	mes "O objetivo desse teste Ã© fugir e evitar o inimigo.  VocÃª deve ir ao portal sem atrair a atenÃ§Ã£o dos monstros na sala.";
+	mes "O objetivo desse teste é fugir e evitar o inimigo.  Você deve ir ao portal sem atrair a atenção dos monstros na sala.";
 	next;
 	mes "[Thomas]";
-	mes "VocÃª deve fazer isso sem morrer.  Porque nenhum desses monstros Ã© seu alvo, vocÃª nÃ£o pode matar nenhum deles.";
+	mes "Você deve fazer isso sem morrer.  Porque nenhum desses monstros é seu alvo, você não pode matar nenhum deles.";
 	mes "Use sua habilidade de fugir e de se esconder para passar neste teste.";
 	next;
 	mes "[Thomas]";
@@ -1285,17 +1285,17 @@ OnTouch:
 in_moc_16,1,1,1	script	SinTest2_2	-1,{
 
 OnStart:
-	monster "in_moc_16", 81, 77, "MÃšMIA", 1041,1, "SinTest2_2::OnMobDead";
-	monster "in_moc_16", 83, 77, "MÃšMIA", 1041,1, "SinTest2_2::OnMobDead";
-	monster "in_moc_16", 85, 77, "MÃšMIA", 1041,1, "SinTest2_2::OnMobDead";
-	monster "in_moc_16", 88, 77, "MÃšMIA", 1041,1, "SinTest2_2::OnMobDead";
-	monster "in_moc_16", 90, 77, "MÃšMIA", 1041,1, "SinTest2_2::OnMobDead";
-	monster "in_moc_16", 78, 56, "MÃšMIA", 1041,1, "SinTest2_2::OnMobDead";
-	monster "in_moc_16", 80, 56, "MÃšMIA", 1041,1, "SinTest2_2::OnMobDead";
-	monster "in_moc_16", 91, 56, "MÃšMIA", 1041,1, "SinTest2_2::OnMobDead";
-	monster "in_moc_16", 93, 56, "MÃšMIA", 1041,1, "SinTest2_2::OnMobDead";
-	monster "in_moc_16", 95, 56, "MÃšMIA", 1041,1, "SinTest2_2::OnMobDead";
-	monster "in_moc_16", 97, 56, "MÃšMIA", 1041,1, "SinTest2_2::OnMobDead";
+	monster "in_moc_16", 81, 77, "MÚMIA", 1041,1, "SinTest2_2::OnMobDead";
+	monster "in_moc_16", 83, 77, "MÚMIA", 1041,1, "SinTest2_2::OnMobDead";
+	monster "in_moc_16", 85, 77, "MÚMIA", 1041,1, "SinTest2_2::OnMobDead";
+	monster "in_moc_16", 88, 77, "MÚMIA", 1041,1, "SinTest2_2::OnMobDead";
+	monster "in_moc_16", 90, 77, "MÚMIA", 1041,1, "SinTest2_2::OnMobDead";
+	monster "in_moc_16", 78, 56, "MÚMIA", 1041,1, "SinTest2_2::OnMobDead";
+	monster "in_moc_16", 80, 56, "MÚMIA", 1041,1, "SinTest2_2::OnMobDead";
+	monster "in_moc_16", 91, 56, "MÚMIA", 1041,1, "SinTest2_2::OnMobDead";
+	monster "in_moc_16", 93, 56, "MÚMIA", 1041,1, "SinTest2_2::OnMobDead";
+	monster "in_moc_16", 95, 56, "MÚMIA", 1041,1, "SinTest2_2::OnMobDead";
+	monster "in_moc_16", 97, 56, "MÚMIA", 1041,1, "SinTest2_2::OnMobDead";
 	monster "in_moc_16", 79, 62, "Hidra", 1068,1, "SinTest2_2::OnMobDead";
 	monster "in_moc_16", 76, 65, "Hidra", 1068,1, "SinTest2_2::OnMobDead";
 	monster "in_moc_16", 96, 65, "Hidra", 1068,1, "SinTest2_2::OnMobDead";
@@ -1312,7 +1312,7 @@ OnStart:
 
 OnMobDead:
 	stopnpctimer "TimerSin";
-	areaannounce "in_moc_16", 64, 46, 111, 105, ". . . VocÃª atacou um alvo sem permissÃ£o! VocÃª falhou no teste!",8;
+	areaannounce "in_moc_16", 64, 46, 111, 105, ". . . Você atacou um alvo sem permissão! Você falhou no teste!",8;
 	enablenpc "Thomas";
 	addtimer 3000, "TimerSin::OnTimer188000";
 	end;
@@ -1321,7 +1321,7 @@ OnMobDead:
 in_moc_16,87,48,2	script	sinWarp2	45,2,2,{
 
 	mes "[Thomas]";
-	mes "Bom trabalho! SÃ³ tem um teste sobrando, boa sorte!!";
+	mes "Bom trabalho! Só tem um teste sobrando, boa sorte!!";
 	stopnpctimer "TimerSin";
 	killmonster "in_moc_16","SinTest2_2::OnMobDead";
 	set ASSIN_Q, 3;
@@ -1336,16 +1336,16 @@ in_moc_16,87,48,2	script	sinWarp2	45,2,2,{
 in_moc_16,1,1,0	script	TimerSin	-1,{
 
 OnTimer3000:
-	areaannounce "in_moc_16", $@sinRmX1, $@sinRmY1, $@sinRmX2, $@sinRmY2, "Eu irei anunciar quanto tempo vocÃª terÃ¡ sobrando de minuto em minuto.",8;
+	areaannounce "in_moc_16", $@sinRmX1, $@sinRmY1, $@sinRmX2, $@sinRmY2, "Eu irei anunciar quanto tempo você terá sobrando de minuto em minuto.",8;
 	end;
 OnTimer5000:
-	areaannounce "in_moc_16", $@sinRmX1, $@sinRmY1, $@sinRmX2, $@sinRmY2, "VocÃª tem 3 minutos comeÃ§ando agora!",8;
+	areaannounce "in_moc_16", $@sinRmX1, $@sinRmY1, $@sinRmX2, $@sinRmY2, "Você tem 3 minutos começando agora!",8;
 	end;
 OnTimer35000:
 	donpcevent "Barcardi::OnStart";
 	end;
 OnTimer65000:
-	areaannounce "in_moc_16", $@sinRmX1, $@sinRmY1, $@sinRmX2, $@sinRmY2, "VocÃª tem 2 minutos sobrando!  ",8;
+	areaannounce "in_moc_16", $@sinRmX1, $@sinRmY1, $@sinRmX2, $@sinRmY2, "Você tem 2 minutos sobrando!  ",8;
 	donpcevent "Barcardi::OnStart";
 	end;
 OnTimer95000:
@@ -1375,7 +1375,7 @@ OnTimer184000:
 	areaannounce "in_moc_16", $@sinRmX1, $@sinRmY1, $@sinRmX2, $@sinRmY2, "1 segundos.",8;
 	end;
 OnTimer185000:
-	areaannounce "in_moc_16", $@sinRmX1, $@sinRmY1, $@sinRmX2, $@sinRmY2, "Ok acabou o tempo! VocÃª falhou!",8;
+	areaannounce "in_moc_16", $@sinRmX1, $@sinRmY1, $@sinRmX2, $@sinRmY2, "Ok acabou o tempo! Você falhou!",8;
 	end;
 OnTimer188000:
 	stopnpctimer;
@@ -1390,7 +1390,7 @@ in_moc_16,182,169,1	script	sinWarp3	45,1,1,{
 	if( getareausers(("in_moc_16"),148,74,187,117) > 0 )
 	{
 		mes "~ uma mensagem vinda do Mestre da Guilda...~";
-		mes "Eu atualmente estou ocupado com outro Candidato de MercenÃ¡rio.  Por favor, espere pacientemente atÃ© eu ter terminado com essa pessoa.";
+		mes "Eu atualmente estou ocupado com outro Candidato de Mercenário.  Por favor, espere pacientemente até eu ter terminado com essa pessoa.";
 		close;
 	}
 	disablenpc "Huey#End";
@@ -1406,18 +1406,18 @@ in_moc_16,182,169,1	script	sinWarp3	45,1,1,{
 in_moc_16,167,114,3	script	guildmaster_Trig#0	139,4,0,{
 
 		mes "[Mestre da Guilda]";
-		mes "Bem vindo ^5533FF" + strcharinfo(0) + "^000000.  Essa Ã© minha sala privada.";
+		mes "Bem vindo ^5533FF" + strcharinfo(0) + "^000000.  Essa é minha sala privada.";
 		next;
 		mes "[Mestre da Guilda]";
-		mes "Eu irei lhe dar um teste simples.  Tudo que vocÃª tem que fazer Ã© vir encontrar comigo.";
-		mes "Ã‰ claro que vocÃª terÃ¡ que atravessar em um labirinto de paredes invisÃ­veis para conseguir.....";
+		mes "Eu irei lhe dar um teste simples.  Tudo que você tem que fazer é vir encontrar comigo.";
+		mes "É claro que você terá que atravessar em um labirinto de paredes invisíveis para conseguir.....";
 		next;
 		mes "[Mestre da Guilda]";
-		mes "Hahah... NÃ£o Ã© tÃ£o difÃ­cil como parece.  A finalidade do labirinto Ã© proteger a guilda dos intrusos .";
-		mes "Mas eu decidi usÃ¡-lo para testar a determinaÃ§Ã£o dos candidatos de MercenÃ¡rio tambÃ©m.";
+		mes "Hahah... Não é tão difícil como parece.  A finalidade do labirinto é proteger a guilda dos intrusos .";
+		mes "Mas eu decidi usá-lo para testar a determinação dos candidatos de Mercenário também.";
 		next;
 		mes "[Mestre da Guilda]";
-		mes "Bom, papo suficiente.  Eu irei na frente para encontrÃ¡-lo no final do labirinto.";
+		mes "Bom, papo suficiente.  Eu irei na frente para encontrá-lo no final do labirinto.";
 		close;
 }
 
@@ -1426,254 +1426,254 @@ in_moc_16,149,80,4	script	Mestre da Guilda#01	106,1,1,{
 
 OnTouch:
 	mes "[Mestre da Guilda]";
-	mes "Ah Ã© bom te conhecer ^5533FF" + strcharinfo(0) + "^000000.  Eu preciso me desculpar de fazer vocÃª andar nesse labirinto.";
-	mes "Eu acabei de ver seu resumo, vocÃª foi descrito como um Gatuno com garras!";
+	mes "Ah é bom te conhecer ^5533FF" + strcharinfo(0) + "^000000.  Eu preciso me desculpar de fazer você andar nesse labirinto.";
+	mes "Eu acabei de ver seu resumo, você foi descrito como um Gatuno com garras!";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "NÃ³s raramente achamos alguÃ©m com suas habilidades e experiÃªncia.";
+	mes "Nós raramente achamos alguém com suas habilidades e experiência.";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "Se vocÃª nÃ£o se importa eu gostaria de lhe fazer algumas perguntas.  NÃ£o hÃ¡ nada para ficar nervoso.";
-	mes "SÃ³ responda minhas questÃµes honestamente..... se vocÃª mentir, eu irei matÃ¡-lo.  Isso Ã© tudo.";
+	mes "Se você não se importa eu gostaria de lhe fazer algumas perguntas.  Não há nada para ficar nervoso.";
+	mes "Só responda minhas questões honestamente..... se você mentir, eu irei matá-lo.  Isso é tudo.";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "Primeiro de tudo, o que vocÃª acha que Ã© mais importante Ã  um MercenÃ¡rio?";
+	mes "Primeiro de tudo, o que você acha que é mais importante à um Mercenário?";
 	next;
-	switch( select("Mais poder.:Orgulho de um MercenÃ¡rio.:Treino infinito.") )
+	switch( select("Mais poder.:Orgulho de um Mercenário.:Treino infinito.") )
 	{
 		case 1:
 			mes "[Mestre da Guilda]";
-			mes "Ã‰ verdade que um MercenÃ¡rio Ã© mais forte do que um Gatuno.";
-			mes "Quando tornar-se um MercenÃ¡rio vocÃª serÃ¡ capaz de fazer coisas que um mero Gatuno poderia sonhar em fazer.";
+			mes "É verdade que um Mercenário é mais forte do que um Gatuno.";
+			mes "Quando tornar-se um Mercenário você será capaz de fazer coisas que um mero Gatuno poderia sonhar em fazer.";
 			next;
 			mes "[Mestre da Guilda]";
-			mes "Mas, por que vocÃª quer esse tipo de poder?";
+			mes "Mas, por que você quer esse tipo de poder?";
 			next;
-			switch( select("Para ter vinganÃ§a Ã  aqueles que me machucarem.:Eu irei usar esse poder para me tornar rico.:Para explorar novos lugares.") )
+			switch( select("Para ter vingança à aqueles que me machucarem.:Eu irei usar esse poder para me tornar rico.:Para explorar novos lugares.") )
 			{
 				case 1:
 					mes "[Mestre da Guilda]";
-					mes "VinganÃ§a hmm............ Parece que todo mundo tem tido inimigos nesses dias........";
+					mes "Vingança hmm............ Parece que todo mundo tem tido inimigos nesses dias........";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "De qualquer jeito, vinganÃ§a estÃ¡ cheio de emoÃ§Ãµes, e como um MercenÃ¡rio nÃ£o pode ter essas emoÃ§Ãµes.";
-					mes "Um MercenÃ¡rio deve ser sangue-frio... nunca sentimental.... Ele/ela nÃ£o pode deixar nada em seu caminho.";
+					mes "De qualquer jeito, vingança está cheio de emoções, e como um Mercenário não pode ter essas emoções.";
+					mes "Um Mercenário deve ser sangue-frio... nunca sentimental.... Ele/ela não pode deixar nada em seu caminho.";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "EmoÃ§Ãµes sÃ£o as maiores ameaÃ§as Ã  um MercenÃ¡rio..... elas causam confusÃ£o e desordenam a mente.....";
-					mes "Um MercenÃ¡rio deve sempre ter um treino limpo a fim de pensar em ser bem sucedido.";
+					mes "Emoções são as maiores ameaças à um Mercenário..... elas causam confusão e desordenam a mente.....";
+					mes "Um Mercenário deve sempre ter um treino limpo a fim de pensar em ser bem sucedido.";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "Se vocÃª quer se tornar um MercenÃ¡rio, vocÃª precisa encontrar um meio de controlar suas emoÃ§Ãµes.... e nÃ£o suas emoÃ§Ãµes controlarem vocÃª.";
+					mes "Se você quer se tornar um Mercenário, você precisa encontrar um meio de controlar suas emoções.... e não suas emoções controlarem você.";
 					break;
 				case 2:
 					mes "[Mestre da Guilda]";
-					mes "Dinheiro Ã© uma parte importante do mundo.... sendo que Ã© sem sentido para um MercenÃ¡rio.";
-					mes "A finalidade de um MercenÃ¡rio Ã© realizar a obscuridade, e os deveres desagradÃ¡veis de que ninguÃ©m mais Ã© capaz.....";
+					mes "Dinheiro é uma parte importante do mundo.... sendo que é sem sentido para um Mercenário.";
+					mes "A finalidade de um Mercenário é realizar a obscuridade, e os deveres desagradáveis de que ninguém mais é capaz.....";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "Verdadeiros MercenÃ¡rios nÃ£o pensa em fama ou fortuna.";
+					mes "Verdadeiros Mercenários não pensa em fama ou fortuna.";
 					break;
 				case 3:
 					mes "[Mestre da Guilda]";
-					mes "Uma idÃ©ia interessante..... vocÃª procura obviamente aprender mais sobre o mundo em torno de vocÃª.";
-					mes "Em saber mais sobre o mundo, vocÃª ganha melhor introspecÃ§Ã£o Ã  si prÃ³prio.";
+					mes "Uma idéia interessante..... você procura obviamente aprender mais sobre o mundo em torno de você.";
+					mes "Em saber mais sobre o mundo, você ganha melhor introspecção à si próprio.";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "Mas lembre que seu caminho estarÃ¡ cheio de solidÃ£o.  Ã‰ uma realidade que todos os MercenÃ¡rios devem enfrentar.";
+					mes "Mas lembre que seu caminho estará cheio de solidão.  É uma realidade que todos os Mercenários devem enfrentar.";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "Para aqueles que sucederam como MercenÃ¡rios, eles nÃ£o aprenderam somente a esse fato.... mas aprenderam a admitir ele.";
+					mes "Para aqueles que sucederam como Mercenários, eles não aprenderam somente a esse fato.... mas aprenderam a admitir ele.";
 					break;
 			}
 			break;
 		case 2:
 			mes "[Mestre da Guilda]";
-			mes "VocÃª diz orgulho? Por acaso outro MercenÃ¡rio mencionou isso para vocÃª?.....";
+			mes "Você diz orgulho? Por acaso outro Mercenário mencionou isso para você?.....";
 			next;
 			mes "[Mestre da Guilda]";
-			mes "Infelizmente orgulho sem habilidade nÃ£o Ã© nada.  Hmm... o que vocÃª estÃ¡ tentando encontrar ou ganhar tornando-se um MercenÃ¡rio?"; 
+			mes "Infelizmente orgulho sem habilidade não é nada.  Hmm... o que você está tentando encontrar ou ganhar tornando-se um Mercenário?"; 
 			next;
 			mes "[Mestre da Guilda]";
-			mes "A maioria das pessoas que vocÃª conheceu nessa Guilda sÃ£o meus Aprendizes e eles se esforÃ§aram e se sacrificaram em um Ã³timo trabalho como MercenÃ¡rios  .";
-			mes "Ã‰ porque eles se superaram muito sofridamente, que podem se orgulharem bastante em ser MercenÃ¡rios.";
+			mes "A maioria das pessoas que você conheceu nessa Guilda são meus Aprendizes e eles se esforçaram e se sacrificaram em um ótimo trabalho como Mercenários  .";
+			mes "É porque eles se superaram muito sofridamente, que podem se orgulharem bastante em ser Mercenários.";
 			next;
 			mes "[Mestre da Guilda]";
-			mes "VocÃª, ainda, nÃ£o enfrentou as dificuldades que os MercenÃ¡rios tÃªm.";
-			mes "EntÃ£o o que, vocÃª diz quando vocÃª fala de 'Orgulho de um MercenÃ¡rio'?";
+			mes "Você, ainda, não enfrentou as dificuldades que os Mercenários têm.";
+			mes "Então o que, você diz quando você fala de 'Orgulho de um Mercenário'?";
 			next;
-			switch( select("A idÃ©ia de solitude.:A habilidade de ganhar dinheiro fÃ¡cil.:Eles simplismente parecem legais.") )
+			switch( select("A idéia de solitude.:A habilidade de ganhar dinheiro fácil.:Eles simplismente parecem legais.") )
 			{
 				case 1:
 					mes "[Mestre da Guilda]";
-					mes "Ã‰ verdadeiro que a vida de um MercenÃ¡rio Ã© solitÃ¡ria.  De um jeito, ser um MercenÃ¡rio, Ã© nÃ£o existir....";
+					mes "É verdadeiro que a vida de um Mercenário é solitária.  De um jeito, ser um Mercenário, é não existir....";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "NÃ³s nunca fazemos contato direto com nenhum de nossos amigos.  A pessoa que nos fazemos contato..... nÃ³s Ã  matamos.";
+					mes "Nós nunca fazemos contato direto com nenhum de nossos amigos.  A pessoa que nos fazemos contato..... nós à matamos.";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "A Ãºnica pessoa que sabe sobre MercenÃ¡rios sÃ£o outros MercenÃ¡rios....";
-					mes "Embora entÃ£o..... nos protegemos e escondemos a nÃ³s mesmos dos outros..........";
+					mes "A única pessoa que sabe sobre Mercenários são outros Mercenários....";
+					mes "Embora então..... nos protegemos e escondemos a nós mesmos dos outros..........";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "Embora entÃ£o... tendo camaradas Ã© melhor que nada.";
-					mes "Eu recomendo que vocÃª tenha no mÃ­nimo um parceiro para apoiÃ¡-lo durante uma missÃ£o.";
+					mes "Embora então... tendo camaradas é melhor que nada.";
+					mes "Eu recomendo que você tenha no mínimo um parceiro para apoiá-lo durante uma missão.";
 					break;
 				case 2:
 					mes "[Mestre da Guilda]";
-					mes "Sim, dinheiro Ã© importante.";
-					mes "Mas vocÃª nÃ£o acha que nÃ³s MercenÃ¡rios nÃ£o temos coisas mais importantes Ã  tratar?";
+					mes "Sim, dinheiro é importante.";
+					mes "Mas você não acha que nós Mercenários não temos coisas mais importantes à tratar?";
 					break;
 				case 3:
 					mes "[Mestre da Guilda]";
-					mes "...EntÃ£o vocÃª sÃ³ pensa que MercenÃ¡rios sÃ£o legais......... ~sigh~";
-					mes "Isso Ã© realmente chato.... Acredite-me quando eu lhe digo que a finalidade dos MercenÃ¡rios nÃ£o Ã© olhar meramente bem.....";
+					mes "...Então você só pensa que Mercenários são legais......... ~sigh~";
+					mes "Isso é realmente chato.... Acredite-me quando eu lhe digo que a finalidade dos Mercenários não é olhar meramente bem.....";
 					next;
 					mes "[Mestre da Guilda]";
-					mes ".... Mas deve fazer aquelas aÃ§Ãµes escuras que ninguÃ©m quer fazer.";
+					mes ".... Mas deve fazer aquelas ações escuras que ninguém quer fazer.";
 					break;
 			}
 			break;
 		case 3:
 			mes "[Mestre da Guilda]";
-			mes "Interessante..... Estou vendo que vocÃª jÃ¡ treinou um bucado.  Eu suponho que mais treinamento nÃ£o deve machucar.....";
+			mes "Interessante..... Estou vendo que você já treinou um bucado.  Eu suponho que mais treinamento não deve machucar.....";
 			next;
 			mes "[Mestre da Guilda]";
-			mes "HÃ¡ alguma Ã¡rea especÃ­fica que vocÃª goste de improvar?";
+			mes "Há alguma área específica que você goste de improvar?";
 			next;
-			switch( select("TÃ©cnicas.:Alvos mais competidores.:ResistÃªncia mental.") )
+			switch( select("Técnicas.:Alvos mais competidores.:Resistência mental.") )
 			{
 				case 1:
 					mes "[Mestre da Guilda]";
-					mes "Como um MercenÃ¡rio vocÃª terÃ¡ acesso a vÃ¡rias novas habilidades.  Quando melhor voce treinar, melhor vocÃª serÃ¡ usando essas habilidades.";
+					mes "Como um Mercenário você terá acesso a várias novas habilidades.  Quando melhor voce treinar, melhor você será usando essas habilidades.";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "Para ser um Ã³timo MercenÃ¡rio vocÃª deve usar essas habilidades mesmo.";
+					mes "Para ser um ótimo Mercenário você deve usar essas habilidades mesmo.";
 					break;
 				case 2:
 					mes "[Mestre da Guilda]";
-					mes "Constantemente competindo com vocÃª mesmo Ã© uma grande maneira de melhorar suas habilidades.";
-					mes "Enfrentar os mesmos alvos repetidamente irÃ¡ somente tornÃ¡-lo mais fraco.";
+					mes "Constantemente competindo com você mesmo é uma grande maneira de melhorar suas habilidades.";
+					mes "Enfrentar os mesmos alvos repetidamente irá somente torná-lo mais fraco.";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "Boms MercenÃ¡rios estÃ£o sempre achando maneiras diferentes de competir com eles mesmos.";
+					mes "Boms Mercenários estão sempre achando maneiras diferentes de competir com eles mesmos.";
 					break;
 				case 3:
 					mes "[Mestre da Guilda]";
-					mes "Este Ã© provavelmente o aspecto mais importante a trabalhar para um MercenÃ¡rio.";
-					mes "NÃ£o somente os MercenÃ¡rios devem ter corpos sadios mas tambÃ©m tÃªm que ter mentes sadias.";
+					mes "Este é provavelmente o aspecto mais importante a trabalhar para um Mercenário.";
+					mes "Não somente os Mercenários devem ter corpos sadios mas também têm que ter mentes sadias.";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "Ã‰ crucial para os MercenÃ¡rios ser mentalmente resistente, porque estÃ£o constantemente sob pressÃ£o.";
-					mes "O tipo de situaÃ§Ãµes que os MercenÃ¡rios enfrentam basicamente todo dia sÃ£o imaginÃ¡veis para a maioria de pessoas ordinÃ¡rias.";
+					mes "É crucial para os Mercenários ser mentalmente resistente, porque estão constantemente sob pressão.";
+					mes "O tipo de situações que os Mercenários enfrentam basicamente todo dia são imagináveis para a maioria de pessoas ordinárias.";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "Isso Ã© porque um MercenÃ¡rio verdadeiro estÃ¡ treinando constantemente sua mente.";
+					mes "Isso é porque um Mercenário verdadeiro está treinando constantemente sua mente.";
 					break;
 			}
 			break;
 	}
 	next;
 	mes "[Mestre da Guilda]";
-	mes "Infelizmente existem vÃ¡rios noobs que estÃ£o anciosos em se tornar MercenÃ¡rios mas nÃ£o tÃªm treino suficiente.";
-	mes "Eles sÃ£o uma disgraÃ§a para a Guilda e suas atividades resultam em grande situaÃ§Ãµes problemÃ¡ticas.";
+	mes "Infelizmente existem vários noobs que estão anciosos em se tornar Mercenários mas não têm treino suficiente.";
+	mes "Eles são uma disgraça para a Guilda e suas atividades resultam em grande situações problemáticas.";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "VocÃª deve acabar como um deles se vocÃª nÃ£o tiver cuidado.  Lembre... uma vez que vocÃª Ã© MercenÃ¡rio nÃ£o tem volta.";
+	mes "Você deve acabar como um deles se você não tiver cuidado.  Lembre... uma vez que você é Mercenário não tem volta.";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "EntÃ£o deixe-me lhe perguntar isso.... Se vocÃª se tornasse um MercenÃ¡rio agora mesmo, qual seria a primeira coisa que vocÃª faria?";
+	mes "Então deixe-me lhe perguntar isso.... Se você se tornasse um Mercenário agora mesmo, qual seria a primeira coisa que você faria?";
 	next;
-	switch( select("Eu iria batalhar!:Eu iria voltar aos outros que esperam por mim.:Eu iria aprender mais sobre MercenÃ¡rios .") )
+	switch( select("Eu iria batalhar!:Eu iria voltar aos outros que esperam por mim.:Eu iria aprender mais sobre Mercenários .") )
 	{
 		case 1:
 			mes "[Mestre da Guilda]";
-			mes "Batalha.... isso Ã© tudo?";
+			mes "Batalha.... isso é tudo?";
 			next;
 			switch( select("Eu iria upar rapidamente.:Eu iria testar minhas novas habilidades.:Eu iria explorar novos lugares.") )
 			{
 				case 1:
 					mes "[Mestre da Guilda]";
-					mes "Sendo ou nÃ£o ser um MercenÃ¡rio nÃ£o deve mudar o quanto vocÃª treina rapidamente.";
-					mes "Voce ganharia a mesma experiÃªncia que vocÃª ganhava como um Gatuno.  EntÃ£o vÃ¡ com calma ok?";
+					mes "Sendo ou não ser um Mercenário não deve mudar o quanto você treina rapidamente.";
+					mes "Voce ganharia a mesma experiência que você ganhava como um Gatuno.  Então vá com calma ok?";
 					break;
 				case 2:
 					mes "[Mestre da Guilda]";
-					mes "Testando suas novas habilidades descobertas Ã© bom.";
-					mes "Eu posso compreender o excitamento que vocÃª sentirÃ¡ quando vocÃª ganhar habilidades novas como um MercenÃ¡rio.";
+					mes "Testando suas novas habilidades descobertas é bom.";
+					mes "Eu posso compreender o excitamento que você sentirá quando você ganhar habilidades novas como um Mercenário.";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "Apenas nÃ£o deixe que chegue no caminho de seus deveres.";
+					mes "Apenas não deixe que chegue no caminho de seus deveres.";
 					break;
 				case 3:
 					mes "[Mestre da Guilda]";
-					mes "ExploraÃ§Ã£o Ã© bom.  Achar novos lugares e novas pessoas.";
-					mes "VocÃª nunca saberÃ¡ quando vocÃª se encontrarÃ¡ com um amigo em perspectiva.";
+					mes "Exploração é bom.  Achar novos lugares e novas pessoas.";
+					mes "Você nunca saberá quando você se encontrará com um amigo em perspectiva.";
 					break;
 			}
 			break;
 		case 2:
 			mes "[Mestre da Guilda]";
-			mes "AlguÃ©m estÃ¡ esperando por vocÃª?";
+			mes "Alguém está esperando por você?";
 			next;
 			switch( select("Sim, as pessoas que eu conheci nessa Guilda.:Um amigo e parceiro.:O amor da minha vida.") )
 			{
 				case 1:
 					mes "[Mestre da Guilda]";
-					mes "Haha.  Eu acho que eles ficariam muito felizes em saber o que vocÃª estÃ¡ pensando sobre eles.";
-					mes "NÃ£o importa onde vocÃª vÃ¡, ou o que voce faÃ§a, vocÃª sempre tem um lugar aqui nessa Guilda.";
+					mes "Haha.  Eu acho que eles ficariam muito felizes em saber o que você está pensando sobre eles.";
+					mes "Não importa onde você vá, ou o que voce faça, você sempre tem um lugar aqui nessa Guilda.";
 					break;
 				case 2:
 					mes "[Mestre da Guilda]";
-					mes "Boms amigos sÃ£o difÃ­ceis de achar, e aqueles que vocÃª pode chamar de parceiros sÃ£o mais raros.";
-					mes "Ã‰ bom que vocÃª tenha um amigo com quem vocÃª possa confiar e trabalhar.";
+					mes "Boms amigos são difíceis de achar, e aqueles que você pode chamar de parceiros são mais raros.";
+					mes "É bom que você tenha um amigo com quem você possa confiar e trabalhar.";
 					break;
 				case 3:
 					mes "[Mestre da Guilda]";
-					mes "Ah vocÃª tem " + (Sex?"uma namorada":"um namorado") + "... entÃ£o se torne sua sombra e " + (Sex?"a":"o") + " proteja.";
+					mes "Ah você tem " + (Sex?"uma namorada":"um namorado") + "... então se torne sua sombra e " + (Sex?"a":"o") + " proteja.";
 					next;
 					mes "[Mestre da Guilda]";
-					mes "Como um MercenÃ¡rio vocÃª acharÃ¡ muito difÃ­cil de sempre encontrar alguÃ©m, entÃ£o certifique-se do tesouro que vocÃª tem agora.";
+					mes "Como um Mercenário você achará muito difícil de sempre encontrar alguém, então certifique-se do tesouro que você tem agora.";
 					break;
 			}
 			break;
 		case 3:
 			mes "[Mestre da Guilda]";
-			mes "Ok, entÃ£o o que vocÃª quer saber?";
+			mes "Ok, então o que você quer saber?";
 			next;
-			switch( select("Aonde Ã© o lugar mais fÃ¡cil de se treinar?:Aonde os MercenÃ¡rios geralmente vÃ£o para conseguir experiÃªncia?:Como um MercenÃ¡rio faz dinheiro?") )
+			switch( select("Aonde é o lugar mais fácil de se treinar?:Aonde os Mercenários geralmente vão para conseguir experiência?:Como um Mercenário faz dinheiro?") )
 			{
 				case 1:
 					mes "[Mestre da Guilda]";
-					mes "Aonde um MercenÃ¡rio estiver sempre, ele deve aprender a adaptar-se e sobreviver.";
-					mes "Os MercenÃ¡rios nÃ£o tÃªm o luxo de escolher onde treinam.";
+					mes "Aonde um Mercenário estiver sempre, ele deve aprender a adaptar-se e sobreviver.";
+					mes "Os Mercenários não têm o luxo de escolher onde treinam.";
 					break;
 				case 2:
 					mes "[Mestre da Guilda]";
-					mes "HÃ¡ muitos MercenÃ¡rios experientes que vagueiam o continente de Rune-Midgard.  Procure-os e peÃ§a-os pelo seu conhecimento.";
+					mes "Há muitos Mercenários experientes que vagueiam o continente de Rune-Midgard.  Procure-os e peça-os pelo seu conhecimento.";
 					next;	
 					mes "[Mestre da Guilda]";
-					mes "A melhor maneira de ganhar experiÃªncia entretanto, Ã© sair e experimentar o mundo por sua conta.";
+					mes "A melhor maneira de ganhar experiência entretanto, é sair e experimentar o mundo por sua conta.";
 					break;
 				case 3:
 					mes "[Mestre da Guilda]";
-					mes "Droga, o dinheiro Ã© tÃ£o importante pra vocÃª assim? A vida dos MercenÃ¡rios nÃ£o resolve em torno de dinheiro.....";
+					mes "Droga, o dinheiro é tão importante pra você assim? A vida dos Mercenários não resolve em torno de dinheiro.....";
 					break;
 			}
 			break;
 	}
 	next;
 	mes "[Mestre da Guilda]";
-	mes "Foi bom falar com vocÃª.  VocÃª me lembrou de meus Ã³timos dias do passado.";
+	mes "Foi bom falar com você.  Você me lembrou de meus ótimos dias do passado.";
 	next;
 	mes "[Mestre da Guilda]";
 	mes ".... um segundo.....";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "Todo mundo que testou " + strcharinfo(0) + "por favor venha no meu escritÃ³rio .";
+	mes "Todo mundo que testou " + strcharinfo(0) + "por favor venha no meu escritório .";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "Eles estarÃ£o aqui logo.";
+	mes "Eles estarão aqui logo.";
 	next;
 	enablenpc "Huey#End";
 	enablenpc "Kai#End";
@@ -1685,38 +1685,38 @@ OnTouch:
 	mes "Estou aqui.";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "Eu gostaria de saber o que vocÃª acha de ^5533FF" + strcharinfo(0) + "^000000 se tornar um MercenÃ¡rio.";
+	mes "Eu gostaria de saber o que você acha de ^5533FF" + strcharinfo(0) + "^000000 se tornar um Mercenário.";
 	next;
 	mes "[O Sem Nome]";
 	mes "Eu acho ^5533FF" + strcharinfo(0) + "^000000 um candidato perfeito.";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "'Parece que O Sem Nome mais ou menos suporta vocÃª.  E o seu pensamento Huey?";
+	mes "'Parece que O Sem Nome mais ou menos suporta você.  E o seu pensamento Huey?";
 	next;
 	mes "[Huey]";
-	mes "Eu acho que ^5533FF" + strcharinfo(0) + "^000000 sairÃ¡ bem como um MercenÃ¡rio.";
+	mes "Eu acho que ^5533FF" + strcharinfo(0) + "^000000 sairá bem como um Mercenário.";
 	next;
 	mes "[Huey]";
-	mes "Eu preciso voltar entÃ£o eu sairei primeiro.";
+	mes "Eu preciso voltar então eu sairei primeiro.";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "Ok entÃ£o, obrigado Huey.";
+	mes "Ok então, obrigado Huey.";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "EntÃ£o... Observador, qual Ã© sua opiniÃ£o?";
+	mes "Então... Observador, qual é sua opinião?";
 	disablenpc "Huey#End";
 	next;
 	mes "[Observador]";
-	mes ".... Bom, nÃ£o uma das melhores performances que eu vi mas ^5533FF" + strcharinfo(0) + "^000000 passou, entÃ£o eu nÃ£o tenho objeÃ§Ãµes.";
+	mes ".... Bom, não uma das melhores performances que eu vi mas ^5533FF" + strcharinfo(0) + "^000000 passou, então eu não tenho objeções.";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "Ã“timo.  Parece que nÃ³s estamos todos de acordo.  Eu por mim mesmo nÃ£o vejo problemas com ^5533FF" + strcharinfo(0) + "^000000........";
+	mes "Ótimo.  Parece que nós estamos todos de acordo.  Eu por mim mesmo não vejo problemas com ^5533FF" + strcharinfo(0) + "^000000........";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "^5533FF" + strcharinfo(0) + "^000000 parece saber muito sobre MercenÃ¡rios e eu nÃ£o acho que uma vida solitÃ¡ria serÃ¡ difÃ­cil para ^5533FF" + strcharinfo(0) + "^000000 tambÃ©m.";
+	mes "^5533FF" + strcharinfo(0) + "^000000 parece saber muito sobre Mercenários e eu não acho que uma vida solitária será difícil para ^5533FF" + strcharinfo(0) + "^000000 também.";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "... Eu acho que jÃ¡ disse o bastante.  Aqui por favor pegue isso........";
+	mes "... Eu acho que já disse o bastante.  Aqui por favor pegue isso........";
 	next;
 	if( ASSIN_Q3 != 1 )
 	{
@@ -1734,18 +1734,18 @@ OnTouch:
 	}
 	
 	mes "[Mestre da Guilda]";
-	mes "Agora vÃ¡ falar com o ^5533FFMercenÃ¡rio Huey^000000 devolta na entrada da Guilda.";
-	mes "Por alguma razÃ£o ele sempre parece que estÃ¡ ^5533FFbravo^000000 sobre alguma coisa......";
+	mes "Agora vá falar com o ^5533FFMercenário Huey^000000 devolta na entrada da Guilda.";
+	mes "Por alguma razão ele sempre parece que está ^5533FFbravo^000000 sobre alguma coisa......";
 	next;
 	mes "[Mestre da Guilda]";
-	mes "Ã‰ ele que serÃ¡ encarregado de promover vocÃª para a classe MercenÃ¡rio.";
+	mes "É ele que será encarregado de promover você para a classe Mercenário.";
 	next;
 	mes "[Mestre da Guilda]";
-	mes strcharinfo(0) + " escolheu o caminho do MercenÃ¡rio.  VocÃª pode aprender a resistir aos sofrimentos que todos os MercenÃ¡rios devem enfrentar.";
+	mes strcharinfo(0) + " escolheu o caminho do Mercenário.  Você pode aprender a resistir aos sofrimentos que todos os Mercenários devem enfrentar.";
 	getitem 1008, 1;
 	next;
 	mes "[Mestre da Guilda]";
-	mes "Ok, todo mundo pode sair agora.  Eu irei mandÃ¡-lo devolta Ã  entrada.  Vamos......";
+	mes "Ok, todo mundo pode sair agora.  Eu irei mandá-lo devolta à entrada.  Vamos......";
 	set ASSIN_Q, 4;
 	set ASSIN_Q2, 0;
 	disablenpc "Kai#End";
@@ -1761,31 +1761,31 @@ OnTouch:
 
 in_moc_16,170,90,0	script	maze_trig#1	139,0,0,{
 	mes "[Mestre da Guilda]";
-	mes "NÃ£o hÃ¡ nenhuma maneira de andar lÃ¡, tente outra maneira.";
+	mes "Não há nenhuma maneira de andar lá, tente outra maneira.";
 	close;
 }
 
 in_moc_16,150,85,0	script	maze_trig#2	139,0,0,{
 
 	mes "[Mestre da Guilda]";
-	mes ".... ComeÃ§ando a esquentar.... vocÃª estÃ¡ quase lÃ¡.....";
+	mes ".... Começando a esquentar.... você está quase lá.....";
 	close;
 }
 
 in_moc_16,153,85,0	script	maze_trig#3	139,0,0,{
 
 	mes "[Mestre da Guilda]";
-	mes "VocÃª nÃ£o pode andar lÃ¡..";
-	mes "Ã“timo, vocÃª estÃ¡ quase lÃ¡, continue andando.";
-	mes "VocÃª tem que andar entre um polo e um.....";
-	mes "VocÃª precisa comeÃ§ar outro round a fim de conseguir.";
+	mes "Você não pode andar lá..";
+	mes "Ótimo, você está quase lá, continue andando.";
+	mes "Você tem que andar entre um polo e um.....";
+	mes "Você precisa começar outro round a fim de conseguir.";
 	close;
 }
 
 in_moc_16,160,85,0	script	maze_trig#4	139,0,0,{
 
 	mes "[Mestre da Guilda]";
-	mes "NÃ£o hÃ¡ nenhuma maneira de andar lÃ¡, tente outra maneira.";
+	mes "Não há nenhuma maneira de andar lá, tente outra maneira.";
 	close;
 }
 
@@ -1793,43 +1793,43 @@ in_moc_16,175,89,0	script	maze_trig#5	139,0,0,{
 
 	mes "[Mestre da Guilda]";
 	mes "Essa caminho o leva ao Botogun..";
-	mes "O que vocÃª irÃ¡ fazer lÃ¡?";
+	mes "O que você irá fazer lá?";
 	close;
 }
 
 in_moc_16,164,88,0	script	maze_trig#6	139,0,0,{
 
 	mes "[Mestre da Guilda]";
-	mes "Ã“timo.... vocÃª estÃ¡ na trilha certa.";
+	mes "Ótimo.... você está na trilha certa.";
 	close;
 }
 
 in_moc_16,149,95,0	script	maze_trig#7	139,0,0,{
 
 	mes "[Mestre da Guilda]";
-	mes "Ã“timo, vocÃª achou o caminho.";
+	mes "Ótimo, você achou o caminho.";
 	close;
 }
 
 in_moc_16,180,101,0	script	maze_trig#8	139,0,0,{
 
 	mes "[Mestre da Guilda]";
-	mes "... Parece que nÃ£o Ã© esse caminho...";
+	mes "... Parece que não é esse caminho...";
 	close;
 }
 
 in_moc_16,186,107,0	script	maze_trig#9	139,0,0,{
 
 	mes "[Mestre da Guilda]";
-	mes "...Essa caminho tambÃ©m nÃ£o...";
+	mes "...Essa caminho também não...";
 	close;
 }
 
 in_moc_16,186,81,0	script	Mestre da Guilda#02	55,{
 
 	mes "[Mestre da Guilda Botogun]";
-	mes "Me desculpe mas eu nÃ£o sou a pessoa no comando aqui.";
-	mes "O verdadeiro Chefe da Guilda estÃ¡ no outro lado.";
+	mes "Me desculpe mas eu não sou a pessoa no comando aqui.";
+	mes "O verdadeiro Chefe da Guilda está no outro lado.";
 	close;
 }
 
