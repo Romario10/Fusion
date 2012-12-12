@@ -4280,7 +4280,7 @@ int check_connect_login_server (int tid, unsigned int tick, int id, intptr_t dat
 		return 0;
 
 	ShowInfo ("Tentativa de conexão com o login-server...\n");
-	login_fd = make_connection (login_ip, login_port);
+	login_fd = make_connection (login_ip, login_port, false);
 
 	if (login_fd == -1) {
 		//Try again later. [Skotlex]

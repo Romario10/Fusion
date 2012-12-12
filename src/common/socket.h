@@ -7,12 +7,12 @@
 #include "../common/cbasetypes.h"
 
 #ifdef WIN32
-#include "../common/winapi.h"
-typedef long in_addr_t;
+	#include "../common/winapi.h"
+	typedef long in_addr_t;
 #else
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
+	#include <sys/types.h>
+	#include <sys/socket.h>
+	#include <netinet/in.h>
 #endif
 
 #include <time.h>
@@ -67,11 +67,12 @@ typedef long in_addr_t;
 
 
 // Struct declaration
-typedef int (*RecvFunc) (int fd);
-typedef int (*SendFunc) (int fd);
-typedef int (*ParseFunc) (int fd);
+typedef int (*RecvFunc)(int fd);
+typedef int (*SendFunc)(int fd);
+typedef int (*ParseFunc)(int fd);
 
-struct socket_data {
+struct socket_data
+{
 	struct {
 		unsigned char eof : 1;
 		unsigned char server : 1;
@@ -90,13 +91,13 @@ struct socket_data {
 	SendFunc func_send;
 	ParseFunc func_parse;
 
-	void *session_data; // stores application-specific data related to the session
+	void* session_data; // stores application-specific data related to the session
 };
 
 
 // Data prototype declaration
 
-extern struct socket_data *session[FD_SETSIZE];
+extern struct socket_data* session[FD_SETSIZE];
 
 extern int fd_max;
 
@@ -105,46 +106,46 @@ extern time_t stall_time;
 
 //////////////////////////////////
 // some checking on sockets
-extern bool session_isValid (int fd);
-extern bool session_isActive (int fd);
+extern bool session_isValid(int fd);
+extern bool session_isActive(int fd);
 //////////////////////////////////
 
 // Function prototype declaration
 
-int make_listen_bind (uint32 ip, uint16 port);
-int make_connection (uint32 ip, uint16 port);
-int realloc_fifo (int fd, unsigned int rfifo_size, unsigned int wfifo_size);
-int realloc_writefifo (int fd, size_t addition);
-int WFIFOSET (int fd, size_t len);
-int RFIFOSKIP (int fd, size_t len);
+int make_listen_bind(uint32 ip, uint16 port);
+int make_connection(uint32 ip, uint16 port, bool silent);
+int realloc_fifo(int fd, unsigned int rfifo_size, unsigned int wfifo_size);
+int realloc_writefifo(int fd, size_t addition);
+int WFIFOSET(int fd, size_t len);
+int RFIFOSKIP(int fd, size_t len);
 
-int do_sockets (int next);
-void do_close (int fd);
-void socket_init (void);
-void socket_final (void);
+int do_sockets(int next);
+void do_close(int fd);
+void socket_init(void);
+void socket_final(void);
 
-extern void flush_fifo (int fd);
-extern void flush_fifos (void);
-extern void set_nonblocking (int fd, unsigned long yes);
+extern void flush_fifo(int fd);
+extern void flush_fifos(void);
+extern void set_nonblocking(int fd, unsigned long yes);
 
-void set_defaultparse (ParseFunc defaultparse);
+void set_defaultparse(ParseFunc defaultparse);
 
 // hostname/ip conversion functions
-uint32 host2ip (const char *hostname);
-const char *ip2str (uint32 ip, char ip_str[16]);
-uint32 str2ip (const char *ip_str);
+uint32 host2ip(const char* hostname);
+const char* ip2str(uint32 ip, char ip_str[16]);
+uint32 str2ip(const char* ip_str);
 #define CONVIP(ip) ((ip)>>24)&0xFF,((ip)>>16)&0xFF,((ip)>>8)&0xFF,((ip)>>0)&0xFF
 #define MAKEIP(a,b,c,d) (uint32)( ( ( (a)&0xFF ) << 24 ) | ( ( (b)&0xFF ) << 16 ) | ( ( (c)&0xFF ) << 8 ) | ( ( (d)&0xFF ) << 0 ) )
-uint16 ntows (uint16 netshort);
+uint16 ntows(uint16 netshort);
 
-int socket_getips (uint32 *ips, int max);
+int socket_getips(uint32* ips, int max);
 
 extern uint32 addr_[16];   // ip addresses of local host (host byte order)
 extern int naddr_;   // # of ip addresses
 
-void set_eof (int fd);
+void set_eof(int fd);
 
-/// Use a shortlist of sockets instead of iterating all sessions for sockets
+/// Use a shortlist of sockets instead of iterating all sessions for sockets 
 /// that have data to send or need eof handling.
 /// Adapted to use a static array instead of a linked list.
 ///
@@ -154,7 +155,7 @@ void set_eof (int fd);
 #ifdef SEND_SHORTLIST
 // Add a fd to the shortlist so that it'll be recognized as a fd that needs
 // sending done on it.
-void send_shortlist_add_fd (int fd);
+void send_shortlist_add_fd(int fd);
 // Do pending network sends (and eof handling) from the shortlist.
 void send_shortlist_do_sends();
 #endif
