@@ -4,9 +4,11 @@
 #ifndef _CHAR_SQL_H_
 #define _CHAR_SQL_H_
 
+#include "../config/core.h"
 #include "../common/core.h" // CORE_ST_LAST
 
-enum E_CHARSERVER_ST {
+enum E_CHARSERVER_ST
+{
 	CHARSERVER_ST_RUNNING = CORE_ST_LAST,
 	CHARSERVER_ST_SHUTDOWN,
 	CHARSERVER_ST_LAST
@@ -25,18 +27,18 @@ enum {
 	TABLE_GUILD_STORAGE,
 };
 
-int memitemdata_to_sql (const struct item items[], int max, int id, int tableswitch);
+int memitemdata_to_sql(const struct item items[], int max, int id, int tableswitch);
 
-int mapif_sendall (unsigned char *buf, unsigned int len);
-int mapif_sendallwos (int fd, unsigned char *buf, unsigned int len);
-int mapif_send (int fd, unsigned char *buf, unsigned int len);
+int mapif_sendall(unsigned char *buf,unsigned int len);
+int mapif_sendallwos(int fd,unsigned char *buf,unsigned int len);
+int mapif_send(int fd,unsigned char *buf,unsigned int len);
 
-int char_married (int pl1, int pl2);
-int char_child (int parent_id, int child_id);
-int char_family (int pl1, int pl2, int pl3);
+int char_married(int pl1,int pl2);
+int char_child(int parent_id, int child_id);
+int char_family(int pl1,int pl2,int pl3);
 
-int request_accreg2 (int account_id, int char_id);
-int save_accreg2 (unsigned char *buf, int len);
+int request_accreg2(int account_id, int char_id);
+int save_accreg2(unsigned char* buf, int len);
 
 extern int char_name_option;
 extern char char_name_letters[];
