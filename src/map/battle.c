@@ -2141,7 +2141,7 @@ static struct Damage battle_calc_weapon_attack(struct block_list *src,struct blo
 					if(wflag>0)
 						wd.damage/= wflag;
 					else
-						ShowError("0 enemies targeted by %d:%s, divide per 0 avoided!\n", skill_num, skill_get_name(skill_num));
+						ShowError("0 inimigos alvos de %d:%s. Divisão por 0 evitada!\n", skill_num, skill_get_name(skill_num));
 				}
 
 				//Add any bonuses that modify the base baseatk+watk (pre-skills)
@@ -3670,7 +3670,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 					if(mflag>0)
 						ad.damage/= mflag;
 					else
-						ShowError("0 enemies targeted by %d:%s, divide per 0 avoided!\n", skill_num, skill_get_name(skill_num));
+						ShowError("0 inimigos alvos de %d:%s. Divisão por 0 evitada!\n", skill_num, skill_get_name(skill_num));
 				}
 
 				switch(skill_num){
@@ -4066,7 +4066,7 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 			if(mflag>0)
 				ad.damage+= (sstatus->rhw.atk2*skillratio/100)/mflag;
 			else
-				ShowError("Zero range by %d:%s, divide per 0 avoided!\n", skill_num, skill_get_name(skill_num));
+				ShowError("Alcance 0 de %d:%s. Divisão por 0 evitada!\n", skill_num, skill_get_name(skill_num));
 		}
 
 		if(ad.damage<1)
@@ -4346,7 +4346,7 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 		if(mflag>0)
 			md.damage/= mflag;
 		else
-			ShowError("0 enemies targeted by %d:%s, divide per 0 avoided!\n", skill_num, skill_get_name(skill_num));
+			ShowError("0 inimigos alvos de %d:%s. Divisão por 0 evitada!\n", skill_num, skill_get_name(skill_num));
 	}
 
 	damage_div_fix(md.damage, md.div_);
@@ -5812,7 +5812,7 @@ int battle_set_value(const char* w1, const char* w2)
 
 	if (val < battle_data[i].min || val > battle_data[i].max)
 	{
-		ShowWarning("Value for setting '%s': %s is invalid (min:%i max:%i)! Defaulting to %i...\n", w1, w2, battle_data[i].min, battle_data[i].max, battle_data[i].defval);
+		ShowWarning("Valor para configuração '%s': %s é inválido (min:%i máx:%i)! Definindo em %i...\n", w1, w2, battle_data[i].min, battle_data[i].max, battle_data[i].defval);
 		val = battle_data[i].defval;
 	}
 
@@ -5861,21 +5861,21 @@ void battle_adjust_conf()
 
 #if PACKETVER < 20100427
 	if( battle_config.feature_buying_store ) {
-		ShowWarning("conf/battle/feature.conf buying_store is enabled but it requires PACKETVER 2010-04-27 or newer, disabling...\n");
+		ShowWarning("conf/battle/feature.conf buying_store está ativado, mas requer PACKETVER 2010-04-27 or mais novo. Desativado...\n");
 		battle_config.feature_buying_store = 0;
 	}
 #endif
 
 #if PACKETVER < 20100803
 	if( battle_config.feature_search_stores ) {
-		ShowWarning("conf/battle/feature.conf search_stores is enabled but it requires PACKETVER 2010-08-03 or newer, disabling...\n");
+		ShowWarning("conf/battle/feature.conf search_stores está ativo, mas requer PACKETVER 2010-08-03 ou mais novo. Desativando...\n");
 		battle_config.feature_search_stores = 0;
 	}
 #endif
 
 #ifndef CELL_NOSTACK
 	if (battle_config.cell_stack_limit != 1)
-		ShowWarning("Battle setting 'cell_stack_limit' takes no effect as this server was compiled without Cell Stack Limit support.\n");
+		ShowWarning("Configuração 'cell_stack_limit' não tem nenhum efeito pois este servidor foi compilado sem suporte para Cell Stack Limit.\n");
 #endif
 }
 
@@ -5892,7 +5892,7 @@ int battle_config_read(const char* cfgName)
 
 	fp = fopen(cfgName,"r");
 	if (fp == NULL)
-		ShowError("File not found: %s\n", cfgName);
+		ShowError("Arquivo não encontrado: %s\n", cfgName);
 	else
 	{
 		while(fgets(line, sizeof(line), fp))
@@ -5905,7 +5905,7 @@ int battle_config_read(const char* cfgName)
 				battle_config_read(w2);
 			else
 			if (battle_set_value(w1, w2) == 0)
-				ShowWarning("Unknown setting '%s' in file %s\n", w1, cfgName);
+				ShowWarning("Configuração '%s' desconhecida no arquivo %s\n", w1, cfgName);
 		}
 
 		fclose(fp);

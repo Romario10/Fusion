@@ -123,7 +123,7 @@ int msg_config_read (const char *cfgName)
 	static int called = 1;
 
 	if ( (fp = fopen (cfgName, "r")) == NULL) {
-		ShowError ("Messages file not found: %s\n", cfgName);
+		ShowError ("Arquivo de mensagens não encontrado: %s\n", cfgName);
 		return 1;
 	}
 
@@ -232,7 +232,7 @@ ACMD_FUNC (send)
 	//define PARSE_ERROR
 #define CHECK_EOS(p) \
 	if(*(p) == 0){\
-		clif_displaymessage(fd, "Unexpected end of string");\
+		clif_displaymessage(fd, "Fim-de-texto inesperado.");\
 		return -1;\
 	}
 	//define CHECK_EOS
@@ -245,7 +245,7 @@ ACMD_FUNC (send)
 #define GET_VALUE(p,num) \
 	{\
 		if(sscanf((p), "x%lx", &(num)) < 1 && sscanf((p), "%ld ", &(num)) < 1){\
-			PARSE_ERROR("Invalid number in:",(p));\
+			PARSE_ERROR("Número inválido em:",(p));\
 			return -1;\
 		}\
 	}
@@ -2057,7 +2057,7 @@ ACMD_FUNC (monster)
 		size = SZ_SMALL;
 
 	if (battle_config.etc_log)
-		ShowInfo ("%s monster='%s' name='%s' id=%d count=%d (%d,%d)\n", command, monster, name, mob_id, number, sd->bl.x, sd->bl.y);
+		ShowInfo ("%s monstro='%s' nome='%s' id=%d quantidade=%d (%d,%d)\n", command, monster, name, mob_id, number, sd->bl.x, sd->bl.y);
 
 	count = 0;
 	range = (int) sqrt ( (float) number) + 2; // calculation of an odd number (+ 4 area around)

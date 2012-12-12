@@ -67,7 +67,7 @@ bool buyingstore_setup (struct map_session_data *sd, unsigned char slots)
 	}
 
 	if (slots > MAX_BUYINGSTORE_SLOTS) {
-		ShowWarning ("buyingstore_setup: Requested %d slots, but server supports only %d slots.\n", (int) slots, MAX_BUYINGSTORE_SLOTS);
+		ShowWarning ("buyingstore_setup: Requisitado %d espaços, porém o servidor suporta até %d espaços.\n", (int) slots, MAX_BUYINGSTORE_SLOTS);
 		slots = MAX_BUYINGSTORE_SLOTS;
 	}
 
@@ -156,7 +156,7 @@ void buyingstore_create (struct map_session_data *sd, int zenylimit, unsigned ch
 
 			if (listidx != i) {
 				// duplicate
-				ShowWarning ("buyingstore_create: Found duplicate item on buying list (nameid=%hu, amount=%hu, account_id=%d, char_id=%d).\n", nameid, amount, sd->status.account_id, sd->status.char_id);
+				ShowWarning ("buyingstore_create: Duplicado encontrado na lista (nameid=%hu, quant.=%hu, account_id=%d, char_id=%d).\n", nameid, amount, sd->status.account_id, sd->status.char_id);
 				break;
 			}
 		}
@@ -294,7 +294,7 @@ void buyingstore_trade (struct map_session_data *sd, int account_id, unsigned in
 
 			if (k != i) {
 				// duplicate
-				ShowWarning ("buyingstore_trade: Found duplicate item on selling list (prevnameid=%hu, prevamount=%hu, nameid=%hu, amount=%hu, account_id=%d, char_id=%d).\n",
+				ShowWarning ("buyingstore_trade: Encontrado duplicado na lista (prevnameid=%hu, prevquant.=%hu, nameid=%hu, quant.=%hu, account_id=%d, char_id=%d).\n",
 							 RBUFW (itemlist, k * 6 + 2), RBUFW (itemlist, k * 6 + 4), nameid, amount, sd->status.account_id, sd->status.char_id);
 				clif_buyingstore_trade_failed_seller (sd, BUYINGSTORE_TRADE_SELLER_FAILED, nameid);
 				return;
