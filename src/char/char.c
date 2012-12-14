@@ -3454,59 +3454,63 @@ void char_delete2_cancel_ack (int fd, int char_id, uint32 result) // HC: <082c>.
 }
 
 
-static void char_delete2_req (int fd, struct char_session_data *sd) // CH: <0827>.W <char id>.L
-{
+static void char_delete2_req(int fd, struct char_session_data* sd)
+{// CH: <0827>.W <char id>.L
 	int char_id, i;
-	char *data;
+	char* data;
 	time_t delete_date;
-	char_id = RFIFOL (fd, 2);
-	ARR_FIND (0, MAX_CHARS, i, sd->found_char[i] == char_id);
 
-	if (i == MAX_CHARS) {
-		// character not found
-		char_delete2_ack (fd, char_id, 3, 0);
+	char_id = RFIFOL(fd,2);
+
+	ARR_FIND( 0, MAX_CHARS, i, sd->found_char[i] == char_id );
+	if( i == MAX_CHARS )
+	{// character not found
+		char_delete2_ack(fd, char_id, 3, 0);
 		return;
 	}
 
-	if (SQL_SUCCESS != Sql_Query (sql_handle, "SELECT `delete_date` FROM `%s` WHERE `char_id`='%d'", char_db, char_id) || SQL_SUCCESS != Sql_NextRow (sql_handle)) {
-		Sql_ShowDebug (sql_handle);
-		char_delete2_ack (fd, char_id, 3, 0);
+	if( SQL_SUCCESS != Sql_Query(sql_handle, "SELECT `delete_date` FROM `%s` WHERE `char_id`='%d'", char_db, char_id) || SQL_SUCCESS != Sql_NextRow(sql_handle) )
+	{
+		Sql_ShowDebug(sql_handle);
+		char_delete2_ack(fd, char_id, 3, 0);
 		return;
 	}
 
-	Sql_GetData (sql_handle, 0, &data, NULL); delete_date = strtoul (data, NULL, 10);
+	Sql_GetData(sql_handle, 0, &data, NULL); delete_date = strtoul(data, NULL, 10);
 
-	if (delete_date)	{ // character already queued for deletion
-		char_delete2_ack (fd, char_id, 0, 0);
+	if( delete_date ) {// character already queued for deletion
+		char_delete2_ack(fd, char_id, 0, 0);
 		return;
 	}
 
-	/*
-		// Aegis imposes these checks probably to avoid dead member
-		// entries in guilds/parties, otherwise they are not required.
-		// TODO: Figure out how these are enforced during waiting.
-		if( guild_id )
-		{// character in guild
-			char_delete2_ack(fd, char_id, 4, 0);
-			return;
-		}
+/*
+	// Aegis imposes these checks probably to avoid dead member
+	// entries in guilds/parties, otherwise they are not required.
+	// TODO: Figure out how these are enforced during waiting.
+	if( guild_id )
+	{// character in guild
+		char_delete2_ack(fd, char_id, 4, 0);
+		return;
+	}
 
-		if( party_id )
-		{// character in party
-			char_delete2_ack(fd, char_id, 5, 0);
-			return;
-		}
-	*/
+	if( party_id )
+	{// character in party
+		char_delete2_ack(fd, char_id, 5, 0);
+		return;
+	}
+*/
+
 	// success
-	delete_date = time (NULL) + char_del_delay;
+	delete_date = time(NULL)+char_del_delay;
 
-	if (SQL_SUCCESS != Sql_Query (sql_handle, "UPDATE `%s` SET `delete_date`='%lu' WHERE `char_id`='%d'", char_db, (unsigned long) delete_date, char_id)) {
-		Sql_ShowDebug (sql_handle);
-		char_delete2_ack (fd, char_id, 3, 0);
+	if( SQL_SUCCESS != Sql_Query(sql_handle, "UPDATE `%s` SET `delete_date`='%lu' WHERE `char_id`='%d'", char_db, (unsigned long)delete_date, char_id) )
+	{
+		Sql_ShowDebug(sql_handle);
+		char_delete2_ack(fd, char_id, 3, 0);
 		return;
 	}
 
-	char_delete2_ack (fd, char_id, 1, delete_date);
+	char_delete2_ack(fd, char_id, 1, delete_date);
 }
 
 
