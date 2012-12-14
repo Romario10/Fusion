@@ -4735,12 +4735,11 @@ int do_init (int argc, char **argv)
 	char_lan_config_read ( (argc > 3) ? argv[3] : LAN_CONF_NAME);
 	sql_config_read (SQL_CONF_NAME);
 
-	if (strcmp (userid, "s1") == 0 && strcmp (passwd, "p1") == 0) {
-		ShowError ("Não foi possível iniciar o emulador.\n");
-		ShowError ("O servidor está utilizando senhas de comunicação s1/p1. Isto é inválido e o servidor não irá iniciar.\n");
-		ShowNotice ("Por favor, altere a tabela 'login' para criar uma conexão funcional. (Coloque account_id com o valor '1' e gender 'S')\n");
-		ShowNotice ("E após, troque os dados da comunicação em conf/map_athena.conf e conf/char_athena.conf.\n");
-		return 0;
+	if (strcmp(userid, "s1")==0 && strcmp(passwd, "p1")==0) {
+		ShowWarning(""CL_YELLOW"O uso do login/senha padrões '"CL_RED"s1/p1"CL_YELLOW"' não é recomendado.\n"CL_RESET"");
+		ShowWarning(""CL_YELLOW"Edite sua tabela '"CL_WHITE"login"CL_YELLOW"' para criar uma nova conta, do tipo '"CL_WHITE"S"CL_YELLOW"',\n"CL_RESET"");
+		ShowWarning(""CL_YELLOW"e depois edite os arquivos '"CL_WHITE"char-athena.conf"CL_YELLOW"' e '"CL_WHITE"map-athena.conf"CL_YELLOW"'\n"CL_RESET"");
+		ShowWarning(""CL_YELLOW"para usarem a nova conta do tipo '"CL_WHITE"S"CL_YELLOW"'.\n"CL_RESET"");
 	}
 
 	inter_init_sql ( (argc > 2) ? argv[2] : inter_cfgName);
@@ -4748,7 +4747,7 @@ int do_init (int argc, char **argv)
 	online_char_db = idb_alloc (DB_OPT_RELEASE_DATA);
 	mmo_char_sql_init();
 	char_read_fame_list(); //Read fame lists.
-	ShowInfo ("char-server inicializado.\n");
+	ShowInfo ("Char-server inicializado.\n");
 
 	if ( (naddr_ != 0) && (!login_ip || !char_ip)) {
 		char ip_str[16];

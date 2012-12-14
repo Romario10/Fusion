@@ -692,11 +692,11 @@ int _vShowMessage (enum msg_type flag, const char *string, va_list ap)
 			strftime (timestring, 254, "%m/%d/%Y %H:%M:%S", localtime (&curtime));
 			fprintf (log, "(%s) [ %s ] : ",
 					 timestring,
-					 flag == MSG_WARNING ? "Warning" :
-					 flag == MSG_ERROR ? "Error" :
-					 flag == MSG_SQL ? "SQL Error" :
+					 flag == MSG_WARNING ? "Aviso" :
+					 flag == MSG_ERROR ? "Erro" :
+					 flag == MSG_SQL ? "Erro SQL" :
 					 flag == MSG_DEBUG ? "Debug" :
-					 "Unknown");
+					 "Desconhecido");
 			va_copy (apcopy, ap);
 			vfprintf (log, string, apcopy);
 			va_end (apcopy);

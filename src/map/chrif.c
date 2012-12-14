@@ -230,10 +230,10 @@ void chrif_setpasswd(char *pwd) {
 // security check, prints warning if using default password
 void chrif_checkdefaultlogin(void) {
 	if (strcmp(userid, "s1")==0 && strcmp(passwd, "p1")==0) {
-		ShowWarning("O uso do login/senha padrões '"CL_RED"s1/p1"CL_RESET"' não é recomendado.\n");
-		ShowNotice("Edite sua tabela '"CL_WHITE"login"CL_RESET"' para criar uma nova conta, do tipo '"CL_WHITE"S"CL_RESET"'\n");
-		ShowNotice(",e depois edite os arquivos '"CL_WHITE"char-athena.conf"CL_RESET"' e '"CL_WHITE"map-athena.conf"CL_RESET"'\n");
-		ShowNotice("para usarem a nova conta do tipo S.");
+		ShowWarning(""CL_YELLOW"O uso do login/senha padrões '"CL_RED"s1/p1"CL_YELLOW"' não é recomendado.\n"CL_RESET"");
+		ShowWarning(""CL_YELLOW"Edite sua tabela '"CL_WHITE"login"CL_YELLOW"' para criar uma nova conta, do tipo '"CL_WHITE"S"CL_YELLOW"',\n"CL_RESET"");
+		ShowWarning(""CL_YELLOW"e depois edite os arquivos '"CL_WHITE"char-athena.conf"CL_YELLOW"' e '"CL_WHITE"map-athena.conf"CL_YELLOW"'\n"CL_RESET"");
+		ShowWarning(""CL_YELLOW"para usarem a nova conta do tipo '"CL_WHITE"S"CL_YELLOW"'.\n"CL_RESET"");
 	}
 }
 
