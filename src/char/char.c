@@ -4799,7 +4799,7 @@ int do_init (int argc, char **argv)
 
 	set_defaultparse (parse_char);
 	char_fd = make_listen_bind (bind_ip, char_port);
-	ShowStatus ("O char-server está "CL_GREEN"pronto"CL_RESET" e funcionando pela porta "CL_GREEN"%d"CL_RESET").\n\n", char_port);
+	ShowStatus ("O char-server está "CL_GREEN"pronto"CL_RESET" e funcionando pela porta "CL_GREEN"%d"CL_RESET".\n\n", char_port);
 
 	if (runflag != CORE_ST_STOP) {
 		shutdown_callback = do_shutdown;

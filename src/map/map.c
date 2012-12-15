@@ -3950,7 +3950,7 @@ int do_init (int argc, char *argv[])
 	if (battle_config.pk_mode)
 		ShowNotice ("Servidor está funcionando em '"CL_WHITE"Modo PK"CL_RESET"'.\n");
 
-	ShowStatus ("Servidor está '"CL_GREEN"pronto"CL_RESET"' e funcionando pela porta '"CL_WHITE"%d"CL_RESET"'.\n\n", map_port);
+	ShowStatus ("O map-server está "CL_GREEN"pronto"CL_RESET" e funcionando pela porta "CL_GREEN"%d"CL_RESET".\n\n", map_port);
 
 	if (runflag != CORE_ST_STOP) {
 		shutdown_callback = do_shutdown;

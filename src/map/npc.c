@@ -458,7 +458,7 @@ int npc_event_do_clock (int tid, unsigned int tick, int id, intptr_t data)
  *------------------------------------------*/
 void npc_event_do_oninit (void)
 {
-	ShowStatus ("Event '"CL_WHITE"OnInit"CL_RESET"' executed with '"CL_WHITE"%d"CL_RESET"' NPCs."CL_CLL"\n", npc_event_doall ("OnInit"));
+	ShowStatus ("Evento '"CL_WHITE"OnInit"CL_RESET"' executado em '"CL_WHITE"%d"CL_RESET"' NPCs."CL_CLL"\n", npc_event_doall ("OnInit"));
 	add_timer_interval (gettick() + 100, npc_event_do_clock, 0, 0, 1000);
 }
 
@@ -3707,12 +3707,12 @@ int npc_reload (void)
 	npc_event_doall ("OnAgitInit");
 	npc_event_doall ("OnAgitInit2");
 	//Execute the OnInit event for freshly loaded npcs. [Skotlex]
-	ShowStatus ("Event '"CL_WHITE"OnInit"CL_RESET"' executed with '"CL_WHITE"%d"CL_RESET"' NPCs.\n", npc_event_doall ("OnInit"));
+	ShowStatus ("Evento '"CL_WHITE"OnInit"CL_RESET"' executado em '"CL_WHITE"%d"CL_RESET"' NPCs.\n", npc_event_doall ("OnInit"));
 
 	// Execute rest of the startup events if connected to char-server. [Lance]
 	if (!CheckForCharServer()) {
-		ShowStatus ("Event '"CL_WHITE"OnInterIfInit"CL_RESET"' executed with '"CL_WHITE"%d"CL_RESET"' NPCs.\n", npc_event_doall ("OnInterIfInit"));
-		ShowStatus ("Event '"CL_WHITE"OnInterIfInitOnce"CL_RESET"' executed with '"CL_WHITE"%d"CL_RESET"' NPCs.\n", npc_event_doall ("OnInterIfInitOnce"));
+		ShowStatus ("Evento '"CL_WHITE"OnInterIfInit"CL_RESET"' executado em '"CL_WHITE"%d"CL_RESET"' NPCs.\n", npc_event_doall ("OnInterIfInit"));
+		ShowStatus ("Evento '"CL_WHITE"OnInterIfInitOnce"CL_RESET"' executado em '"CL_WHITE"%d"CL_RESET"' NPCs.\n", npc_event_doall ("OnInterIfInitOnce"));
 	}
 
 	return 0;

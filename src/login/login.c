@@ -1460,7 +1460,7 @@ int parse_login (int fd)
 					type = RFIFOW (fd, 82);
 					new_ = RFIFOW (fd, 84);
 					RFIFOSKIP (fd, 86);
-					ShowInfo ("Requisição de conexão do char-server '"CL_WHITE"%s"CL_RESET"' @ "CL_WHITE"%u.%u.%u.%u"CL_RESET":"CL_WHITE"%u"CL_RESET" (conta: '"CL_WHITE"%s"CL_RESET"', ip: '"CL_WHITE"%s"CL_RESET"')\n", server_name, CONVIP (server_ip), server_port, sd->userid, ip);
+					ShowInfo ("Requisição de conexão do char-server "CL_WHITE"%s"CL_RESET" @ "CL_WHITE"%u.%u.%u.%u"CL_RESET":"CL_WHITE"%u"CL_RESET" (conta: '"CL_WHITE"%s"CL_RESET"', ip: '"CL_WHITE"%s"CL_RESET"')\n", server_name, CONVIP (server_ip), server_port, sd->userid, ip);
 					sprintf (message, "char-server - %s@%u.%u.%u.%u:%u", server_name, CONVIP (server_ip), server_port);
 					login_log (session[fd]->client_addr, sd->userid, 100, message);
 					result = mmo_auth (sd, true);
@@ -1470,7 +1470,7 @@ int parse_login (int fd)
 							sd->sex == 'S' &&
 							sd->account_id >= 0 && sd->account_id < ARRAYLENGTH (server) &&
 							!session_isValid (server[sd->account_id].fd)) {
-						ShowStatus ("Conexão do char-server '"CL_WHITE"%s"CL_RESET"' aceita.\n", server_name);
+						ShowStatus ("Conexão do char-server "CL_WHITE"%s"CL_RESET" aceita.\n", server_name);
 						safestrncpy (server[sd->account_id].name, server_name, sizeof (server[sd->account_id].name));
 						server[sd->account_id].fd = fd;
 						server[sd->account_id].ip = server_ip;
@@ -1826,7 +1826,7 @@ int do_init (int argc, char **argv)
 		runflag = LOGINSERVER_ST_RUNNING;
 	}
 
-	ShowStatus ("O login-server está "CL_GREEN"pronto"CL_RESET" (Funcionando pela porta "CL_GREEN"%u"CL_RESET").\n\n", login_config.login_port);
+	ShowStatus ("O login-server está "CL_GREEN"pronto"CL_RESET" e funcionando pela porta "CL_GREEN"%d"CL_RESET".\n", login_config.login_port);
 	login_log (0, "login server", 100, "login server iniciado");
 	return 0;
 }

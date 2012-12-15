@@ -592,7 +592,7 @@ static struct guild_castle* inter_guildcastle_fromsql(int castle_id)
 	idb_put(castle_db, castle_id, gc);
 
 	if (save_log)
-		ShowInfo("Loaded guild castle (%d - guild %d)\n", castle_id, gc->guild_id);
+		ShowInfo("Castelo %d de clã %d carregado.\n", castle_id, gc->guild_id);
 
 	return gc;
 }

@@ -555,34 +555,34 @@ int log_config_read (const char *cfgName)
 
 	if (--count == 0) {
 		// report final logging state
-		const char *target = log_config.sql_logs ? "table" : "file";
+		const char *target = log_config.sql_logs ? "na tabela" : "no arquivo";
 
 		if (log_config.enable_logs && log_config.filter) {
-			ShowInfo ("Logging item transactions to %s '%s'.\n", target, log_config.log_pick);
+			ShowInfo ("Registrando transações de itens %s '%s'.\n", target, log_config.log_pick);
 		}
 
 		if (log_config.branch) {
-			ShowInfo ("Logging monster summon item usage to %s '%s'.\n", target, log_config.log_pick);
+			ShowInfo ("Registrando uso de itens de spawn de monstros %s '%s'.\n", target, log_config.log_pick);
 		}
 
 		if (log_config.chat) {
-			ShowInfo ("Logging chat to %s '%s'.\n", target, log_config.log_chat);
+			ShowInfo ("Registrando chat %s '%s'.\n", target, log_config.log_chat);
 		}
 
 		if (log_config.commands) {
-			ShowInfo ("Logging commands to %s '%s'.\n", target, log_config.log_gm);
+			ShowInfo ("Registrando comandos %s '%s'.\n", target, log_config.log_gm);
 		}
 
 		if (log_config.mvpdrop) {
-			ShowInfo ("Logging MVP monster rewards to %s '%s'.\n", target, log_config.log_mvpdrop);
+			ShowInfo ("Registrando prêmios de MVPs %s '%s'.\n", target, log_config.log_mvpdrop);
 		}
 
 		if (log_config.npc) {
-			ShowInfo ("Logging 'logmes' messages to %s '%s'.\n", target, log_config.log_npc);
+			ShowInfo ("Registrando mensagens 'logmes' %s '%s'.\n", target, log_config.log_npc);
 		}
 
 		if (log_config.zeny) {
-			ShowInfo ("Logging Zeny transactions to %s '%s'.\n", target, log_config.log_zeny);
+			ShowInfo ("Registrando transações de Zeny %s '%s'.\n", target, log_config.log_zeny);
 		}
 	}
 

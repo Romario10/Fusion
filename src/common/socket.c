@@ -533,7 +533,7 @@ int make_connection(uint32 ip, uint16 port, bool silent) {
 	remote_address.sin_port        = htons(port);
 
 	if( !silent )
-		ShowStatus("Connecting to %d.%d.%d.%d:%i\n", CONVIP(ip), port);
+		ShowStatus("Conectando a %d.%d.%d.%d:%i\n", CONVIP(ip), port);
 
 	result = sConnect(fd, (struct sockaddr *)(&remote_address), sizeof(struct sockaddr_in));
 	if( result == SOCKET_ERROR ) {
@@ -1334,7 +1334,7 @@ void socket_init(void)
 	add_timer_interval(gettick()+1000, connect_check_clear, 0, 0, 5*60*1000);
 #endif
 
-	ShowInfo("Server supports up to '"CL_WHITE"%u"CL_RESET"' concurrent connections.\n", rlim_cur);
+	ShowInfo("Servidor suporta até "CL_WHITE"%u"CL_RESET" conexões simultâneas.\n", rlim_cur);
 }
 
 

@@ -286,7 +286,7 @@ static void read_config (void)
 		dbi_destroy (iter);
 	}
 
-	ShowStatus ("Done reading '"CL_WHITE"%d"CL_RESET"' groups in '"CL_WHITE"%s"CL_RESET"'.\n", group_count, config_filename);
+	ShowStatus ("Finalizada leitura de '"CL_WHITE"%d"CL_RESET"' grupos em '"CL_WHITE"%s"CL_RESET"'.\n", group_count, config_filename);
 
 	if ( (pc_group_max = group_count)) {
 		DBIterator *iter = db_iterator (pc_group_db);
