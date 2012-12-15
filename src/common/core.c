@@ -267,7 +267,6 @@ const char *get_svn_revision (void)
 static void display_title (void)
 {
 	//ClearScreen(); // clear screen and go up/left (0, 0 position in text)
-	ShowMessage ("\n");
 	ShowMessage (""CL_WTBL"          (=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=)"CL_CLL""CL_NORMAL"\n");
 	ShowMessage (""CL_XXBL"          ("CL_BT_YELLOW"       Equipe Cronus de Desenvolvimento Apresenta        "CL_XXBL")"CL_CLL""CL_NORMAL"\n");
 	ShowMessage (""CL_XXBL"          ("CL_BOLD"      _________                                          "CL_XXBL")"CL_CLL""CL_NORMAL"\n");
