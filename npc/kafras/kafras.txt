@@ -20,6 +20,7 @@
 //=     - L0ne_W0lf, kobra_k88, Samuray22, Evera, Lupus
 //= 1.0 Fusão e Limpeza das Kafras em um único arquivo. [Joseph]
 //= 1.1 Tradução e Otimização para o Cronus. [Schrwaizer]
+//= 1.2 Adicionado coordenadas de Izlude RE. [Euphy]
 //============================================================ 
 
 //===================================================
@@ -409,7 +410,10 @@ cmd_fild07,136,134,4	script	Funcionária KAfra::kaf_cmd_fild07	721,{
 	mes "Nós estamos sempre ao seu lado.";
 	mes "Como posso lhe ajudar?";
 	callfunc "F_Kafra",5,0,1,40,820;
-	savepoint "izlude",94,103;
+	if (checkre(0))
+		savepoint "izlude",129,97;
+	else
+		savepoint "izlude",94,103;
 	callfunc "F_KafEnd",0,1,"na cidade de Izlude";
 }
 

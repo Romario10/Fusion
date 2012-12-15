@@ -39,10 +39,12 @@ ECHO %2 terminou com êxito.
 GOTO RESTART_NT
 
 :SAIDA1
+ECHO.
 ECHO %2 terminou anormalmente.
 GOTO RESTART_NT
 
 :ERRO
+ECHO.
 ECHO %2 deu erro!
 GOTO RESTART_NT
 
