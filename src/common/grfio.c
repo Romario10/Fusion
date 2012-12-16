@@ -419,7 +419,7 @@ void *grfio_reads (const char *fname, int *size)
 			if (entry != NULL && entry->gentry < 0) {
 				entry->gentry = -entry->gentry;	// local file checked
 			} else {
-				ShowError ("grfio_reads: %s not found (local file: %s)\n", fname, lfname);
+				ShowError ("grfio_reads: "CL_WHITE"%s"CL_RESET" not found (local file: %s)\n", fname, lfname);
 				return NULL;
 			}
 		}
