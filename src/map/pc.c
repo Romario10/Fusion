@@ -1126,9 +1126,9 @@ bool pc_authok (struct map_session_data *sd, int login_id2, time_t expiration_ti
 			char buf[256];
 
 			if (strcmpi (get_git_revision(), "no") != 0) {
-				sprintf (buf, "Revisão GIT: '"CL_WHITE"%s"CL_RESET"'.\n", get_git_revision());
+				sprintf (buf, "Revisão GIT: %s.\n", get_git_revision());
 			} else if (strcmpi (get_svn_revision(), "no") != 0) {
-				sprintf (buf, "Revisão SVN: '"CL_WHITE"%s"CL_RESET"'.\n", get_svn_revision());
+				sprintf (buf, "Revisão SVN: %s.\n", get_svn_revision());
 			} else {
 				sprintf (buf, "Revisão: Desconhecida");
 			}
