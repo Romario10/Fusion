@@ -3695,12 +3695,12 @@ int npc_reload (void)
 	}
 
 	ShowInfo ("Carregamento concluído '"CL_WHITE"%d"CL_RESET"' NPCs:"CL_CLL"\n"
-			  "\t-'"CL_WHITE"%d"CL_RESET"' Portais\n"
-			  "\t-'"CL_WHITE"%d"CL_RESET"' Lojas\n"
-			  "\t-'"CL_WHITE"%d"CL_RESET"' Scripts\n"
-			  "\t-'"CL_WHITE"%d"CL_RESET"' Mapas de Monstros\n"
-			  "\t-'"CL_WHITE"%d"CL_RESET"' Monstros em cache\n"
-			  "\t-'"CL_WHITE"%d"CL_RESET"' Monstros fora do cache\n",
+			  "\t  -"CL_WHITE"%d"CL_RESET" Portais\n"
+			  "\t  -"CL_WHITE"%d"CL_RESET" Lojas\n"
+			  "\t  -"CL_WHITE"%d"CL_RESET" Scripts\n"
+			  "\t  -"CL_WHITE"%d"CL_RESET" Mapas de Monstros\n"
+			  "\t  -"CL_WHITE"%d"CL_RESET" Monstros em cache\n"
+			  "\t  -"CL_WHITE"%d"CL_RESET" Monstros fora do cache\n",
 			  npc_id - npc_new_min, npc_warp, npc_shop, npc_script, npc_mob, npc_cache_mob, npc_delay_mob);
 	do_final_instance();
 

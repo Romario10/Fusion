@@ -1460,7 +1460,7 @@ int parse_login (int fd)
 					type = RFIFOW (fd, 82);
 					new_ = RFIFOW (fd, 84);
 					RFIFOSKIP (fd, 86);
-					ShowInfo ("Requisição de conexão do char-server "CL_WHITE"%s"CL_RESET" @ "CL_WHITE"%u.%u.%u.%u"CL_RESET":"CL_WHITE"%u"CL_RESET" (conta: '"CL_WHITE"%s"CL_RESET"', ip: '"CL_WHITE"%s"CL_RESET"')\n", server_name, CONVIP (server_ip), server_port, sd->userid, ip);
+					ShowInfo ("Requisição de conexão de char-server:\n          "CL_WHITE"%s"CL_RESET" @ "CL_WHITE"%u.%u.%u.%u"CL_RESET":"CL_WHITE"%u"CL_RESET" (conta: '"CL_WHITE"%s"CL_RESET"', ip: '"CL_WHITE"%s"CL_RESET"')\n", server_name, CONVIP (server_ip), server_port, sd->userid, ip);
 					sprintf (message, "char-server - %s@%u.%u.%u.%u:%u", server_name, CONVIP (server_ip), server_port);
 					login_log (session[fd]->client_addr, sd->userid, 100, message);
 					result = mmo_auth (sd, true);
@@ -1694,7 +1694,6 @@ void do_final (void)
 	}
 
 	login_log (0, "login server", 100, "desligamento do login-server");
-	ShowStatus ("Finalizando...\n");
 
 	if (login_config.log_login)
 		loginlog_final();
@@ -1723,7 +1722,7 @@ void do_final (void)
 		login_fd = -1;
 	}
 
-	ShowStatus ("Terminado.\n");
+	ShowStatus ("Desligado.\n");
 }
 
 //------------------------------
@@ -1746,7 +1745,7 @@ void do_shutdown (void)
 	if (runflag != LOGINSERVER_ST_SHUTDOWN) {
 		int id;
 		runflag = LOGINSERVER_ST_SHUTDOWN;
-		ShowStatus ("Desligando...\n");
+		ShowStatus ("Desligando.\n");
 
 		// TODO proper shutdown procedure; kick all characters, wait for acks, ...  [FlavioJS]
 		for (id = 0; id < ARRAYLENGTH (server); ++id)

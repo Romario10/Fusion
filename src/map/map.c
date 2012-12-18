@@ -2917,7 +2917,7 @@ int map_addmap (char *mapname)
 
 static void map_delmapid (int id)
 {
-	ShowNotice ("Removendo mapa [ %s ] do maplist"CL_CLL"\n", map[id].name);
+	ShowNotice ("Removendo mapa "CL_WHITE"%s"CL_RESET" do maplist."CL_CLL"\n", map[id].name);
 	memmove (map + id, map + id + 1, sizeof (map[0]) * (map_num - id - 1));
 	map_num--;
 }
@@ -3065,7 +3065,7 @@ int map_readallmaps (void)
 	else {
 		char mapcachefilepath[254];
 		sprintf (mapcachefilepath, "%s/%s%s", db_path, DBPATH, "map_cache.dat");
-		ShowStatus ("Carregando mapas (usando %s com mapcache)...\n", mapcachefilepath);
+		ShowStatus ("Carregando mapas (usando %s como mapcache).\n", mapcachefilepath);
 
 		if ( (fp = fopen (mapcachefilepath, "rb")) == NULL) {
 			ShowFatalError ("Impossível abrir arquivo de mapcache "CL_WHITE"%s"CL_RESET"\n", mapcachefilepath);
@@ -3137,11 +3137,11 @@ int map_readallmaps (void)
 	}
 
 	// finished map loading
-	ShowInfo ("Êxito no carregamento de '"CL_WHITE"%d"CL_RESET"' mapas."CL_CLL"\n", map_num);
+	ShowStatus ("Êxito no carregamento de '"CL_WHITE"%d"CL_RESET"' mapas."CL_CLL"\n", map_num);
 	instance_start = map_num; // Next Map Index will be instances
 
 	if (maps_removed)
-		ShowNotice ("Mapas removidos: '"CL_WHITE"%d"CL_RESET"'\n", maps_removed);
+		ShowWarning ("Mapas removidos: '"CL_WHITE"%d"CL_RESET"'\n", maps_removed);
 
 	return 0;
 }
@@ -3434,7 +3434,7 @@ int inter_config_read (char *cfgName)
 				strcpy (default_codepage, w2);
 			else if (strcmpi (w1, "use_sql_db") == 0) {
 				db_use_sqldbs = config_switch (w2);
-				ShowStatus ("Usando DBs de SQL: %s\n", w2);
+				ShowInfo ("Usando DBs de SQL: %s\n", w2);
 			} else if (strcmpi (w1, "log_db_ip") == 0)
 				strcpy (log_db_ip, w2);
 			else if (strcmpi (w1, "log_db_id") == 0)
@@ -3468,8 +3468,6 @@ int map_sql_init (void)
 	if (SQL_ERROR == Sql_Connect (mmysql_handle, map_server_id, map_server_pw, map_server_ip, map_server_port, map_server_db))
 		exit (EXIT_FAILURE);
 
-	ShowStatus ("Êxito!\n");
-
 	if (strlen (default_codepage) > 0)
 		if (SQL_ERROR == Sql_SetEncoding (mmysql_handle, default_codepage))
 			Sql_ShowDebug (mmysql_handle);
@@ -3479,13 +3477,13 @@ int map_sql_init (void)
 
 int map_sql_close (void)
 {
-	ShowStatus ("Desconectando da DB do map-server.\n");
+	ShowInfo ("Desconectando da DB do map-server.\n");
 	Sql_Free (mmysql_handle);
 	mmysql_handle = NULL;
 #ifndef BETA_THREAD_TEST
 
 	if (log_config.sql_logs) {
-		ShowStatus ("Desconectando da DB de logs.\n");
+		ShowInfo ("Desconectando da DB de logs.\n");
 		Sql_Free (logmysql_handle);
 		logmysql_handle = NULL;
 	}
@@ -3504,7 +3502,7 @@ int log_sql_init (void)
 	if (SQL_ERROR == Sql_Connect (logmysql_handle, log_db_id, log_db_pw, log_db_ip, log_db_port, log_db_db))
 		exit (EXIT_FAILURE);
 
-	ShowSQL ("'"CL_GREEN"Sucesso"CL_RESET"' na conexão com a DB '"CL_WHITE"%s"CL_RESET"'.\n", log_db_db);
+	ShowSQL (CL_GREEN"Sucesso"CL_RESET" na conexão com a DB "CL_WHITE"%s"CL_RESET".\n", log_db_db);
 
 	if (strlen (default_codepage) > 0)
 		if (SQL_ERROR == Sql_SetEncoding (logmysql_handle, default_codepage))
@@ -3597,7 +3595,6 @@ void do_final (void)
 	int i, j;
 	struct map_session_data *sd;
 	struct s_mapiterator *iter;
-	ShowStatus ("Terminating...\n");
 	//Ladies and babies first.
 	iter = mapit_getallusers();
 
@@ -3673,7 +3670,7 @@ void do_final (void)
 	iwall_db->destroy (iwall_db, NULL);
 	regen_db->destroy (regen_db, NULL);
 	map_sql_close();
-	ShowStatus ("Finished.\n");
+	ShowStatus ("Desligado.\n");
 }
 
 static int map_abort_sub (struct map_session_data *sd, va_list ap)
@@ -3740,7 +3737,16 @@ static void map_helpscreen (bool do_exit)
  *------------------------------------------------------*/
 static void map_versionscreen (bool do_exit)
 {
-	ShowInfo (CL_WHITE"Revisão do Cronus: %s" CL_RESET"\n", get_svn_revision());
+	const char * rev;
+	if (strcmpi (get_git_revision(), "no") != 0) {
+		rev = get_git_revision();
+	} else if (strcmpi (get_svn_revision(), "no") != 0) {
+		rev = get_svn_revision();
+	} else {
+		rev = "Desconhecida";
+	}
+
+	ShowInfo (CL_WHITE"Revisão do Cronus: %s" CL_RESET"\n", rev);
 	ShowInfo (CL_GREEN"Website/Forum:"CL_RESET"\thttp://portal.cronus-emulator.com/\n");
 
 	if (do_exit)
@@ -3761,7 +3767,7 @@ void do_shutdown (void)
 {
 	if (runflag != MAPSERVER_ST_SHUTDOWN) {
 		runflag = MAPSERVER_ST_SHUTDOWN;
-		ShowStatus ("Desligando.\n");
+		ShowInfo ("Finalizando este map-server.");
 		{
 			struct map_session_data *sd;
 			struct s_mapiterator *iter = mapit_getallusers();
@@ -3873,12 +3879,12 @@ int do_init (int argc, char *argv[])
 	if (!map_ip_set || !char_ip_set) {
 		char ip_str[16];
 		ip2str (addr_[0], ip_str);
-		ShowWarning ("Nem todos os IPs foram configurados em map-athena.conf: Autodetectando.\n");
+		ShowNotice ("Nem todos os IPs foram configurados em map-athena.conf. Autodetectando.\n");
 
 		if (naddr_ == 0)
 			ShowError ("Não foi possível determinar seu IP.\n");
 		else if (naddr_ > 1)
-			ShowNotice ("Múltiplas intrfaces detectadas.\n");
+			ShowNotice ("Múltiplas interfaces detectadas.\n");
 
 		ShowInfo ("Definindo %s como o nosso IP\n", ip_str);
 

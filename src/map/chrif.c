@@ -324,7 +324,7 @@ int chrif_save(struct map_session_data *sd, int flag) {
 
 // connects to char-server (plaintext)
 int chrif_connect(int fd) {
-	ShowStatus("Logando no char-server...\n", char_fd);
+	ShowInfo("Logando no char-server.\n", char_fd);
 	WFIFOHEAD(fd,60);
 	WFIFOW(fd,0) = 0x2af8;
 	memcpy(WFIFOP(fd,2), userid, NAME_LENGTH);
@@ -510,7 +510,7 @@ static int chrif_reconnect(DBKey key, DBData *data, va_list ap) {
 
 /// Called when all the connection steps are completed.
 void chrif_on_ready(void) {
-	ShowStatus("Map-server está online.\n");
+	ShowStatus(CL_WHITE"Map-server está online.\n"CL_RESET);
 	
 	chrif_state = 2;
 	
@@ -1127,7 +1127,7 @@ int chrif_recvfamelist(int fd) {
 	
 	total += num;
 
-	ShowInfo("Recebida Lista de Fama de '"CL_WHITE"%d"CL_RESET"' personagens.\n", total);
+	ShowStatus("Recebida Lista de Fama de '"CL_WHITE"%d"CL_RESET"' personagens.\n", total);
 
 	return 0;
 }
@@ -1506,7 +1506,7 @@ static int check_connect_char_server(int tid, unsigned int tick, int id, intptr_
 	static int displayed = 0;
 	if ( char_fd <= 0 || session[char_fd] == NULL ) {
 		if ( !displayed ) {
-			ShowStatus("Conectando ao char-server. Aguarde.\n");
+			ShowInfo("Conectando ao char-server. Aguarde.\n");
 			displayed = 1;
 		}
 

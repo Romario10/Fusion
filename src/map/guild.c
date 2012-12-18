@@ -1853,7 +1853,7 @@ void guild_castle_map_init (void)
 		dbi_destroy (iter);
 
 		if (intif_guild_castle_dataload (num, castle_ids))
-			ShowStatus ("Requisitado '"CL_WHITE"%d"CL_RESET"' castelos de clã do char-server...\n", num);
+			ShowInfo ("Requisitado "CL_WHITE"%d"CL_RESET" castelos de clã do char-server.\n", num);
 
 		aFree (castle_ids);
 	}

@@ -640,9 +640,9 @@ static void memmgr_final (void)
 	}
 #ifdef LOG_MEMMGR
 	if(count == 0) {
-		ShowInfo("Memory manager: No memory leaks found.\n");
+		ShowInfo("Gerenciador de memória: nenhum vazamento encontrado.\n");
 	} else {
-		ShowWarning("Memory manager: Memory leaks found and fixed.\n");
+		ShowWarning("Gerenciador de memória: vazamentos de memória encontrados e consertados.\n");
 		fclose(log_fp);
 	}
 #endif /* LOG_MEMMGR */

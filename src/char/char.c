@@ -373,9 +373,9 @@ static int char_db_kickoffline (DBKey key, DBData *data, va_list ap)
 void set_all_offline (int id)
 {
 	if (id < 0)
-		ShowNotice ("Tornando offline todos os usuários.\n");
+		ShowNotice ("Desconectando todos os usuários.\n");
 	else
-		ShowNotice ("Enviando usuários do map-server %d offline.\n", id);
+		ShowNotice ("Desconectando usuários do map-server %d.\n", id);
 
 	online_char_db->foreach (online_char_db, char_db_kickoffline, id);
 
@@ -2043,7 +2043,7 @@ void loginif_on_ready (void)
 	ARR_FIND (0, ARRAYLENGTH (server), i, server[i].fd > 0 && server[i].map[0]);
 
 	if (i == ARRAYLENGTH (server))
-		ShowStatus ("Aguardando mapas do map-server.\n");
+		ShowInfo ("Aguardando mapas do map-server.\n");
 }
 
 
@@ -4668,7 +4668,6 @@ int char_config_read (const char *cfgName)
 
 void do_final (void)
 {
-	ShowStatus ("Finalizando...\n");
 	set_all_offline (-1);
 	set_all_offline_sql();
 	inter_final();
@@ -4690,7 +4689,7 @@ void do_final (void)
 
 	Sql_Free (sql_handle);
 	mapindex_final();
-	ShowStatus ("Finalizado.\n");
+	ShowStatus ("Desligado.\n");
 }
 
 //------------------------------
@@ -4713,7 +4712,7 @@ void do_shutdown (void)
 	if (runflag != CHARSERVER_ST_SHUTDOWN) {
 		int id;
 		runflag = CHARSERVER_ST_SHUTDOWN;
-		ShowStatus ("Desligando...\n");
+		ShowStatus ("Finalizando este char-server.\n");
 
 		// TODO proper shutdown procedure; wait for acks?, kick all characters, ... [FlavoJS]
 		for (id = 0; id < ARRAYLENGTH (server); ++id)
@@ -4754,7 +4753,7 @@ int do_init (int argc, char **argv)
 		ip2str (addr_[0], ip_str);
 
 		if (naddr_ > 1)
-			ShowStatus ("Foram detectadas múltiplas interfaces. Usando "CL_WHITE"%s"CL_RESET" como endereço IP\n", ip_str);
+			ShowStatus ("Foram detectadas múltiplas interfaces.\n          Usando "CL_WHITE"%s"CL_RESET" como endereço IP\n", ip_str);
 		else
 			ShowStatus ("Padronizando "CL_WHITE"%s"CL_RESET" como endereço IP\n", ip_str);
 
