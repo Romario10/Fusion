@@ -28,7 +28,8 @@ endif
 	map_sql \
 	tools \
 	test \
-	clean help
+	clean \
+	help
 
 all: $(ALL_DEPENDS)
 
@@ -101,7 +102,6 @@ install:	conf/%.conf conf/%.txt
 	$(shell mkdir -p /opt/cronus/bin/)
 	$(shell mkdir -p /opt/cronus/etc/cronus/)
 	$(shell mkdir -p /opt/cronus/var/log/cronus/)
-	$(shell mv save /opt/cronus/etc/cronus/save)
 	$(shell mv db /opt/cronus/etc/cronus/db)
 	$(shell mv conf /opt/cronus/etc/cronus/conf)
 	$(shell mv npc /opt/cronus/etc/cronus/npc)
@@ -121,7 +121,6 @@ bin-clean:
 uninstall:
 	$(shell read -p "ALERTA: Este alvo ainda não funciona corretamente. Aperte Ctrl+C para cancelar ou Enter para continuar.")
 	bin-clean
-	$(shell rm /opt/cronus/bin/save)
 	$(shell rm /opt/cronus/bin/db)
 	$(shell rm /opt/cronus/bin/conf)
 	$(shell rm /opt/cronus/bin/npc)
