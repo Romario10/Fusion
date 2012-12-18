@@ -3737,11 +3737,11 @@ static void map_helpscreen (bool do_exit)
  *------------------------------------------------------*/
 static void map_versionscreen (bool do_exit)
 {
-	const char * rev;
+	char * rev;
 	if (strcmpi (get_git_revision(), "no") != 0) {
-		rev = get_git_revision();
+		rev = (char *)get_git_revision();
 	} else if (strcmpi (get_svn_revision(), "no") != 0) {
-		rev = get_svn_revision();
+		rev = (char *)get_svn_revision();
 	} else {
 		rev = "Desconhecida";
 	}
