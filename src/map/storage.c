@@ -93,17 +93,10 @@ void do_reconnect_storage(void)
  *------------------------------------------*/
 int storage_storageopen(struct map_session_data *sd)
 {
-	int m;
 	nullpo_ret(sd);
 
 	if(sd->state.storage_flag)
 		return 1; //Already open?
-
-	m = sd->bl.m;
-	if (map[m].flag.nostorage) {
-		clif_displaymessage (sd->fd, msg_txt(527));
-		return 1;
-	}
 	
 	if( !pc_can_give_items(sd) )
   	{ //check is this GM level is allowed to put items to storage
@@ -392,15 +385,8 @@ int guild_storage_delete(int guild_id)
 int storage_guild_storageopen(struct map_session_data* sd)
 {
 	struct guild_storage *gstor;
-	int m;
 
 	nullpo_ret(sd);
-
-	m = sd->bl.m;
-	if (map[m].flag.noguildstorage) {
-		clif_displaymessage (sd->fd, msg_txt(527));
-		return 1;
-	}
 
 	if(sd->status.guild_id <= 0)
 		return 2;
@@ -419,7 +405,7 @@ int storage_guild_storageopen(struct map_session_data* sd)
 	}
 	if(gstor->storage_status)
 		return 1;
-
+		
 	if( gstor->lock )
 		return 1;
 	
@@ -539,7 +525,7 @@ int storage_guild_storageadd(struct map_session_data* sd, int index, int amount)
 	
 	if( amount < 1 || amount > sd->status.inventory[index].amount )
 		return 0;
-
+		
 	if( stor->lock ) {
 		storage_guild_storageclose(sd);
 		return 0;
@@ -577,8 +563,8 @@ int storage_guild_storageget(struct map_session_data* sd, int index, int amount)
 	
 	if(amount < 1 || amount > stor->items[index].amount)
 	  	return 0;
-
-	if (stor->lock ) {
+		
+	if( stor->lock ) {
 		storage_guild_storageclose(sd);
 		return 0;
 	}
