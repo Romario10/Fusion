@@ -5415,21 +5415,27 @@ ACMD_FUNC(cleargstorage)
  
 ACMD_FUNC(clearcart)
 {
-        nullpo_retr(-1, sd);
+	int i;
+	nullpo_retr(-1, sd);
 
-        if (pc_iscarton(sd) == 0) {
-                clif_displaymessage(fd, msg_txt(1400)); // You do not have a cart to be cleaned.
-                return -1;
-        }
+	if (pc_iscarton(sd) == 0) {
+	        clif_displaymessage(fd, msg_txt(1400)); // You do not have a cart to be cleaned.
+	        return -1;
+	}
+	
+	if (sd->state.vending == 1) { //Somehow...
+	        return -1;
+	}
 
-        if (sd->state.vending == 1) { //Somehow...
-                return -1;
-        }
-
-        clif_clearcart(fd);
-
-        clif_displaymessage(fd, msg_txt(1401)); // Your cart was cleaned.
-        return 0;
+	for( i = 0; i < MAX_CART; i++ )
+		if(sd->status.cart[i].nameid > 0)
+			pc_cart_delitem(sd, i, sd->status.cart[i].amount, 1, LOG_TYPE_OTHER);
+	
+	clif_clearcart(fd);
+	clif_updatestatus(sd,SP_CARTINFO);
+	
+	clif_displaymessage(fd, msg_txt(1401)); // Your cart was cleaned.
+	return 0;
 }
 
 /*==========================================
