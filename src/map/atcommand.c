@@ -52,7 +52,7 @@
 
 #define ATCOMMAND_LENGTH 50
 #define ACMD_FUNC(x) static int atcommand_ ## x (const int fd, struct map_session_data* sd, const char* command, const char* message)
-#define MAX_MSG 1400
+#define MAX_MSG 1500
 
 
 typedef struct AtCommandInfo AtCommandInfo;
@@ -5352,6 +5352,86 @@ ACMD_FUNC (storeall)
 	return 0;
 }
 
+ACMD_FUNC(clearstorage)
+{
+        int i, j;
+        nullpo_retr(-1, sd);
+
+        if (sd->state.storage_flag == 1) {
+                clif_displaymessage(fd, msg_txt(250));
+                return -1; 
+        }
+
+        j = sd->status.storage.storage_amount;
+        for (i = 0; i < j; ++i) {
+                storage_delitem(sd, i, sd->status.storage.items[i].amount);
+        }
+        storage_storageclose(sd);
+
+        clif_displaymessage(fd, msg_txt(1398)); // Your storage was cleaned.
+        return 0;
+}
+
+ACMD_FUNC(cleargstorage)
+{
+        int i, j;
+        struct guild *g;
+        struct guild_storage *gstorage;
+        nullpo_retr(-1, sd);
+
+        g = guild_search(sd->status.guild_id);
+
+        if (g == NULL) {
+                clif_displaymessage(fd, msg_txt(43));
+                return -1;
+        }
+
+        if (sd->state.storage_flag == 1) {
+                clif_displaymessage(fd, msg_txt(250));
+                return -1;
+        }
+
+        if (sd->state.storage_flag == 2) {
+                clif_displaymessage(fd, msg_txt(251));
+                return -1;
+        }
+
+        gstorage = guild2storage2(sd->status.guild_id);
+        if (gstorage == NULL) {// Doesn't have opened @gstorage yet, so we skip the deletion since *shouldn't* have any item there.
+                return -1;
+        }
+
+        j = gstorage->storage_amount;
+        gstorage->lock = 1; // Lock @gstorage: do not allow any item to be retrieved or stored from any guild member
+        for (i = 0; i < j; ++i) {
+                guild_storage_delitem(sd, gstorage, i, gstorage->items[i].amount);
+        }
+        storage_guild_storageclose(sd);
+        gstorage->lock = 0; // Cleaning done, release lock
+
+        clif_displaymessage(fd, msg_txt(1399)); // Your guild storage was cleaned.
+        return 0;
+}
+ 
+ACMD_FUNC(clearcart)
+{
+        nullpo_retr(-1, sd);
+
+        if (pc_iscarton(sd) == 0) {
+                clif_displaymessage(fd, msg_txt(1400)); // You do not have a cart to be cleaned.
+                return -1;
+        }
+
+        if (sd->state.vending == 1) { //Somehow...
+                return -1;
+        }
+
+        clif_clearcart(fd);
+
+        clif_displaymessage(fd, msg_txt(1401)); // Your cart was cleaned.
+        return 0;
+}
+
 /*==========================================
  * @skillid by [MouseJstr]
  * lookup a skill by name
@@ -8808,6 +8888,9 @@ void atcommand_basecommands (void)
 		ACMD_DEF (item),
 		ACMD_DEF (item2),
 		ACMD_DEF (itemreset),
+		ACMD_DEF(clearstorage),
+		ACMD_DEF(cleargstorage),
+		ACMD_DEF(clearcart),
 		ACMD_DEF2 ("blvl", baselevelup),
 		ACMD_DEF2 ("jlvl", joblevelup),
 		ACMD_DEF (help),
@@ -9153,40 +9236,43 @@ static void atcommand_get_suggestions (struct map_session_data *sd, const char *
 }
 
 /// Executes an at-command.
-bool is_atcommand (const int fd, struct map_session_data *sd, const char *message, int type)
+bool is_atcommand(const int fd, struct map_session_data* sd, const char* message, int type)
 {
 	char charname[NAME_LENGTH], params[100];
 	char charname2[NAME_LENGTH], params2[100];
 	char command[100];
 	char output[CHAT_SIZE_MAX];
+
 	//Reconstructed message
 	char atcmd_msg[CHAT_SIZE_MAX];
-	TBL_PC *ssd = NULL;  //sd for target
-	AtCommandInfo *info;
-	nullpo_retr (false, sd);
+
+	TBL_PC * ssd = NULL; //sd for target
+	AtCommandInfo * info;
+
+	nullpo_retr(false, sd);
 
 	//Shouldn't happen
-	if (!message || !*message)
+	if ( !message || !*message )
 		return false;
 
 	//Block NOCHAT but do not display it as a normal message
-	if (sd->sc.data[SC_NOCHAT] && sd->sc.data[SC_NOCHAT]->val1 & MANNER_NOCOMMAND)
+	if ( sd->sc.data[SC_NOCHAT] && sd->sc.data[SC_NOCHAT]->val1&MANNER_NOCOMMAND )
 		return true;
 
 	// skip 10/11-langtype's codepage indicator, if detected
-	if (message[0] == '|' && strlen (message) >= 4 && (message[3] == atcommand_symbol || message[3] == charcommand_symbol))
+	if ( message[0] == '|' && strlen(message) >= 4 && (message[3] == atcommand_symbol || message[3] == charcommand_symbol) )
 		message += 3;
 
 	//Should display as a normal message
-	if (*message != atcommand_symbol && *message != charcommand_symbol)
+	if ( *message != atcommand_symbol && *message != charcommand_symbol )
 		return false;
 
 	// type value 0 = server invoked: bypass restrictions
 	// 1 = player invoked
-	if (type == 1) {
+	if ( type == 1) {
 		//Commands are disabled on maps flagged as 'nocommand'
-		if (map[sd->bl.m].nocommand && pc_get_group_level (sd) < map[sd->bl.m].nocommand) {
-			clif_displaymessage (fd, msg_txt (143));
+		if ( map[sd->bl.m].nocommand && pc_get_group_level(sd) < map[sd->bl.m].nocommand ) {
+			clif_displaymessage(fd, msg_txt(143));
 			return false;
 		}
 	}
@@ -9194,92 +9280,95 @@ bool is_atcommand (const int fd, struct map_session_data *sd, const char *messag
 	if (*message == charcommand_symbol) {
 		do {
 			int x, y, z;
+
 			//Checks to see if #command has a name or a name + parameters.
-			x = sscanf (message, "%99s \"%23[^\"]\" %99[^\n]", command, charname, params);
-			y = sscanf (message, "%99s %23s %99[^\n]", command, charname2, params2);
+			x = sscanf(message, "%99s \"%23[^\"]\" %99[^\n]", command, charname, params);
+			y = sscanf(message, "%99s %23s %99[^\n]", command, charname2, params2);
+
 			//z always has the value of the scan that was successful
-			z = (x > 1) ? x : y;
+			z = ( x > 1 ) ? x : y;
 
 			//#command + name means the sufficient target was used and anything else after
 			//can be looked at by the actual command function since most scan to see if the
 			//right parameters are used.
-			if (x > 2) {
-				sprintf (atcmd_msg, "%s %s", command, params);
+			if ( x > 2 ) {
+				sprintf(atcmd_msg, "%s %s", command, params);
 				break;
-			} else if (y > 2) {
-				sprintf (atcmd_msg, "%s %s", command, params2);
+			}
+			else if ( y > 2 ) {
+				sprintf(atcmd_msg, "%s %s", command, params2);
 				break;
 			}
 			//Regardless of what style the #command is used, if it's correct, it will always have
 			//this value if there is no parameter. Send it as just the #command
-			else if (z == 2) {
-				sprintf (atcmd_msg, "%s", command);
+			else if ( z == 2 ) {
+				sprintf(atcmd_msg, "%s", command);
 				break;
 			}
 
-			if (!pc_get_group_level (sd)) {
-				if (x >= 1 || y >= 1) {  /* we have command */
-					info = get_atcommandinfo_byname (atcommand_checkalias (command + 1));
-
-					if (!info || info->char_groups[sd->group_pos] == 0)  /* if we can't use or doesn't exist: don't even display the command failed message */
-						return false;
+			if( !pc_get_group_level(sd) ) {
+				if( x >= 1 || y >= 1 ) { /* we have command */
+					info = get_atcommandinfo_byname(atcommand_checkalias(command + 1));
+					if( !info || info->char_groups[sd->group_pos] == 0 ) /* if we can't use or doesn't exist: don't even display the command failed message */
+							return false;
 				} else
 					return false;/* display as normal message */
 			}
 
-			sprintf (output, msg_txt (1388), charcommand_symbol); // Charcommand failed. Usage: %c<command> <char name> <params>.
-			clif_displaymessage (fd, output);
+			sprintf(output, msg_txt(1388), charcommand_symbol); // Charcommand failed (usage: %c<command> <char name> <parameters>).
+			clif_displaymessage(fd, output);
 			return true;
-		} while (0);
-	} else if (*message == atcommand_symbol) {
+		} while(0);
+	}
+	else if (*message == atcommand_symbol) {
 		//atcmd_msg is constructed above differently for charcommands
 		//it's copied from message if not a charcommand so it can
 		//pass through the rest of the code compatible with both symbols
-		sprintf (atcmd_msg, "%s", message);
+		sprintf(atcmd_msg, "%s", message);
 	}
 
 	//Clearing these to be used once more.
-	memset (command, '\0', sizeof (command));
-	memset (params, '\0', sizeof (params));
+	memset(command, '\0', sizeof(command));
+	memset(params, '\0', sizeof(params));
 
 	//check to see if any params exist within this command
-	if (sscanf (atcmd_msg, "%99s %99[^\n]", command, params) < 2)
+	if( sscanf(atcmd_msg, "%99s %99[^\n]", command, params) < 2 )
 		params[0] = '\0';
 
 	// @commands (script based)
-	if (type == 1 && atcmd_binding_count > 0) {
-		struct atcmd_binding_data *binding;
+	if(type == 1 && atcmd_binding_count > 0) {
+		struct atcmd_binding_data * binding;
 
 		// Check if the command initiated is a character command
 		if (*message == charcommand_symbol &&
-				(ssd = map_nick2sd (charname)) == NULL && (ssd = map_nick2sd (charname2)) == NULL) {
-			sprintf (output, msg_txt (1389), command); // %s failed. Player not found.
-			clif_displaymessage (fd, output);
+				(ssd = map_nick2sd(charname)) == NULL && (ssd = map_nick2sd(charname2)) == NULL ) {
+			sprintf(output, msg_txt(1389), command); // %s failed. Player not found.
+			clif_displaymessage(fd, output);
 			return true;
 		}
 
 		// Get atcommand binding
-		binding = get_atcommandbind_byname (command);
+		binding = get_atcommandbind_byname(command);
 
 		// Check if the binding isn't NULL and there is a NPC event, level of usage met, et cetera
-		if (binding != NULL && binding->npc_event[0] &&
-				( (*atcmd_msg == atcommand_symbol && pc_get_group_level (sd) >= binding->level) ||
-				  (*atcmd_msg == charcommand_symbol && pc_get_group_level (sd) >= binding->level2))) {
+		if( binding != NULL && binding->npc_event[0] &&
+			((*atcmd_msg == atcommand_symbol && pc_get_group_level(sd) >= binding->level) ||
+			 (*atcmd_msg == charcommand_symbol && pc_get_group_level(sd) >= binding->level2)))
+		{
 			// Check if self or character invoking; if self == character invoked, then self invoke.
-			bool invokeFlag = ( (*atcmd_msg == atcommand_symbol) ? 1 : 0);
-			npc_do_atcmd_event ( (invokeFlag ? sd : ssd), command, params, binding->npc_event);
+			bool invokeFlag = ((*atcmd_msg == atcommand_symbol) ? 1 : 0);
+			npc_do_atcmd_event((invokeFlag ? sd : ssd), command, params, binding->npc_event);
 			return true;
 		}
 	}
 
 	//Grab the command information and check for the proper GM level required to use it or if the command exists
-	info = get_atcommandinfo_byname (atcommand_checkalias (command + 1));
-
+	info = get_atcommandinfo_byname(atcommand_checkalias(command + 1));
 	if (info == NULL) {
-		if (pc_get_group_level (sd)) { // TODO: remove or replace with proper permission
-			sprintf (output, msg_txt (153), command); // "%s is Unknown Command."
-			clif_displaymessage (fd, output);
-			atcommand_get_suggestions (sd, command + 1, *message == atcommand_symbol);
+		if( pc_get_group_level(sd) ) { // TODO: remove or replace with proper permission
+			sprintf(output, msg_txt(153), command); // "%s is Unknown Command."
+			clif_displaymessage(fd, output);
+			atcommand_get_suggestions(sd, command + 1, *message == atcommand_symbol);
 			return true;
 		} else
 			return false;
@@ -9287,32 +9376,37 @@ bool is_atcommand (const int fd, struct map_session_data *sd, const char *messag
 
 	// type == 1 : player invoked
 	if (type == 1) {
-		if ( (*command == atcommand_symbol && info->at_groups[sd->group_pos] == 0) ||
-				(*command == charcommand_symbol && info->char_groups[sd->group_pos] == 0)) {
+		if ((*command == atcommand_symbol && info->at_groups[sd->group_pos] == 0) ||
+		    (*command == charcommand_symbol && info->char_groups[sd->group_pos] == 0) ) {
 			return false;
+		}
+		if( pc_isdead(sd) && pc_has_permission(sd,PC_PERM_DISABLE_CMD_DEAD) ) {
+			clif_displaymessage(fd, msg_txt(1397)); // You can't use commands while dead
+			return true;
 		}
 	}
 
 	// Check if target is valid only if confirmed that player can use command.
 	if (*message == charcommand_symbol &&
-			(ssd = map_nick2sd (charname)) == NULL && (ssd = map_nick2sd (charname2)) == NULL) {
-		sprintf (output, msg_txt (1389), command); // %s failed. Player not found.
-		clif_displaymessage (fd, output);
+	    (ssd = map_nick2sd(charname)) == NULL && (ssd = map_nick2sd(charname2)) == NULL ) {
+		sprintf(output, msg_txt(1389), command); // %s failed. Player not found.
+		clif_displaymessage(fd, output);
 		return true;
 	}
 
 	//Attempt to use the command
-	if ( (info->func (fd, (*atcmd_msg == atcommand_symbol) ? sd : ssd, command, params) != 0)) {
-		sprintf (output, msg_txt (154), command); // %s failed.
-		clif_displaymessage (fd, output);
+	if ( (info->func(fd, (*atcmd_msg == atcommand_symbol) ? sd : ssd, command, params) != 0) )
+	{
+		sprintf(output,msg_txt(154), command); // %s failed.
+		clif_displaymessage(fd, output);
 		return true;
 	}
 
 	//Log only if successful.
-	if (*atcmd_msg == atcommand_symbol)
-		log_atcommand (sd, atcmd_msg);
-	else if (*atcmd_msg == charcommand_symbol)
-		log_atcommand (sd, message);
+	if ( *atcmd_msg == atcommand_symbol )
+		log_atcommand(sd, atcmd_msg);
+	else if ( *atcmd_msg == charcommand_symbol )
+		log_atcommand(sd, message);
 
 	return true;
 }
