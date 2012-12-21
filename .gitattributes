@@ -20,3 +20,8 @@
 *.PDF	 diff=astextplain
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
+
+# Unix EOL
+*.sh  eol=lf
+configure  eol=lf
+cronus-commander  eol=lf
