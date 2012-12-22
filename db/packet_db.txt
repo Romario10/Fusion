@@ -27,10 +27,11 @@
 // Se múltiplas versões tiverem o mesmo packet de conexão, a maior versão
 // será usada (ao menos que a menor seja especificada para ser usada)
 // Se você deseja usar a última versão possível, coloque default.
-// A versão 23 é o último Sakexe, versão mais recentes remetem ao RagexeRE
+// A versão 23 é o último Sakexe, versão mais recentes remetem ao RagexeRE.
+// A versão 27 é usada pelo 2011-06-09, RagexeRE mais usado.
 //--------------------------------------------------------------
 
-//packet_db_ver: 25
+//packet_db_ver: 27
 packet_db_ver: default
 
 packet_ver: 5
@@ -1627,8 +1628,50 @@ packet_ver: 26
 0x0858,-1
 0x0859,-1
 
-//2011-10-05aRagexeRE
+//2011-06-09aRagexeRE
 packet_ver: 27
+0x01FD,15,repairitem,2
+0x0202,26,friendslistadd,2
+0x022D,5,hommenu,2:4
+0x023B,36,storagepassword,0
+0x0288,-1,cashshopbuy,4:8
+0x02C4,26,partyinvite2,2
+0x0436,19,wanttoconnection,2:6:10:14:18
+0x0437,7,actionrequest,2:6
+0x0438,10,useskilltoid,2:4:6
+0x0439,8,useitem,2:4
+0x07E4,-1,itemlistwindowselected,2:4:8
+0x0802,18,bookingregreq,2:4:6
+0x0803,4
+0x0804,14,bookingsearchreq,2:4:6:8:12
+0x0805,-1
+0x0806,2,bookingdelreq,0
+0x0807,4
+0x0808,14,bookingupdatereq,2
+0x0809,50
+0x080A,18
+0x080B,6
+0x0811,-1,reqopenbuyingstore,2:4:8:9:89
+0x0815,2,reqclosebuyingstore,0
+0x0817,6,reqclickbuyingstore,2
+0x0819,-1,reqtradebuyingstore,2:4:8:12
+0x0835,-1,searchstoreinfo,2:4:5:9:13:14:15
+0x0838,2,searchstoreinfonextpage,0
+0x083C,12,searchstoreinfolistitemclick,2:6:10
+0x035F,5,walktoxy,2
+0x0360,6,ticksend,2
+0x0361,5,changedir,2:4
+0x0362,6,takeitem,2
+0x0363,6,dropitem,2:4
+0x0364,8,movetokafra,2:4
+0x0365,8,movefromkafra,2:4
+0x0366,10,useskilltopos,2:4:6:8
+0x0367,90,useskilltoposinfo,2:4:6:8:10
+0x0368,6,getcharnamerequest,2
+0x0369,6,solvecharname,2
+
+//2011-10-05aRagexeRE
+packet_ver: 28
 0x0364,5,walktoxy,2
 0x0817,6,ticksend,2
 0x0366,5,changedir,2:4
@@ -1644,7 +1687,7 @@ packet_ver: 27
 0x08d2,10
 
 // 2011-11-02aRagexe
-packet_ver: 28
+packet_ver: 29
 0x0436,26,friendslistadd,2
 0x0898,5,hommenu,4
 0x0281,36,storagepassword,0
@@ -1664,7 +1707,7 @@ packet_ver: 28
 0x08a2,12,searchstoreinfolistitemclick,2:6:10
 
 //2012-03-07fRagexeRE
-packet_ver:29
+packet_ver: 30
 0x086A,19,wanttoconnection,2:6:10:14:18
 0x0437,5,walktoxy,2
 0x0887,6,ticksend,2
@@ -1695,7 +1738,7 @@ packet_ver:29
 0x0439,8,useitem,2:4
 
 //2012-04-10aRagexeRE
-packet_ver: 30
+packet_ver: 31
 0x01FD,15,repairitem,2
 0x089C,26,friendslistadd,2
 0x0885,5,hommenu,2:4
@@ -1755,7 +1798,7 @@ packet_ver: 30
 0x0977,14 //Monster HP Bar
 
 //2012-04-18aRagexeRE
-packet_ver: 31
+packet_ver: 32
 0x01FD,15,repairitem,2
 0x023B,26,friendslistadd,2
 0x0361,5,hommenu,2:4
