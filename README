@@ -4,12 +4,12 @@
 * Portal: (http://portal.cronus-emulator.com/)
 * Forum: (http://forum.cronus-emulator.com/)
 
-Caso tenha dúvidas procure ajuda no forum, qualquer bug favor reportar [aqui](http://forum.cronus-emulator.com/index.php?/tracker/).
+Caso tenha dúvidas, procure ajuda no forum. Qualquer bug favor reportar [aqui](http://forum.cronus-emulator.com/index.php?/tracker/).
 
 --------------
 Estado da compilação atual:
 
-[![Build Status](https://secure.travis-ci.org/Cronus-Emulator/Cronus.png?branch=master)](https://secure.travis-ci.org/Cronus-Emulator/Cronus)
+[![Build Status](https://secure.travis-ci.org/Cronus-Emulator/Cronus.png?branch=master)](https://travis-ci.org/Cronus-Emulator/Cronus)
 --------------
 
 Agradecimentos
