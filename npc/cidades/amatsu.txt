@@ -3,18 +3,19 @@
 //===== Por: =================================================
 //= L0ne_W0lf
 //===== Versão Atual: ========================================
-//= 1.4
+//= 1.5
 //===== Compatível com: ======================================
 //= Cronus GIT
 //===== Descrição: ===========================================
 //= NPCs referentes a cidade de Amatsu
 //===== Comentários Adicionais: ==============================
 //= 1.4 Adicionado diálogos Oficiais do bRO. [Axl]
+//= 1.5 NPC de Alberta movido para pastas RE/Pre-RE. [MaminhA]
 //============================================================
 
 // Transporte para Amatsu
 //=====================================================
-alberta,245,93,3	script	Capitão do Mar#ama1	709,{
+-	script	::Sea_Captain_amatsu	-1,{
 	mes "[Walter Moers]";
 	mes "Ei, você aí...";
 	mes "você tem ouvido";
@@ -134,7 +135,10 @@ amatsu,194,79,5	script	Capitao do Mar#ama2	709,{
 		mes "várias coisas para falar sobre,";
 		mes "certo? Todos a bordo agora.";
 		close2;
-		warp "alberta",243,91;
+		if (checkre(0))
+			warp "alberta",244,72;
+		else
+			warp "alberta",243,91;
 		end;
 	}
 	mes "[Walter Moers]";

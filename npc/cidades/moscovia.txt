@@ -10,11 +10,12 @@
 //= NPCs referentes a cidade de Moscovia
 //===== Comentários Adicionais: ==============================
 //= 1.4 Traduzido [Elf0]
+//= 1.5 NPC de Alberta movido para pastas RE/Pre-RE. [MaminhA]
 //============================================================
 
 // Teletransportador para Moscovia
 //============================================================ 
-alberta,245,66,4	script	Oficial de Moscóvia#1	960,{
+-	script	::PR_Officer_moscovia	-1,{
 	mes "[Oficial de Moscóvia]";
 	mes "Moscóvia! Você conhece Moscóvia?";
 	mes "O paraíso se espalhando nos mares sem fim...";
@@ -107,7 +108,10 @@ moscovia,166,53,4	script	Oficial de Moscóvia#2	960,{
 	mes "Por favor venha vistar-nos";
 	mes "Certo, vamos indo.";
 	close2;
-	warp "alberta",243,67;
+	if (checkre(0))
+		warp "alberta",244,52;
+	else
+		warp "alberta",243,67;
 	end;
 }
 

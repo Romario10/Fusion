@@ -3,18 +3,19 @@
 //===== Por: =================================================
 //= MasterOfMuppets
 //===== Versão Atual: ========================================
-//= 1.8
+//= 1.9
 //===== Compatível com: ======================================
 //= Cronus GIT
 //===== Descrição: ===========================================
 //= NPCs referentes a cidade de Ayothaya
 //===== Comentários Adicionais: ==============================
 //= 1.8 Adicionado diálogos Oficiais do bRO. [Axl]
+//= 1.9 NPC de Alberta movido para pastas RE/Pre-RE. [MaminhA]
 //============================================================
 
 // Ayothaya NPC de teletransporte
 //============================================================ 
-alberta,247,42,3	script	Aibakthing#ayo	843,{
+-	script	::Aibakthing_ayothaya	-1,{
 	mes "[Aibakthing]";
 	mes "Hmm! Hahh! Hmm! Hahh!";
 	mes "Deixe-me apresentar a você minha cidade, Ayothaya";
@@ -99,7 +100,10 @@ ayothaya,152,68,1	script	Aibakthing#ayo2	843,{
 		mes "Espero que possamos nos rever em breve!";
 		mes "Faça uma boa viagem!";
 		close;
-		warp "alberta",235,45;
+		if (checkre(0))
+			warp "alberta",238,22;
+		else
+			warp "alberta",235,45;
 		end;
 	}
 	mes "[Aibakthing]";

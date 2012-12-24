@@ -3,18 +3,19 @@
 //===== Por: =================================================
 //= x[tsk]; KarLaeda
 //===== Versão Atual: ========================================
-//= 1.6
+//= 1.7
 //===== Compatível com: ======================================
 //= Cronus GIT
 //===== Descrição: ===========================================
 //= NPCs referentes a cidade de Kunlun
 //===== Comentários Adicionais: ==============================
 //= 1.6 Adicionado diálogos Oficiais do bRO. [L.Otoni]
+//= 1.7 NPC de Alberta movido para pastas RE/Pre-RE. [MaminhA]
 //============================================================
 
 // Kulun NPC de teletransporte
 //============================================================ 
-alberta,245,69,3	script	Barqueiro de Kunlun#gon	776,{
+-	script	::Kunlun_Envoy_gonryun	-1,{
 	mes "[Wabakho]";
 	mes "Saudações. Eu gostaria de";
 	mes "convidar todos vocês a Kunlun.";
@@ -106,7 +107,10 @@ gon_fild01,255,79,7	script	Anunciante de Kunlun#2	776,{
 		mes "e que volte a nos visitar no futuro.";
 		mes "Tripulação, prepare-se para a partida!";
 		close2;
-		warp "alberta",243,67;
+		if (checkre(0))
+			warp "alberta",244,60;
+		else
+			warp "alberta",243,67;
 		end;
 	}
 	mes "[Wabakho]";
