@@ -16,15 +16,15 @@ typedef enum damage_lv {
 
 // dammage structure
 struct Damage {
-	int damage, damage2;
-	int type, div_;
-	int amotion, dmotion;
-	int blewcount;
-	int flag;
+	int damage,damage2; //right, left dmg
+	int type,div_; //chk clif_damage for type @TODO add an enum ? ;  nb of hit
+	int amotion,dmotion;
+	int blewcount; //nb of knockback
+	int flag; //chk BF_* flag, (enum below)
 	enum damage_lv dmg_lv;	//ATK_LUCKY,ATK_FLEE,ATK_DEF
 };
 
-// (Used in read pc.c,) attribute table (battle_attr_fix)
+//(Used in read pc.c,) attribute table (battle_attr_fix)
 extern int attr_fix_table[4][10][10];
 
 struct map_session_data;
@@ -33,20 +33,20 @@ struct block_list;
 
 // Damage Calculation
 
-struct Damage battle_calc_attack (int attack_type, struct block_list *bl, struct block_list *target, int skill_num, int skill_lv, int count);
+struct Damage battle_calc_attack(int attack_type,struct block_list *bl,struct block_list *target,int skill_num,int skill_lv,int count);
 
-int battle_calc_return_damage (struct block_list *bl, struct block_list *src, int *, int flag, int skillid);
+int battle_calc_return_damage(struct block_list *bl, struct block_list *src, int *, int flag, int skillid);
 
-void battle_drain (struct map_session_data *sd, struct block_list *tbl, int rdamage, int ldamage, int race, int boss);
+void battle_drain(struct map_session_data *sd, struct block_list *tbl, int rdamage, int ldamage, int race, int boss);
 
-int battle_attr_ratio (int atk_elem, int def_type, int def_lv);
-int battle_attr_fix (struct block_list *src, struct block_list *target, int damage, int atk_elem, int def_type, int def_lv);
+int battle_attr_ratio(int atk_elem,int def_type, int def_lv);
+int battle_attr_fix(struct block_list *src, struct block_list *target, int damage,int atk_elem,int def_type, int def_lv);
 int battle_calc_cardfix(int attack_type, struct block_list *src, struct block_list *target, int nk, int s_ele, int s_ele_, int damage, int left, int flag);
 
 // Final calculation Damage
-int battle_calc_damage (struct block_list *src, struct block_list *bl, struct Damage *d, int damage, int skill_num, int skill_lv);
-int battle_calc_gvg_damage (struct block_list *src, struct block_list *bl, int damage, int div_, int skill_num, int skill_lv, int flag);
-int battle_calc_bg_damage (struct block_list *src, struct block_list *bl, int damage, int div_, int skill_num, int skill_lv, int flag);
+int battle_calc_damage(struct block_list *src,struct block_list *bl,struct Damage *d,int damage,int skill_num,int skill_lv);
+int battle_calc_gvg_damage(struct block_list *src,struct block_list *bl,int damage,int div_,int skill_num,int skill_lv,int flag);
+int battle_calc_bg_damage(struct block_list *src,struct block_list *bl,int damage,int div_,int skill_num,int skill_lv,int flag);
 
 enum {	// Flag of the final calculation
 	BF_WEAPON	= 0x0001,
@@ -56,25 +56,25 @@ enum {	// Flag of the final calculation
 	BF_LONG		= 0x0040,
 	BF_SKILL	= 0x0100,
 	BF_NORMAL	= 0x0200,
-	BF_WEAPONMASK = 0x000f,
-	BF_RANGEMASK = 0x00f0,
-	BF_SKILLMASK = 0x0f00,
+	BF_WEAPONMASK=0x000f,
+	BF_RANGEMASK= 0x00f0,
+	BF_SKILLMASK= 0x0f00,
 };
 
 int battle_delay_damage (unsigned int tick, int amotion, struct block_list *src, struct block_list *target, int attack_type, int skill_id, int skill_lv, int damage, enum damage_lv dmg_lv, int ddelay);
 
 // Summary normal attack treatment (basic attack)
-enum damage_lv battle_weapon_attack (struct block_list *bl, struct block_list *target, unsigned int tick, int flag);
+enum damage_lv battle_weapon_attack( struct block_list *bl,struct block_list *target,unsigned int tick,int flag);
 
 // Accessors
-struct block_list *battle_get_master (struct block_list *src);
-struct block_list *battle_gettargeted (struct block_list *target);
-struct block_list *battle_getenemy (struct block_list *target, int type, int range);
-int battle_gettarget (struct block_list *bl);
-int battle_getcurrentskill (struct block_list *bl);
+struct block_list* battle_get_master(struct block_list *src);
+struct block_list* battle_gettargeted(struct block_list *target);
+struct block_list* battle_getenemy(struct block_list *target, int type, int range);
+int battle_gettarget(struct block_list *bl);
+int battle_getcurrentskill(struct block_list *bl);
 
-enum e_battle_check_target {
-	//New definitions [Skotlex]
+enum e_battle_check_target
+{//New definitions [Skotlex]
 	BCT_ENEMY   = 0x020000,
 	BCT_NOENEMY = 0x1d0000, //This should be (~BCT_ENEMY&BCT_ALL)
 	BCT_PARTY	= 0x040000,
@@ -89,11 +89,11 @@ enum e_battle_check_target {
 
 #define	is_boss(bl)	(status_get_mode(bl)&MD_BOSS)	// Can refine later [Aru]
 
-int battle_check_undead (int race, int element);
-int battle_check_target (struct block_list *src, struct block_list *target, int flag);
-bool battle_check_range (struct block_list *src, struct block_list *bl, int range);
+int battle_check_undead(int race,int element);
+int battle_check_target(struct block_list *src, struct block_list *target,int flag);
+bool battle_check_range(struct block_list *src,struct block_list *bl,int range);
 
-void battle_consume_ammo (struct map_session_data *sd, int skill, int lv);
+void battle_consume_ammo(struct map_session_data* sd, int skill, int lv);
 // Settings
 
 #define MIN_HAIR_STYLE battle_config.min_hair_style
@@ -103,7 +103,8 @@ void battle_consume_ammo (struct map_session_data *sd, int skill, int lv);
 #define MIN_CLOTH_COLOR battle_config.min_cloth_color
 #define MAX_CLOTH_COLOR battle_config.max_cloth_color
 
-extern struct Battle_Config {
+extern struct Battle_Config
+{
 	int warp_point_debug;
 	int enable_critical;
 	int mob_critical_rate;
@@ -136,10 +137,10 @@ extern struct Battle_Config {
 	int mvp_item_first_get_time;
 	int mvp_item_second_get_time;
 	int mvp_item_third_get_time;
-	int base_exp_rate, job_exp_rate;
+	int base_exp_rate,job_exp_rate;
 	int drop_rate0item;
 	int death_penalty_type;
-	int death_penalty_base, death_penalty_job;
+	int death_penalty_base,death_penalty_job;
 	int pvp_exp;  // [MouseJstr]
 	int gtb_sc_immunity;
 	int zeny_penalty;
@@ -288,14 +289,14 @@ extern struct Battle_Config {
 		item_rate_use_boss, item_rate_treasure, item_rate_adddrop;
 
 	int logarithmic_drops;
-	int item_drop_common_min, item_drop_common_max;	// Added by TyrNemesis^
-	int item_drop_card_min, item_drop_card_max;
-	int item_drop_equip_min, item_drop_equip_max;
-	int item_drop_mvp_min, item_drop_mvp_max;	// End Addition
-	int item_drop_heal_min, item_drop_heal_max;	// Added by Valatris
-	int item_drop_use_min, item_drop_use_max;	//End
-	int item_drop_treasure_min, item_drop_treasure_max; //by [Skotlex]
-	int item_drop_adddrop_min, item_drop_adddrop_max; //[Skotlex]
+	int item_drop_common_min,item_drop_common_max;	// Added by TyrNemesis^
+	int item_drop_card_min,item_drop_card_max;
+	int item_drop_equip_min,item_drop_equip_max;
+	int item_drop_mvp_min,item_drop_mvp_max;	// End Addition
+	int item_drop_heal_min,item_drop_heal_max;	// Added by Valatris
+	int item_drop_use_min,item_drop_use_max;	//End
+	int item_drop_treasure_min,item_drop_treasure_max; //by [Skotlex]
+	int item_drop_adddrop_min,item_drop_adddrop_max; //[Skotlex]
 
 	int prevent_logout;	// Added by RoVeRT
 
@@ -311,8 +312,8 @@ extern struct Battle_Config {
 	int pk_level_range;
 
 	int manner_system; // end additions [Valaris]
-	int show_mob_info;
-
+	int show_mob_info; 
+	
 	int gx_allhit;
 	int gx_disptype;
 	int devotion_level_difference;
@@ -329,13 +330,13 @@ extern struct Battle_Config {
 	int buyer_name;
 	int dancing_weaponswitch_fix;
 
-	// eAthena additions
+// eAthena additions
 	int night_at_start; // added by [Yor]
 	int day_duration; // added by [Yor]
 	int night_duration; // added by [Yor]
 	int ban_hack_trade; // added by [Yor]
 	int packet_ver_flag; // added by [Yor]
-
+	
 	int min_hair_style; // added by [MouseJstr]
 	int max_hair_style; // added by [MouseJstr]
 	int min_hair_color; // added by [MouseJstr]
@@ -348,7 +349,7 @@ extern struct Battle_Config {
 	int area_size; // added by [MouseJstr]
 
 	int max_def, over_def_bonus; //added by [Skotlex]
-
+	
 	int zeny_from_mobs; // [Valaris]
 	int mobs_level_up; // [Valaris]
 	int mobs_level_up_exp_rate; // [Valaris]
@@ -403,7 +404,7 @@ extern struct Battle_Config {
 	int duel_autoleave_when_die; // [LuzZza]
 	int duel_time_interval; // [LuzZza]
 	int duel_only_on_same_map; // [Toms]
-
+	
 	int skip_teleport_lv1_menu; // possibility to disable (skip) Teleport Lv1 menu, that have only two lines `Random` and `Cancel` [LuzZza]
 
 	int allow_skill_without_day; // [Komurka]
@@ -433,8 +434,6 @@ extern struct Battle_Config {
 	int quest_exp_rate;
 	int autotrade_mapflag;
 	int at_timeout;
-	int at_only_timeout;
-	int at_max_timeout;
 	int homunculus_autoloot;
 	int idle_no_autoloot;
 	int max_guild_alliance;
@@ -478,26 +477,27 @@ extern struct Battle_Config {
 	int vcast_stat_scale;
 
 	int mvp_tomb_enabled;
-
+	
 	int atcommand_suggestions_enabled;
-	int min_npc_vending_distance;
+    int min_npc_vending_distance;
 	int atcommand_mobinfo_type;
+	
 	int mob_size_influence; // Enable modifications on earned experience, drop rates and monster status depending on monster size. [mkbu95]
 } battle_config;
 
-void do_init_battle (void);
-void do_final_battle (void);
-extern int battle_config_read (const char *cfgName);
-extern void battle_validate_conf (void);
-extern void battle_set_defaults (void);
-int battle_set_value (const char *w1, const char *w2);
-int battle_get_value (const char *w1);
+void do_init_battle(void);
+void do_final_battle(void);
+extern int battle_config_read(const char *cfgName);
+extern void battle_validate_conf(void);
+extern void battle_set_defaults(void);
+int battle_set_value(const char* w1, const char* w2);
+int battle_get_value(const char* w1);
 
 //
-struct block_list *battle_getenemyarea (struct block_list *src, int x, int y, int range, int type, int ignore_id);
+struct block_list* battle_getenemyarea(struct block_list *src, int x, int y, int range, int type, int ignore_id);
 /**
  * Royal Guard
  **/
-int battle_damage_area (struct block_list *bl, va_list ap);
+int battle_damage_area( struct block_list *bl, va_list ap);
 
 #endif /* _BATTLE_H_ */
