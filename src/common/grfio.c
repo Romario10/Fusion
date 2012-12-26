@@ -815,7 +815,7 @@ void grfio_init (const char *fname)
 		}
 
 		fclose (data_conf);
-		ShowStatus ("Done reading '"CL_WHITE"%s"CL_RESET"'.\n", fname);
+		ShowStatus ("Finalizada leitura de '"CL_WHITE"%s"CL_RESET"'.\n", fname);
 	}
 
 	if (grf_num == 0)

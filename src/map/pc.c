@@ -9438,11 +9438,11 @@ int pc_readdb(void)
 			continue; //Classes that do not need exp tables.
 		j = pc_class2idx(i);
 		if (!max_level[j][0])
-			ShowWarning("Class %s (%d) does not has a base exp table.\n", job_name(i), i);
+			ShowWarning("Classe %s (%d) não tem tabela de esperiência de base.\n", job_name(i), i);
 		if (!max_level[j][1])
-			ShowWarning("Class %s (%d) does not has a job exp table.\n", job_name(i), i);
+			ShowWarning("Classe %s (%d) não tem tabela de esperiência de classe.\n", job_name(i), i);
 	}
-	ShowStatus("Done reading '"CL_WHITE"%s"CL_RESET"'.\n","exp.txt");
+	ShowStatus("Finalizada leitura de '"CL_WHITE"%s"CL_RESET"'.\n","exp.txt");
 
 	// Reset and read skilltree
 	memset(skill_tree,0,sizeof(skill_tree));
@@ -9515,7 +9515,7 @@ int pc_readdb(void)
 		}
 	}
 	fclose(fp);
-	ShowStatus("Done reading '"CL_WHITE"%s"CL_RESET"'.\n","attr_fix.txt");
+	ShowStatus("Finalizada leitura de '"CL_WHITE"%s"CL_RESET"'.\n","attr_fix.txt");
 
     // reset then read statspoint
 	memset(statp,0,sizeof(statp));
@@ -9541,7 +9541,7 @@ int pc_readdb(void)
 		}
 		fclose(fp);
 
-		ShowStatus("Done reading '"CL_WHITE"%s"CL_RESET"'.\n","statpoint.txt");
+		ShowStatus("Finalizada leitura de '"CL_WHITE"%s"CL_RESET"'.\n","statpoint.txt");
 	}
 	// generate the remaining parts of the db if necessary
 	k = battle_config.use_statpoint_table; //save setting
@@ -9605,11 +9605,11 @@ int pc_read_motd(void)
 		}
 		fclose(fp);
 
-		ShowStatus("Done reading '"CL_WHITE"%u"CL_RESET"' entries in '"CL_WHITE"%s"CL_RESET"'.\n", entries, motd_txt);
+		ShowStatus("Finalizada leitura de '"CL_WHITE"%u"CL_RESET"' entradas em '"CL_WHITE"%s"CL_RESET"'.\n", entries, motd_txt);
 	}
 	else
 	{
-		ShowWarning("File '"CL_WHITE"%s"CL_RESET"' not found.\n", motd_txt);
+		ShowWarning("Arquivo '"CL_WHITE"%s"CL_RESET"' não encontrado.\n", motd_txt);
 	}
 
 	return 0;
