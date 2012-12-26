@@ -5715,55 +5715,33 @@ ACMD_FUNC (changelook)
  * @autotrade by durf [Lupus] [Paradox924X]
  * Turns on/off Autotrade for a specific player
  *------------------------------------------*/
-ACMD_FUNC (autotrade)
+ACMD_FUNC(autotrade)
 {
-	nullpo_retr (-1, sd);
+	nullpo_retr(-1, sd);
 
-	if (map[sd->bl.m].flag.autotrade != battle_config.autotrade_mapflag) {
-		clif_displaymessage (fd, msg_txt (1179)); // Autotrade is not allowed on this map.
+	if( map[sd->bl.m].flag.autotrade != battle_config.autotrade_mapflag ) {
+		clif_displaymessage(fd, msg_txt(1179)); // Autotrade is not allowed on this map.
 		return -1;
 	}
 
-	if (pc_isdead (sd)) {
-		clif_displaymessage (fd, msg_txt (1180)); // Cannot Autotrade if you are dead.
+	if( pc_isdead(sd) ) {
+		clif_displaymessage(fd, msg_txt(1180)); // You cannot autotrade when dead.
 		return -1;
 	}
 
-	if (!sd->state.vending && !sd->state.buyingstore) {  //check if player is vending or buying
-		clif_displaymessage (fd, msg_txt (549)); // "You should have a shop open to use @autotrade."
+	if( !sd->state.vending && !sd->state.buyingstore ) { //check if player is vending or buying
+		clif_displaymessage(fd, msg_txt(549)); // "You should have a shop open to use @autotrade."
 		return -1;
-	}
-
-	if (battle_config.at_timeout) {
-		int timeout;
-
-		if (!message || !*message) {
-			if (battle_config.at_only_timeout) {
-				clif_displaymessage (fd, msg_txt (1390)); // Digite @autotrade seguido do tempo em minutos.
-				return -1;
-			} else {
-				sd->state.autotrade = 1;
-				clif_authfail_fd (fd, 15);
-				return 0;
-			}
-		}
-
-		timeout = atoi (message);
-
-		if (timeout < 1) {
-			clif_displaymessage (fd, msg_txt (1391)); // Digite um tempo inteiro, positivo e diferente de zero.
-			return -1;
-		} else if ( (timeout > battle_config.at_max_timeout) && battle_config.at_max_timeout) {
-			clif_displaymessage (fd, msg_txt (1392)); // Você digitou um valor muito alto.
-			return -1;
-		}
-
-		if (timeout)
-			status_change_start (&sd->bl, SC_AUTOTRADE, 10000, 0, 0, 0, 0, timeout * 60000, 0);
 	}
 
 	sd->state.autotrade = 1;
-	clif_authfail_fd (fd, 15);
+	if( battle_config.at_timeout )
+	{
+		int timeout = atoi(message);
+		status_change_start(&sd->bl, SC_AUTOTRADE, 10000, 0, 0, 0, 0, ((timeout > 0) ? min(timeout,battle_config.at_timeout) : battle_config.at_timeout) * 60000, 0);
+	}
+	clif_authfail_fd(fd, 15);
+
 	return 0;
 }
 
