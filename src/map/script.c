@@ -12041,38 +12041,36 @@ BUILDIN_FUNC (warppartner)
 /*================================================
  * Script for Displaying MOB Information [Valaris]
  *------------------------------------------------*/
-BUILDIN_FUNC (strmobinfo)
+BUILDIN_FUNC(strmobinfo)
 {
-	int num = script_getnum (st, 2);
-	int class_ = script_getnum (st, 3);
 
-	if (!mobdb_checkid (class_)) {
-		script_pushint (st, 0);
+	int num=script_getnum(st,2);
+	int class_=script_getnum(st,3);
+
+	if(!mobdb_checkid(class_))
+	{
+		if (num < 3) //requested a string
+			script_pushconststr(st,"");
+		else
+			script_pushint(st,0);
 		return 0;
 	}
 
 	switch (num) {
-		case 1: script_pushstrcopy (st, mob_db (class_)->name); break;
-
-		case 2: script_pushstrcopy (st, mob_db (class_)->jname); break;
-
-		case 3: script_pushint (st, mob_db (class_)->lv); break;
-
-		case 4: script_pushint (st, mob_db (class_)->status.max_hp); break;
-
-		case 5: script_pushint (st, mob_db (class_)->status.max_sp); break;
-
-		case 6: script_pushint (st, mob_db (class_)->base_exp); break;
-
-		case 7: script_pushint (st, mob_db (class_)->job_exp); break;
-
-		default:
-			script_pushint (st, 0);
-			break;
+	case 1: script_pushstrcopy(st,mob_db(class_)->name); break;
+	case 2: script_pushstrcopy(st,mob_db(class_)->jname); break;
+	case 3: script_pushint(st,mob_db(class_)->lv); break;
+	case 4: script_pushint(st,mob_db(class_)->status.max_hp); break;
+	case 5: script_pushint(st,mob_db(class_)->status.max_sp); break;
+	case 6: script_pushint(st,mob_db(class_)->base_exp); break;
+	case 7: script_pushint(st,mob_db(class_)->job_exp); break;
+	default:
+		script_pushint(st,0);
+		break;
 	}
-
 	return 0;
 }
+
 
 /*==========================================
  * Summon guardians [Valaris]
@@ -17940,6 +17938,55 @@ BUILDIN_FUNC (cleanmap)
 	return 0;
 }
 
+/* Cast a skill on the attached player.
+ * npcskill <skill id>, <skill lvl>, <stat point>, <NPC level>;
+ * npcskill "<skill name>", <skill lvl>, <stat point>, <NPC level>; */
+BUILDIN_FUNC(npcskill)
+{
+	unsigned int skill_id;
+	unsigned short skill_level;
+	unsigned int stat_point;
+	unsigned int npc_level;
+	struct npc_data *nd;
+	struct map_session_data *sd;
+
+	skill_id = script_isstring(st, 2) ? skill_name2id(script_getstr(st, 2)) : script_getnum(st, 2);
+	skill_level = script_getnum(st, 3);
+	stat_point = script_getnum(st, 4);
+	npc_level = script_getnum(st, 5);
+	sd = script_rid2sd(st);
+	nd = (struct npc_data *)map_id2bl(sd->npc_id);
+
+	if (stat_point > battle_config.max_third_parameter) {
+		ShowError("npcskill: stat point exceeded maximum of %d.\n",battle_config.max_third_parameter );
+		return 1;
+	}
+	if (npc_level > MAX_LEVEL) {
+		ShowError("npcskill: level exceeded maximum of %d.\n", MAX_LEVEL);
+		return 1;
+	}
+	if (sd == NULL || nd == NULL) { //ain't possible, but I don't trust people.
+		return 1;
+	}
+
+	nd->level = npc_level;
+	nd->stat_point = stat_point;
+
+	if (!nd->status.hp) {
+		status_calc_npc(nd, true);
+	} else {
+		status_calc_npc(nd, false);
+	}
+
+	if (skill_get_inf(skill_id)&INF_GROUND_SKILL) {
+		unit_skilluse_pos(&nd->bl, sd->bl.x, sd->bl.y, skill_id, skill_level);
+	} else {
+		unit_skilluse_id(&nd->bl, sd->bl.id, skill_id, skill_level);
+	}
+
+	return 0;
+}
+
 // declarations that were supposed to be exported from npc_chat.c
 #ifdef PCRE_SUPPORT
 BUILDIN_FUNC (defpattern);
@@ -18379,9 +18426,10 @@ struct script_function buildin_func[] = {
 	BUILDIN_DEF (is_function, "s"),
 	BUILDIN_DEF (get_revision, ""),
 	BUILDIN_DEF (freeloop, "i"),
-	BUILDIN_DEF (getrandgroupitem, "ii"),
-	BUILDIN_DEF (cleanmap, "s"),
-	BUILDIN_DEF2 (cleanmap, "cleanarea", "siiii"),
+	BUILDIN_DEF(getrandgroupitem,"ii"),
+	BUILDIN_DEF(cleanmap,"s"),
+	BUILDIN_DEF2(cleanmap,"cleanarea","siiii"),
+	BUILDIN_DEF(npcskill,"viii"),
 	/**
 	 * @commands (script based)
 	 **/

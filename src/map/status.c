@@ -3225,6 +3225,41 @@ int status_calc_elemental_(struct elemental_data *ed, bool first) {
 	return 0;
 }
 
+int status_calc_npc_(struct npc_data *nd, bool first) {
+	struct status_data *status = &nd->status;
+	 
+	if (!nd)
+		return 0;
+	 
+	if (first) {
+		status->hp = 1;
+		status->sp = 1;
+		status->max_hp = 1;
+		status->max_sp = 1;
+
+		status->def_ele = ELE_NEUTRAL;
+		status->ele_lv = 1;
+		status->race = RC_DEMIHUMAN;
+		status->size = nd->size;
+		status->rhw.range = 1 + status->size;
+		status->mode = MD_CANMOVE|MD_CANATTACK;
+		status->speed = nd->speed;
+	}
+
+	status->str = nd->stat_point;
+	status->agi = nd->stat_point;
+	status->vit = nd->stat_point;
+	status->int_= nd->stat_point;
+	status->dex = nd->stat_point;
+	status->luk = nd->stat_point;
+
+	status_calc_misc(&nd->bl, status, nd->level);
+	status_cpy(&nd->status, status);
+
+	return 0;
+}
+	
+
 static unsigned short status_calc_str(struct block_list *,struct status_change *,int);
 static unsigned short status_calc_agi(struct block_list *,struct status_change *,int);
 static unsigned short status_calc_vit(struct block_list *,struct status_change *,int);
@@ -3262,7 +3297,7 @@ static unsigned short status_calc_ematk(struct block_list *,struct status_change
 void status_calc_regen(struct block_list *bl, struct status_data *status, struct regen_data *regen)
 {
 	struct map_session_data *sd;
-	int val, skill;
+	int val, skill, reg_flag;
 
 	if( !(bl->type&BL_REGEN) || !regen )
 		return;
@@ -3273,7 +3308,9 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 	if( sd && sd->hprecov_rate != 100 )
 		val = val*sd->hprecov_rate/100;
 
-	regen->hp = cap_value(val, 1, SHRT_MAX);
+	reg_flag = bl->type == BL_PC ? 0 : 1;
+
+	regen->hp = cap_value(val, reg_flag, SHRT_MAX);
 
 	val = 1 + (status->int_/6) + (status->max_sp/100);
 	if( status->int_ >= 120 )
@@ -3282,7 +3319,7 @@ void status_calc_regen(struct block_list *bl, struct status_data *status, struct
 	if( sd && sd->sprecov_rate != 100 )
 		val = val*sd->sprecov_rate/100;
 
-	regen->sp = cap_value(val, 1, SHRT_MAX);
+	regen->sp = cap_value(val, reg_flag, SHRT_MAX);
 
 	if( sd )
 	{
@@ -3963,6 +4000,7 @@ void status_calc_bl_(struct block_list* bl, enum scb_flag flag, bool first)
 		case BL_HOM: status_calc_homunculus_(BL_CAST(BL_HOM,bl), first); break;
 		case BL_MER: status_calc_mercenary_(BL_CAST(BL_MER,bl), first);  break;
 		case BL_ELEM: status_calc_elemental_(BL_CAST(BL_ELEM,bl), first);  break;
+		case BL_NPC: status_calc_npc_(BL_CAST(BL_NPC,bl), first); break;
 		}
 	}
 
@@ -5739,6 +5777,7 @@ int status_get_lv(struct block_list *bl) {
 		case BL_HOM: return ((TBL_HOM*)bl)->homunculus.level;
 		case BL_MER: return ((TBL_MER*)bl)->db->lv;
 		case BL_ELEM: return ((TBL_ELEM*)bl)->db->lv;
+		case BL_NPC: return ((TBL_NPC*)bl)->level;
 	}
 	return 1;
 }
@@ -5767,6 +5806,7 @@ struct status_data *status_get_status_data(struct block_list *bl)
 		case BL_HOM: return &((TBL_HOM*)bl)->battle_status;
 		case BL_MER: return &((TBL_MER*)bl)->battle_status;
 		case BL_ELEM: return &((TBL_ELEM*)bl)->battle_status;
+		case BL_NPC: return ((mobdb_checkid(((TBL_NPC*)bl)->class_) == 0) ? &((TBL_NPC*)bl)->status : &dummy_status);
 		default:
 			return &dummy_status;
 	}
@@ -5782,6 +5822,7 @@ struct status_data *status_get_base_status(struct block_list *bl)
 		case BL_HOM: return &((TBL_HOM*)bl)->base_status;
 		case BL_MER: return &((TBL_MER*)bl)->base_status;
 		case BL_ELEM: return &((TBL_ELEM*)bl)->base_status;
+		case BL_NPC: return ((mobdb_checkid(((TBL_NPC*)bl)->class_) == 0) ? &((TBL_NPC*)bl)->status : NULL);
 		default:
 			return NULL;
 	}
