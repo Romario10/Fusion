@@ -2474,7 +2474,7 @@
 5304,Cap_Of_Blindness,Capuz da Escuridão,5,20,,800,,4,,1,0xFFFFFFFF,7,2,769,,50,1,326,{ bonus2 bResEff,Eff_Curse,700; bonus2 bResEff,Eff_Blind,10000; },{},{}
 5305,Pirate_Dagger,Adaga de Arremesso,5,20,,100,,0,,0,0xFFFFFFFF,7,2,1,,0,0,327,{ bonus bBaseAtk,5; },{},{}
 5306,Freyja_Crown,Coroa de Freya [A],5,0,,500,,12,,0,0xFFFFFFFE,7,2,256,,0,0,328,{ bonus2 bSubRace,RC_DemiHuman,5; },{},{}
-5307,Carmen_Miranda\'s_Hat,Chapéu de Frutas,5,20,,400,,3,,0,0xFFFFFFFF,7,2,256,,0,1,329,{ bonus bMdef,3; bonus3 bAutoSpellWhenHit,"DC_WINKCHARM",1,50; },{},{}
+5307,Carmen_Miranda's_Hat,Chapéu de Frutas,5,20,,400,,3,,0,0xFFFFFFFF,7,2,256,,0,1,329,{ bonus bMdef,3; bonus3 bAutoSpellWhenHit,"DC_WINKCHARM",1,50; },{},{}
 5308,Brazilian_Flag_Hat,Chapéu de Bandeira Brasileira,5,20,,300,,3,,1,0xFFFFFFFF,7,2,256,,0,1,330,{ bonus bSpeedAddRate,25; },{},{}
 5309,Mahican,Wool Mask,5,20,,200,,1,,0,0xFFFFFFFF,7,2,769,,0,1,331,{ skill "RG_GRAFFITI",1; },{},{}
 5310,Bulb_Hairband,Tiara da Lâmpada Acesa,5,20,,100,,3,,1,0xFFFFFFFF,7,2,256,,0,1,332,{ bonus2 bSubEle,Ele_Dark,10; skill "MG_SIGHT",1; },{},{ sc_end SC_SIGHT; }
