@@ -12,7 +12,7 @@
 //= 2.0 Transformado em script geral. [MaminhA]
 //============================================================
 
--	script	::Assist_do_Aeroporto_izlude	-1,{
+-	script	::Airship_Staff_izlude	-1,{
 	mes "[Assistente do Aeroporto]";
 	mes "Bem-vindo ao aeroporto!";
 	mes "Aqui você pode ir para Juno ou Rachel!";
