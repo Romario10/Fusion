@@ -2,7 +2,7 @@ language: c
 compiler:
   - clang
   - gcc
-script: ./configure && make clean && make sql
+script: sh configure ; make clean ; make sql
 notifications:
   email:
     recipients:
