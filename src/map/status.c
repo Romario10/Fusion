@@ -8634,11 +8634,12 @@ int status_change_start(struct block_list* bl,enum sc_type type,int rate,int val
 			if (sd && pc_issit(sd)) //Avoid sprite sync problems.
 				pc_setstand(sd);
 		case SC_TRICKDEAD:
-			unit_stop_attack(bl);
 			status_change_end(bl, SC_DANCING, INVALID_TIMER);
 			// Cancel cast when get status [LuzZza]
 			if (battle_config.sc_castcancel&bl->type)
 				unit_skillcastcancel(bl, 0);
+		case SC_WHITEIMPRISON:
+			unit_stop_attack(bl);
 		case SC_STOP:
 		case SC_CONFUSION:
 		case SC_CLOSECONFINE:
@@ -8650,7 +8651,6 @@ int status_change_start(struct block_list* bl,enum sc_type type,int rate,int val
 		case SC_THORNSTRAP:
 		case SC__MANHOLE:
 		case SC_CRYSTALIZE:
-		case SC_WHITEIMPRISON:
 		case SC_CURSEDCIRCLE_ATKER:
 		case SC_CURSEDCIRCLE_TARGET:
 		case SC_FEAR:
@@ -9477,9 +9477,12 @@ int status_change_end_(struct block_list* bl, enum sc_type type, int tid, const 
 			sc_start(bl,SC_HALLUCINATIONWALK_POSTDELAY,100,sce->val1,skill_get_time2(GC_HALLUCINATIONWALK,sce->val1));
 			break;
 		case SC_WHITEIMPRISON:
-			if( tid == -1 )
-				break; // Terminated by Damage
-			status_fix_damage(bl,bl,400*sce->val1,clif_damage(bl,bl,gettick(),0,0,400*sce->val1,0,0,0));
+			{                                
+				struct block_list* src = map_id2bl(sce->val2); 
+				if( tid == -1 || !src) 
+					break; // Terminated by Damage 
+				status_fix_damage(src,bl,400*sce->val1,clif_damage(bl,bl,gettick(),0,0,400*sce->val1,0,0,0)); 
+			}
 			break;
 		case SC_WUGDASH:
 			{
