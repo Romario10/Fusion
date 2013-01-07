@@ -1,16 +1,17 @@
-//===== Cronus Script ========================================
+//===== rAthena Script =======================================
 //= Arena Warps
-//===== Por: =================================================
+//===== By: ==================================================
 //= SinSloth
-//===== Versão Atual: ========================================
-//= 1.2a
-//===== Compatível com: ======================================
-//= Cronus SVN
-//===== Changelog: ===========================================
+//===== Current Version: =====================================
+//= 1.2
+//===== Compatible With: =====================================
+//= Any Athena Version
+//===== Description: =========================================
+//= Warp Points related to Izlude Arena && Control Panel
+//===== Additional Comments: =================================
 //= 1.0 First version, done by SinSloth. [MasterOfMuppets]
 //= 1.1 updated welcome_arena warp coords (was 128,126) [Lupus]
 //= 1.2 Made some updates due to Izlude Battle Arena release. [SinSloth]
-//= 1.2a Otimizado. [RoM]
 //============================================================
 
 izlude,128,226,0	warp	welcome_arena	1,1,arena_room,100,30
@@ -30,35 +31,42 @@ prt_are_in,54,13,0	warp	toarn_room	1,1,arena_room,100,77
 sec_in02,79,180,3	script	#arenacontrol	81,{
 
 DLGTEMP:
-	digit .@input_arena;
-	if(.@input_arena < 0 || .@input_arena > 2000)
-		goto DLGTEMP;
-	if(.@input_arena == 0)
+	input @input_arena;
+	if (@input_arena < 0 || @input_arena > 2000) goto DLGTEMP;	//CHECK
+	if (@input_arena == 0)
+	{
+		mes "Error!";
 		close;
-	else if(.@input_arena == 1357){
-		mes "Painel de Controle de Abertura";	
-		mes "' A - R - E - N - A '";	
+	}
+	else if (@input_arena == 1357)
+	{
+		mes "Opening Control Panel";
+		mes "' A - R - E - N - A '";
 		next;
-		mes "Por favor, selecione um";	
-		mes "estado para a arena.";	
+		mes "Please select a";
+		mes "state for the arena.";
 		next;
-		switch(select("Aberto.","Fechado.")){
+		switch( select( "Open.","Closed.") )
+		{
 			case 1:
-				mes "Atualmente, a arena está aberta.";	
-				misceffect EF_ENHANCE;
+				mes "Currently";
+				mes "opening arena.";
+				misceffect EF_ENHANCE;	//CHECK
 				enablenpc "welcome_arena";
 				next;
 				break;
 			case 2:
-				mes "Atualmente, a";	
-				mes "arena está fechada.";	
-				misceffect EF_EXIT;
+				mes "Currently";
+				mes "closing arena.";
+				misceffect EF_EXIT;	//CHECK
 				disablenpc "welcome_arena";
 				next;
 				break;
 		}
-	} else {
-		mes "Fechando painel de controle.";	
+	}
+	else
+	{
+		mes "Closing control panel.";
 		close;
 	}
 }

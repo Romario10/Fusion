@@ -1,12 +1,14 @@
-//===== Cronus Script ========================================
+//===== rAthena Script =======================================
 //= Rachel Warp Script
-//===== Por: =================================================
+//===== By: ==================================================
 //= erKURITA & RockmanEXE
-//===== Versão Atual: ========================================
+//===== Current Version: =====================================
 //= 1.4
-//===== Compatível com: ======================================
-//= Cronus SVN
-//===== Changelog: ===========================================
+//===== Compatible With: =====================================
+//= Any Athena Version
+//===== Description: =========================================
+//= Warp Points for Rachel City, shops & other locations
+//===== Additional Comments: =================================
 //= 1.0 Added the official warps and commented out the 
 //= 	  "custom duplicates" for future checkout. Special thanks
 //= 	  to RockmanEXE who provided all the info. [erKURITA]

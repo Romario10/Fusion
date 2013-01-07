@@ -1,12 +1,14 @@
-//===== Cronus Script ========================================
+//===== rAthena Script =======================================
 //= Job Quest Warp Script
-//===== Por: =================================================
-//= Athena
-//===== Versão Atual: ========================================
+//===== By: ==================================================
+//= Athena (1.0)
+//===== Current Version: =====================================
 //= 2.0
-//===== Compatível com: ======================================
-//= Cronus SVN
-//===== Changelog: ===========================================
+//===== Compatible With: =====================================
+//= Any Athena Version; RO Version Ep4+
+//===== Description: =========================================
+//= Warp Points for Job Quest Maps
+//===== Additional Comments: =================================
 //= Split off npc_warp.txt
 //= Commented some warps because new Job quests have correct
 //= ones! Added missing warps for Thief/Hunter/Swordman [Lupus]
@@ -19,7 +21,7 @@
 //= 1.6 removed swordman quest map warps. They are now contained in the swordman quest. [L0ne_W0lf]
 //= 1.7 Updated some 2-2 job quest related warps. [L0ne_W0lf]
 //= 1.8 Corrected NPC names to fall within proper restrictions. [L0ne_W0lf]
-//= 1.9 Added Gunslinger and Ninja warps. [L0ne_W0lf]
+//= 1.9 Added Gungslinger and Ninja warps. [L0ne_W0lf]
 //= 2.0 Updated Novice warps to use correct maps. [L0ne_W0lf]
 //============================================================
 

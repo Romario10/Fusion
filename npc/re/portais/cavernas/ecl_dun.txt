@@ -1,24 +1,24 @@
 //===== rAthena Script =======================================
-//= Einbroch Warp Script
+//= Eclage Dungeon Warp Script
 //===== By: ==================================================
-//= Sara-chan (1.3), SSUNNY@YOUNG(1.4)
+//= Chilly
 //===== Current Version: =====================================
-//= 1.5
+//= 1.0
 //===== Compatible With: =====================================
-//= Any Athena Version; RO Episode 8+
+//= rAthena SVN
 //===== Description: =========================================
-//= Warp Points for Einbroch
+//= Warp Points for Eclage Dungeon
 //===== Additional Comments: =================================
-//= 1.4 Updated Warps, work done by SSUNNY@YOUNG in Korean eA site [Vicious]
-//= 1.5 Added missing warps, updated coordinates [Gepard]
+//= 1.0 First Version.
 //============================================================
 
-//Dungeon Warps
-einbech,138,252,0	warp	eib_d01	1,1,ein_dun01,22,14
-ein_dun01,22,11,0	warp	eib_d01a	1,1,einbech,138,249
-ein_dun01,261,255,0	warp	ein012	1,1,ein_dun02,291,292
-ein_dun02,286,292,0	warp	ein012a	1,1,ein_dun01,261,258
-ein_dun02,216,210,0	warp	EinCave01A_EinCave01B	1,1,ein_dun02,208,228
-ein_dun02,228,109,0	warp	EinCave02A_EinCave02B	1,1,ein_dun02,191,130
-ein_dun02,210,225,0	warp	EinCave01B_EinCave01A	1,1,ein_dun02,216,207
-ein_dun02,195,130,0	warp	EinCave02B_EinCave02A	1,1,ein_dun02,233,109
+ecl_fild01,182,82,0	warp	eclage_dun0001	1,1,ecl_tdun01,60,13
+ecl_tdun01,61,11,0	warp	eclage_dun0002	1,1,ecl_fild01,182,85
+ecl_tdun01,67,106,0	warp	eclage_dun0003	1,1,ecl_tdun02,60,88
+ecl_tdun02,60,90,0	warp	eclage_dun0004	1,1,ecl_tdun01,70,105
+ecl_tdun02,52,9,0	warp	eclage_dun0005	1,1,ecl_tdun03,47,13
+ecl_tdun03,49,11,0	warp	eclage_dun0006	1,1,ecl_tdun02,50,11
+ecl_tdun03,50,46,0	warp	eclage_dun0007	1,1,ecl_tdun04,26,23
+ecl_tdun04,26,26,0	warp	eclage_dun0008	1,1,ecl_tdun03,50,43
+ecl_tdun04,34,17,0	warp	eclage_dun0009	1,1,ecl_fild01,183,73
+ecl_fild01,183,70,0	warp	eclage_dun0010	1,1,ecl_tdun04,32,19
