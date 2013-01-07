@@ -509,6 +509,8 @@ void initChangeTables(void) {
 	set_sc(MH_PAIN_KILLER, SC_PAIN_KILLER, SI_PAIN_KILLER, SCB_ASPD);
 
 	add_sc(MH_STYLE_CHANGE, SC_STYLE_CHANGE);
+	set_sc( MH_TINDER_BREAKER      , SC_CLOSECONFINE2   , SI_CLOSECONFINE2   , SCB_NONE );
+	set_sc( MH_TINDER_BREAKER      , SC_CLOSECONFINE    , SI_CLOSECONFINE    , SCB_FLEE );
 
 
 	add_sc( MER_CRASH            , SC_STUN            );
@@ -8559,41 +8561,46 @@ int status_change_start(struct block_list* bl,enum sc_type type,int rate,int val
 					status_zap(bl, hp * (lv*4) / 100, status_get_sp(bl) * (lv*3) / 100);
 			}
 			break;
-			case SC_ANGRIFFS_MODUS:
-			    val2 = 50 + 20 * val1; //atk bonus
-			    val3 = 40 + 20 * val1; // Flee reduction.
-			    val4 = tick/1000; // hp/sp reduction timer
-			    tick_time = 1000;
-			    break;
-			case SC_GOLDENE_FERSE:
-			    val2 = 10 + 10*val1; //max hp bonus
-			    val3 = 6 + 4 * val1; // Aspd Bonus
-			    val4 = 2 + 2 * val1; // Chance of holy attack
-			    break;
-			case SC_OVERED_BOOST:
-			    val2 = 300 + 40*val1; //flee bonus
-			    val3 = 179 + 2*val1; //aspd bonus
-			    break;
-			case SC_GRANITIC_ARMOR:
-			    val2 = 2*val1; //dmg reduction
-			    val3 = 6*val1; //dmg on status end
-			    break;
-			case SC_MAGMA_FLOW:
-			    val2 = 3*val1; //activation chance
-			    break;
-			case SC_PYROCLASTIC:
-			    val2 += 10*val1; //atk bonus
-			    break;
-			case SC_PARALYSIS: //[Lighta] need real info
-			    val2 = 2*val1; //def reduction
-			    val3 = 500*val1; //varcast augmentation
-			    break;
-			case SC_PAIN_KILLER: //[Lighta] need real info
-			    val2 = 2*val1; //aspd reduction %
-			    val3 = 2*val1; //dmg reduction %
-			    if(sc->data[SC_PARALYSIS])
-				sc_start(bl, SC_ENDURE, 100, val1, tick); //start endure for same duration
-			    break;
+		case SC_ANGRIFFS_MODUS:
+		    val2 = 50 + 20 * val1; //atk bonus
+		    val3 = 40 + 20 * val1; // Flee reduction.
+		    val4 = tick/1000; // hp/sp reduction timer
+		    tick_time = 1000;
+		    break;
+		case SC_GOLDENE_FERSE:
+		    val2 = 10 + 10*val1; //max hp bonus
+		    val3 = 6 + 4 * val1; // Aspd Bonus
+		    val4 = 2 + 2 * val1; // Chance of holy attack
+		    break;
+		case SC_OVERED_BOOST:
+		    val2 = 300 + 40*val1; //flee bonus
+		    val3 = 179 + 2*val1; //aspd bonus
+		    break;
+		case SC_GRANITIC_ARMOR:
+		    val2 = 2*val1; //dmg reduction
+		    val3 = 6*val1; //dmg on status end
+		    break;
+		case SC_MAGMA_FLOW:
+		    val2 = 3*val1; //activation chance
+		    break;
+		case SC_PYROCLASTIC:
+		    val2 += 10*val1; //atk bonus
+		    break;
+		case SC_PARALYSIS: //[Lighta] need real info
+		    val2 = 2*val1; //def reduction
+		    val3 = 500*val1; //varcast augmentation
+		    break;
+		case SC_PAIN_KILLER: //[Lighta] need real info
+		    val2 = 2*val1; //aspd reduction %
+		    val3 = 2*val1; //dmg reduction %
+		    if(sc->data[SC_PARALYSIS])
+			sc_start(bl, SC_ENDURE, 100, val1, tick); //start endure for same duration
+		    break;
+		case SC_STYLE_CHANGE: //[Lighta] need real info
+			tick = -1;
+			if(val2 == MH_MD_FIGHTING) val2 = MH_MD_GRAPPLING;
+			else val2 = MH_MD_FIGHTING;
+			break;
 		default:
 			if( calc_flag == SCB_NONE && StatusSkillChangeTable[type] == 0 && StatusIconChangeTable[type] == 0 )
 			{	//Status change with no calc, no icon, and no skill associated...?

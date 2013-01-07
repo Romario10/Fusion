@@ -100,13 +100,13 @@ int hom_addspiritball (TBL_HOM *hd, int max)
 	if (max > MAX_SKILL_LEVEL)
 		max = MAX_SKILL_LEVEL;
 
-	if (hd->spiritball < 0)
-		hd->spiritball = 0;
+	if (hd->homunculus.spiritball < 0)
+		hd->homunculus.spiritball = 0;
 
-	if (hd->spiritball && hd->spiritball >= max) {
-		hd->spiritball = max;
+	if (hd->homunculus.spiritball && hd->homunculus.spiritball >= max) {
+		hd->homunculus.spiritball = max;
 	} else
-		hd->spiritball++;
+		hd->homunculus.spiritball++;
 
 	clif_spiritball (&hd->bl);
 	return 0;
@@ -116,8 +116,8 @@ int hom_delspiritball (TBL_HOM *hd, int count, int type)
 {
 	nullpo_ret (hd);
 
-	if (hd->spiritball <= 0) {
-		hd->spiritball = 0;
+	if (hd->homunculus.spiritball <= 0) {
+		hd->homunculus.spiritball = 0;
 		return 0;
 	}
 
@@ -127,10 +127,10 @@ int hom_delspiritball (TBL_HOM *hd, int count, int type)
 	if (count > MAX_SKILL_LEVEL)
 		count = MAX_SKILL_LEVEL;
 
-	if (count > hd->spiritball)
-		count = hd->spiritball;
+	if (count > hd->homunculus.spiritball)
+		count = hd->homunculus.spiritball;
 
-	hd->spiritball -= count;
+	hd->homunculus.spiritball -= count;
 
 	if (!type)
 		clif_spiritball (&hd->bl);

@@ -298,6 +298,8 @@ struct s_homunculus {	//[orn]
 	int int_ ;
 	int dex ;
 	int luk ;
+	
+	char spiritball; //for homun S [lighta]
 };
 
 struct s_mercenary {
