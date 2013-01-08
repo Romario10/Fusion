@@ -62,6 +62,7 @@
 //= 6.5 Optimized. [Joseph]
 //= 6.6 Added Warp Points / View Points Function. [Joseph]
 //= 6.7 Added Rune Knight Kafra. [Euphy]
+//= 6.8 Traduzida para Portugues. [BOO]
 //============================================================ 
 
 //=== Main Function ========================================================
