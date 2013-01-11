@@ -63,6 +63,7 @@
 //= 6.6 Added Warp Points / View Points Function. [Joseph]
 //= 6.7 Added Rune Knight Kafra. [Euphy]
 //= 6.8 Traduzida para Portugues. [BOO]
+//= 6.8b Correção Pequenos Erros Ortográficos. [BOO]
 //============================================================ 
 
 //=== Main Function ========================================================
@@ -96,12 +97,12 @@ function	script	F_Kafra	{
 			set @GID,getcharid(2);
 			mes "[Funcionária Kafra]";
 	 		mes "Bem Vindo. ^ff0000" + GetGuildName(@GID) + "^000000 Membro.";
-			mes "A Corporação Kafra estará sempre ao sei lado.";
+			mes "A Corporação Kafra estará sempre ao seu lado.";
 			break;
 		case 3:
 			// Amatsu specific message (obsolete)
 			mes "[Funcionária Kafra]";
-			mes "Então, você vei de uma terra distante para estudar nossa cultura, ou está apenas passeando?";
+			mes "Então, você vem de uma terra distante para estudar nossa cultura, ou está apenas passeando?";
 			mes "Em ambos os Casos, por que não fica algum tempo?";
 			mes "O ar é eternamente pesado com";
 			mes "o perfume de flores silvestres.";
@@ -111,7 +112,7 @@ function	script	F_Kafra	{
 			mes "[Funcionária Kafra]";
 			mes "Com as Diversas Kafras";
 			mes "espalhadas pelo mundo, você nunca";
-			mes "está longe de casa.";
+			mes "estará longe de casa.";
 			break;		
 		case 5:
 			// NPC has it's own welcome message. (Display nothing)
@@ -122,7 +123,7 @@ function	script	F_Kafra	{
 		deletearray @K_Menu0$[0],getarraysize(@K_Menu0$);
 		if (getarg(0) == 2) {
 			// Guild Kafra Menu override (free Teleport, free Storage, Free Cart)
-			setarray @K_Menu0$[0],"Use Storage","Usar Armazém","Alugar um Carrinho","Usar Serviço de Teletransporte","Cancelar";
+			setarray @K_Menu0$[0],"Use Storage","Usar Armazém","Alugar Carrinho","Usar Serviço de Teletransporte","Cancelar";
 		} else {
 			switch(getarg(1)){
 				// Save and Storage only
@@ -130,20 +131,20 @@ function	script	F_Kafra	{
 				// Storage only
 				case 2:	setarray @K_Menu0$[0],"Usar Armazém","Cancelar"; break;
 				// No Teleport (Common)
-				case 3: setarray @K_Menu0$[0],"Salvar","Usar Armazém","Alugar um Carrinho","Checar Outra Informação","Cancelar"; break;
+				case 3: setarray @K_Menu0$[0],"Salvar","Usar Armazém","Alugar Carrinho","Checar Outra Informação","Cancelar"; break;
 				// Case 4 is Einbroch no tele message.
 				// No save, or teleport. (Common)
-				case 5:	setarray @K_Menu0$[0],"Usar Armazém","Alugar um Carrinho","Checar Outra Informação","Cancelar"; break;
+				case 5:	setarray @K_Menu0$[0],"Usar Armazém","Alugar Carrinho","Checar Outra Informação","Cancelar"; break;
 				// Storage and Check Other Information only.
 				case 6:	setarray @K_Menu0$[0],"Usar Armazém","Checar Outra Informação","Cancelar"; break;
 				// Save, Storage, and Pushcart only (Kafra Warehouse)
-				case 7:	setarray @K_Menu0$[0],"Salvar","Usar Armazém","Alugar um Carrinho","Cancelar"; break;
+				case 7:	setarray @K_Menu0$[0],"Salvar","Usar Armazém","Alugar Carrinho","Cancelar"; break;
 				// Save, Storage, Other Check information. (Turbo track)
 				case 8: setarray @K_Menu0$[0],"Salvar","Usar Armazém","Checar Outra Informação","Cancelar"; break;
 				// No Save (Rune Knight)
-				case 9: setarray @K_Menu0$[0],"Usar Armazém","Alugar um Carrinho","Usar Serviço de Teletransporte","Checar Outra Informação","Cancelar"; break;
+				case 9: setarray @K_Menu0$[0],"Usar Armazém","Alugar Carrinho","Usar Serviço de Teletransporte","Checar Outra Informação","Cancelar"; break;
 				// Default message (obsolete)
-				default: setarray @K_Menu0$[0],"Salvar","Usar Armazém","Usar Serviço de Teletransporte","Alugar um Carrinho","Checar Outra Informação","Cancelar"; break;
+				default: setarray @K_Menu0$[0],"Salvar","Usar Armazém","Usar Serviço de Teletransporte","Alugar Carrinho","Checar Outra Informação","Cancelar"; break;
 			}
 		}
 		set .@menu$,"";
@@ -175,7 +176,7 @@ function	script	F_Kafra	{
 				mes "Obrigado por sua,";
 				mes "Compreensão e Colaboração.";
 			}
-		} else if (@K_Menu0$[.@j] == "Alugar um Carrinho") {
+		} else if (@K_Menu0$[.@j] == "Alugar Carrinho") {
 			if(callfunc("F_KafCart",getarg(0),getarg(4)) == 1) 
 			next;
 		} else if (@K_Menu0$[.@j] == "Checar Outra Informaçõe") {
@@ -198,7 +199,7 @@ function	script	F_KafStor	{
 		if(guildopenstorage()){
 			mes "[Funcionária Kafra]";
 			mes "Me Desculpe, mais outro Membro do Clã está usando o Armazém";
-			mes "neste momento. Por Favor, aguarde até que a pessoa tenha acabado.";
+			mes "neste momento. Por Favor, aguarde até que a pessoa tenha Terminado.";
 			close2;
 			cutin "", 255;
 			end;
@@ -217,7 +218,7 @@ function	script	F_KafStor	{
 			mes "neece-eessáriiio aaass Habbiiliidaaadess Báasicca-s N-niivel 6...^000000";
 			return;
 		}
-		mes "Me desculpe, mas, você";
+		mes "Me desculpe, mas você";
 		mes "precisa das";
 		mes "Habilidades Básicas Nivel 6 para";
 		mes "usar o Armazém.";
@@ -264,7 +265,7 @@ function	script	F_KafStor	{
 		else {
 			mes "[Funcionária Kafra]";
 			mes "Aqui, Deixe-me Abrir";
-			mes "o Aramzem para você.";
+			mes "o Armazém pra você.";
 			mes "Obrigado por usar";
 			mes "os Serviços Kafra.";
 		}
@@ -345,7 +346,7 @@ function	script	F_KafCart	{
 		mes "um Carrinho equipado.";
 		mes "Infelizmente não podemos";
 		mes "alugar mais de um a cada cliente";
-		mes "de cada vez.";
+		mes "por vez.";
 		return 1;
 	}
 	// Consume "Free Ticket for the Cart Service" if available.
@@ -363,7 +364,7 @@ function	script	F_KafCart	{
 				mes "Me desculpe, mais você";
 				mes "não tem zeny";
 				mes "suficiente para pagar. O ";
-				mes "aluguem custa "+getarg(1)+" zeny.";
+				mes "aluguel custa "+getarg(1)+" zeny.";
 				return 1;
 			}
 			set Zeny,Zeny-getarg(1);
@@ -485,7 +486,7 @@ function	script	F_SetKafCode	{
 				break;
 			Case 2:
 				mes getarg(0);
-				mes "Por Favor, Digite sua Asenha antes de remove-la.";
+				mes "Por Favor, Digite sua senha antes de removê-la.";
 				set @code,callfunc("F_EntKafCode");
 				if(!@code) {
 					mes "A Senha não foi Removida.";
