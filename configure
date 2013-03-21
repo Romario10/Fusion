@@ -376,7 +376,9 @@ if (eval "as_var=1; as_var+=2; test x\$as_var = x12") 2>/dev/null; then :
   {
     eval $1+=\$2
   }'
-else
+
+
+
   as_fn_append ()
   {
     eval $1=\$$1\$2
@@ -1320,20 +1322,31 @@ Optional Features:
                           gcollect, bcheck (defaults to builtin)
   --enable-packetver=ARG  Sets the PACKETVER define of the map-server. (see
                           src/map/clif.h)
-  --enable-debug[=ARG]     Compiles extra debug code. (disabled by default)
+  --enable-debug[=ARG]    
+ Compiles extra debug code. (disabled by default)
                           (available options: yes, no, gdb)
   --enable-buildbot[=ARG] (available options: yes, no)
-  --enable-rdtsc           Uses rdtsc as timing source (disabled by default)
-                          Enable it when you've timing issues.  (For
+  --enable-rdtsc          
+ Uses rdtsc as timing source (disabled by default)
+                          Enable it when you've timing issues.
+ 
+ (For
                           example: in conjunction with XEN or Other
-                          Virtualization mechanisms)  Note: Please ensure
+                          Virtualization mechanisms)
+ 
+ Note:
+ Please ensure
                           that you've disabled dynamic CPU-Frequencys, such as
-                          power saving options. (On the most modern Dedicated
+                          power saving options.
+ (On the most modern Dedicated
                           Servers cpufreq is preconfigured, see your
-                          distribution's manual how to disable it)
+                          distribution's manual
+ how to disable it)
   --enable-profiler=ARG   Profilers: no, gprof (disabled by default)
-  --disable-64bit          Enforce 32bit output on x86_64 systems.
-  --enable-lto             Enables or Disables Linktime Code Optimization
+  --disable-64bit         
+ Enforce 32bit output on x86_64 systems.
+  --enable-lto            
+ Enables or Disables Linktime Code Optimization
                           (LTO is enabled by default)
 
 Optional Packages:
@@ -4694,9 +4707,6 @@ main ()
 _ACEOF
 if ac_fn_c_try_compile "$LINENO"; then :
   pointers_fit_in_ints="yes"
-else
-
-
 fi
 rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
 	if test "$pointers_fit_in_ints" = "no" ; then
@@ -4715,9 +4725,6 @@ main ()
 _ACEOF
 if ac_fn_c_try_compile "$LINENO"; then :
   pointers_fit_in_ints="yes (with -m32)"
-else
-
-
 fi
 rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
 	fi
